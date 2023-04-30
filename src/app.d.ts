@@ -7,6 +7,10 @@ declare global {
     // interface PageData {}
     // interface Platform {}
   }
+
+  declare module '*.md' {
+    export { SvelteComponentDev as default } from 'svelte/internal'
+  }
 }
 
 export {}

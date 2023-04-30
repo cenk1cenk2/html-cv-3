@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import Footer from './Footer.svelte'
-  import './styles.css'
+  import '../app.css'
 </script>
 
 <div class="app">
@@ -10,6 +10,3 @@
 
   <Footer />
 </div>
-
-<style>
-</style>

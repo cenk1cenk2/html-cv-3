@@ -1,0 +1,51 @@
+---
+variables:
+  NODE_VERSION: 20-alpine
+  NODE_PACKAGE_MANAGER: pnpm
+  SKIP_GIT_HOOKS: '1'
+
+stages:
+  - install
+  - build
+  - publish
+
+include:
+  - project: devops/pipes
+    file: /templates/node.gitlab-ci.yml
+
+  - project: devops/pipes
+    file: /templates/v2/docker-build-internal.gitlab-ci.yml
+
+build:
+  needs:
+    - install
+  artifacts:
+    paths:
+      - '**/dist/'
+      - '.svelte-kit/'
+    exclude:
+      - 'node_modules*'
+      - 'node_modules/**/*'
+
+lint:
+  needs:
+    - install
+    - build
+
+docker-html:
+  stage: publish
+  extends: .docker-build-internal
+  needs:
+    - build
+    - lint
+  variables:
+    DOCKERFILE_CONTEXT: .
+    DOCKER_IMAGE_INTERNAL_NAME: html
+    DOCKER_IMAGE_TAGS: latest
+    GITLAB_CI_ARCH: amd64
+  dependencies:
+    - build
+  only:
+    refs:
+      - main
+      - tags
