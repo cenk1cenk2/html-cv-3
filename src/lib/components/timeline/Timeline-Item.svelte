@@ -32,7 +32,7 @@
     {#if item.metadata.role}
       <p class="text-sm 2xl:text-base">{item.metadata.role}</p>
     {/if}
-    <div class="pt-2 leading-tight text-gray-600 dark:text-gray-400 prose prose-dark">
+    <div class="pt-2 leading-tight text-gray-600 dark:text-gray-400 prose dark:prose-dark">
       <svelte:component this={item.default} />
     </div>
   </div>
@@ -45,6 +45,7 @@
 
   .timeline-logo-column {
     @apply flex place-self-center overflow-hidden p-1 min-w-[theme('spacing.16')] lg:min-w-[theme('spacing.24')] w-16 h-16 bg-white border-2 rounded-xl border-gray-300 shadow-xl lg:w-24 lg:h-24 lg:border-4 dark:border-gray-600;
+    @apply shadow-2xl;
   }
 
   .timeline-info-column {
