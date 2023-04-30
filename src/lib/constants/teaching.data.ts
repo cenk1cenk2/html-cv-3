@@ -1,10 +1,10 @@
-import type { TimelineItem } from '$lib/components/timeline/timeline-item.interface'
+import type { TimelineItemEntry } from '$lib/components/timeline/timeline-item.interface'
 
-export const TEACHING_TIMELINE: TimelineItem[] = [
+export const TEACHING_TIMELINE: TimelineItemEntry[] = [
   {
     end: 'May 2023',
     start: 'March 2023',
-    note: 'Full-Time',
+    type: 'Full-Time',
     logo: 'csws.jpeg',
     name: 'Coding School & Academy Wörthersee',
     location: 'Klagenfurt, Carinthia, Austria',
@@ -15,7 +15,7 @@ export const TEACHING_TIMELINE: TimelineItem[] = [
   {
     end: 'December 2022',
     start: 'November 2022',
-    note: 'Full-Time',
+    type: 'Full-Time',
     logo: 'csws.jpeg',
     name: 'Coding School & Academy Wörthersee',
     location: 'Klagenfurt, Carinthia, Austria',
@@ -25,7 +25,7 @@ export const TEACHING_TIMELINE: TimelineItem[] = [
 
   {
     start: 'September 2022',
-    note: 'Freelance',
+    type: 'Freelance',
     logo: 'upleveled.jpeg',
     name: 'UpLeveled GmbH',
     location: 'Vienna, Austria',
@@ -35,7 +35,7 @@ export const TEACHING_TIMELINE: TimelineItem[] = [
 
   {
     start: 'June 2022',
-    note: 'Freelance',
+    type: 'Freelance',
     logo: 'upleveled.jpeg',
     name: 'UpLeveled GmbH',
     location: 'Vienna, Austria',
@@ -46,7 +46,7 @@ export const TEACHING_TIMELINE: TimelineItem[] = [
   {
     end: 'April 2022',
     start: 'March 2022',
-    note: 'Full-Time',
+    type: 'Full-Time',
     logo: 'csws.jpeg',
     name: 'Coding School & Academy Wörthersee',
     location: 'Klagenfurt, Carinthia, Austria',
@@ -56,7 +56,7 @@ export const TEACHING_TIMELINE: TimelineItem[] = [
 
   {
     start: 'October 2021',
-    note: 'Full-Time',
+    type: 'Full-Time',
     logo: 'csws.jpeg',
     name: 'Coding School & Academy Wörthersee',
     location: 'Klagenfurt, Carinthia, Austria',

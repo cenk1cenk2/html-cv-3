@@ -20,46 +20,7 @@
   @apply bg-gray-600 dark:bg-gray-400;
 }
 
-.prose {
+.prose,
+.prose-dark {
   @apply break-words;
-
-  img {
-    @apply !inline-block;
-  }
-
-  .footnotes {
-    hr {
-      @apply m-0;
-    }
-  }
-
-  & h2,
-  & h3 {
-    &::before {
-      display: block;
-      content: ' ';
-      margin-top: -85px;
-      height: 85px;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    & > a {
-      @apply ml-5;
-
-      &::before {
-        @apply text-primary-500 font-normal text-xl leading-8 -ml-5 pr-2 absolute;
-
-        content: '#';
-      }
-
-      @apply lg:ml-0;
-    }
-
-    &:hover {
-      & > a::before {
-        @apply opacity-100;
-      }
-    }
-  }
 }

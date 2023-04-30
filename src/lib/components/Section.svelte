@@ -3,11 +3,11 @@
 </script>
 
 <section id={title}>
-  <div class="grid grid-cols-12 py-4 lg:py-8">
-    <div class="hidden text-8xl text-center 2xl:grid 2xl:col-span-2">
+  <div class="grid grid-cols-12">
+    <div class="hidden text-8xl text-center xl:grid xl:col-span-1 2xl:col-span-2">
       <p class="side-text">{title}</p>
     </div>
-    <div class="flex col-span-full justify-center p-2 w-full rounded-xl shadow-xl lg:p-4 2xl:col-span-8 dark:bg-gray-800 max-w-11/12">
+    <div class="flex col-span-full p-4 xl:col-span-10 2xl:col-span-8">
       <slot />
     </div>
   </div>

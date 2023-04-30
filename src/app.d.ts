@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
@@ -9,7 +10,8 @@ declare global {
   }
 
   declare module '*.md' {
-    export { SvelteComponentDev as default } from 'svelte/internal'
+    export const metadata: any
+    export { SvelteComponent as default } from 'svelte'
   }
 }
 

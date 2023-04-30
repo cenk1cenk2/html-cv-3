@@ -2,6 +2,8 @@
   import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
+
+  import Bio from './Bio.svelte'
 </script>
 
 <section id="user-card">
@@ -28,6 +30,8 @@
             </div>
           </div>
         </div>
+        <div class="lg:pt-12" />
+        <Bio />
       </div>
     </div>
   </div>
