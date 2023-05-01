@@ -22,16 +22,3 @@
   </SpeedDial>
   <Footer />
 </div>
-
-<style lang="postcss">
-  :global(.container-border) {
-    @apply border-2;
-    @apply lg:border-4;
-    @apply border-gray-200;
-    @apply shadow-xl transition-colors duration-500 ease-in-out;
-  }
-
-  :global(.container-border, .dark) {
-    @apply border-gray-700;
-  }
-</style>
