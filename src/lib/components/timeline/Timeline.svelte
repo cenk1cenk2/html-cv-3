@@ -12,7 +12,7 @@
   export let items: TimelineItemFile[]
 </script>
 
-<Container>
+<Container id={name}>
   <h2 class="text-3xl font-bold text-center">
     <Fa {icon} class="inline-block self-center mr-2" />
     {name}

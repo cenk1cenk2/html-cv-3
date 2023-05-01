@@ -1,4 +1,4 @@
-<footer class="pt-2 pb-2 w-full h-16 border-t-2 border-gray-200 lg:pt-8 lg:pb-8 lg:mt-8 dark:border-gray-800">
+<footer class="pt-2 pb-12 w-full border-t-2 border-gray-200 lg:pt-8 lg:pb-8 lg:mt-8 dark:border-gray-800">
   <div class="flex justify-center items-center w-full h-full">
     <a
       href="https://kilic.dev"

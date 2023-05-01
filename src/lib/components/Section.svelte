@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { slugify } from '$lib/utils'
+
   export let title: string
 </script>
 
-<section id={title}>
+<section id={slugify(title)}>
   <div class="grid grid-cols-12">
     <div class="hidden text-8xl text-center xl:grid xl:col-span-1 2xl:col-span-2">
       <p class="side-text">{title}</p>

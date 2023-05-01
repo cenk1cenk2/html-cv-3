@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { faChalkboardUser, faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons'
+
   import Section from '$lib/components/Section.svelte'
   import Education from './Education.svelte'
+  import Menu from './Menu.svelte'
   import Teaching from './Teaching.svelte'
   import UserCard from './UserCard.svelte'
   import Work from './Work.svelte'
@@ -18,8 +21,28 @@
 </Section>
 
 <Section title="experience">
-  <div class="grid grid-cols-1 gap-4 w-full lg:grid-cols-2">
+  <div class="grid grid-cols-1 gap-8 w-full lg:grid-cols-2">
     <Work />
     <Teaching />
   </div>
 </Section>
+
+<Menu
+  items={[
+    {
+      text: 'Education',
+      href: '#education',
+      icon: faUserGraduate
+    },
+    {
+      text: 'Work Experience',
+      href: '#work-experience',
+      icon: faUserTie
+    },
+    {
+      text: 'Teaching Experience',
+      href: '#teaching-experience',
+      icon: faChalkboardUser
+    }
+  ]}
+/>

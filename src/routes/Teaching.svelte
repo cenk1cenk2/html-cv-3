@@ -11,12 +11,12 @@
   import CSWS_60, { metadata as CSWS_60_METADATA } from '$lib/content/timeline/teaching/60-csws.md'
 
   export let TIMELINE: TimelineItemFile[] = [
-    { default: CSWS_10, metadata: CSWS_10_METADATA },
-    { default: CSWS_20, metadata: CSWS_20_METADATA },
-    { default: UPLEVELED_30, metadata: UPLEVELED_30_METADATA },
-    { default: UPLEVELED_40, metadata: UPLEVELED_40_METADATA },
+    { default: CSWS_60, metadata: CSWS_60_METADATA },
     { default: CSWS_50, metadata: CSWS_50_METADATA },
-    { default: CSWS_60, metadata: CSWS_60_METADATA }
+    { default: UPLEVELED_40, metadata: UPLEVELED_40_METADATA },
+    { default: UPLEVELED_30, metadata: UPLEVELED_30_METADATA },
+    { default: CSWS_20, metadata: CSWS_20_METADATA },
+    { default: CSWS_10, metadata: CSWS_10_METADATA }
   ]
 </script>
 
