@@ -24,11 +24,11 @@
     "prepare-commit-msg": "[ -t 1 ] && exec < /dev/tty && git cz --hook || true"
   },
   "lint-staged": {
-    "*.{ts,svelte,js,tsx,jsx,spec.ts}": [
+    "*.{ts,js,tsx,jsx,cjs,svelte,spec.ts}": [
       "prettier --loglevel warn --write",
       "eslint --fix"
     ],
-    "*.{json,svelte,md}": [
+    "*.{svelte,html,css,json,md}": [
       "prettier --loglevel warn --write"
     ]
   },
