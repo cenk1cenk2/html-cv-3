@@ -14,7 +14,7 @@
 <aside class="menu container-border" class:hidden={!state}>
   <div class="grid grid-cols-1 border-gray-700 divide-y-2 divide-gray-700 divide-dashed">
     {#each items as item}
-      <a href={item.href} class="menu-item"
+      <a href={item.href} class="menu-item" aria-label={item.text}
         ><Fa icon={item.icon} />
         <p>{item.text}</p></a
       >

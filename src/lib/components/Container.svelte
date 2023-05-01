@@ -1,5 +1,6 @@
 <script lang="ts">
   import { slugify } from '$lib/utils'
+  import Divider from './Divider.svelte'
 
   export let title: string = ''
 </script>
@@ -9,6 +10,7 @@
     <h2 class="text-3xl font-bold text-center">
       <slot name="title" />
     </h2>
+    <Divider />
   {/if}
   <slot />
 </div>

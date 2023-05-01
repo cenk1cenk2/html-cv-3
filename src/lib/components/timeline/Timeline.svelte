@@ -5,7 +5,6 @@
   import type { TimelineItemFile } from './timeline-item.interface'
   import TimelineItem from './Timeline-Item.svelte'
   import Container from '../Container.svelte'
-  import Divider from '../Divider.svelte'
 
   export let name: string
   export let icon: IconDefinition
@@ -18,8 +17,7 @@
     {name}
   </svelte:fragment>
 
-  <Divider />
-  <ul class="pt-2">
+  <ul class="pt-4">
     {#each items as item}
       <TimelineItem {item} />
     {/each}

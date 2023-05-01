@@ -24,9 +24,9 @@
               <p class="flex justify-center pt-4 text-sm">Vienna, Austria</p>
 
               <div class="flex flex-wrap justify-evenly items-center mx-auto mt-6 w-4/5 lg:w-full">
-                <a href="mailto:cenk@kilic.dev" target="_blank" class="action-button"><Fa icon={faEnvelope} /></a>
-                <a href="https://srcs.kilic.dev" target="_blank" class="action-button"><Fa icon={faGithub} /></a>
-                <a href="https://linkedin.com/in/cenkkilic" target="_blank" class="action-button"><Fa icon={faLinkedin} /></a>
+                <a href="mailto:cenk@kilic.dev" target="_blank" class="action-button" aria-label="Link for mailing me."><Fa icon={faEnvelope} /></a>
+                <a href="https://srcs.kilic.dev" target="_blank" class="action-button" aria-label="Link for GitHub profile."><Fa icon={faGithub} /></a>
+                <a href="https://linkedin.com/in/cenkkilic" target="_blank" class="action-button" aria-label="Link for Linkedin profile."><Fa icon={faLinkedin} /></a>
               </div>
             </div>
           </div>
