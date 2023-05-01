@@ -32,6 +32,8 @@
   .menu-item {
     @apply p-4 flex flex-row place-items-center font-semibold;
 
+    @apply transform hover:text-primary-500;
+
     p {
       @apply pl-1;
     }
