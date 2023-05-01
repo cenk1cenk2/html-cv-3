@@ -9,7 +9,7 @@
   <title>kilic.dev: {$page.status} - {$page.error.message}</title>
 </svelte:head>
 
-<div class="flex items-center pt-20 antialiased lg:pt-0 lg:my-0">
+<div class="flex items-center py-20 antialiased">
   <div
     class="mx-auto w-11/12 bg-gray-50 bg-opacity-90 rounded-xl border-2 border-gray-200 shadow-2xl transition duration-300 ease-in-out lg:max-w-3xl lg:border-4 dark:bg-gray-800 dark:border-gray-700"
   >
@@ -21,7 +21,7 @@
       <h1 class="pt-8 text-4xl font-bold leading-none text-center uppercase whitespace-nowrap text-primary-500 truncate">{$page.error.message}</h1>
 
       <div class="flex flex-wrap justify-evenly items-center pb-16 mx-auto mt-12 w-4/5 text-5xl lg:pb-0">
-        <a href="/" class="action-button"><Fa icon={faHome} /></a>
+        <a href="/" aria-label="Go back to home page." class="action-button"><Fa icon={faHome} /></a>
       </div>
     </div>
   </div>
@@ -30,7 +30,6 @@
 <style lang="postcss">
   .action-button {
     @apply text-white;
-    @apply transition-transform transform;
-    @apply hover:scale-110 hover:text-primary-500;
+    @apply hover:scale-110;
   }
 </style>

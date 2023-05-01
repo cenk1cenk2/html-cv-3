@@ -5,21 +5,19 @@
   import type { TimelineItemFile } from './timeline-item.interface'
   import TimelineItem from './Timeline-Item.svelte'
   import Container from '../Container.svelte'
-  import Divider from '../Divider.svelte'
 
   export let name: string
   export let icon: IconDefinition
   export let items: TimelineItemFile[]
 </script>
 
-<Container id={name}>
-  <h2 class="text-3xl font-bold text-center">
+<Container title={name}>
+  <svelte:fragment slot="title">
     <Fa {icon} class="inline-block self-center mr-2" />
     {name}
-  </h2>
+  </svelte:fragment>
 
-  <Divider />
-  <ul class="pt-2">
+  <ul class="pt-4">
     {#each items as item}
       <TimelineItem {item} />
     {/each}

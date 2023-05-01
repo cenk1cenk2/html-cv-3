@@ -8,7 +8,7 @@
   <div class="timeline-time-column">
     <div class="flex flex-col w-32 text-center">
       {#if typeof item.metadata.end === 'boolean' && !item.metadata.end}
-        <p class="text-green-600">Present</p>
+        <p class="font-semibold text-green-600">Present</p>
       {:else if typeof item.metadata.end === 'string'}
         <p>{item.metadata.end}</p>
       {/if}
@@ -27,12 +27,12 @@
   </div>
 
   <div class="timeline-info-column">
-    <p class="font-semibold lg:text-lg">{item.metadata.name}</p>
+    <p class="font-semibold">{item.metadata.name}</p>
     <p class="text-sm text-gray-600 dark:text-gray-400">{item.metadata.location}</p>
     {#if item.metadata.role}
-      <p class="text-sm 2xl:text-base">{item.metadata.role}</p>
+      <p>{item.metadata.role}</p>
     {/if}
-    <div class="pt-2 leading-tight text-gray-600 dark:text-gray-400 prose dark:prose-dark">
+    <div class="pt-2 max-w-none leading-tight text-gray-600 dark:text-gray-400 prose dark:prose-dark">
       <svelte:component this={item.default} />
     </div>
   </div>

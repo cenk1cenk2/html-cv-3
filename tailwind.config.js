@@ -15,8 +15,7 @@ export default {
       },
       colors: {
         primary: getColors('#cd0043'),
-        gray: getColors('#434951'),
-        orange: getColors('#fa8350')
+        gray: getColors('#434951')
       },
       maxHeight: {
         '(screen-16)': 'calc(100vh - 4rem)'

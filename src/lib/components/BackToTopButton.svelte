@@ -37,8 +37,8 @@
 
 <style lang="postcss">
   .back-to-top {
-    @apply transition-all w-12;
+    @apply w-12;
     @apply rounded-xl bg-gray-300 dark:bg-gray-700 p-4 shadow-xl;
-    @apply transform hover:text-primary-500;
+    @apply transform md:hover:text-primary-500;
   }
 </style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Container from '$lib/components/Container.svelte'
   import Bio from '$lib/content/bio.md'
 </script>
 
