@@ -36,3 +36,8 @@
 .prose-dark {
   @apply break-words;
 }
+
+a {
+  @apply transition-transform transform;
+  @apply md:hover:text-primary-500;
+}

@@ -27,10 +27,10 @@
   </div>
 
   <div class="timeline-info-column">
-    <p class="font-semibold lg:text-lg">{item.metadata.name}</p>
+    <p class="font-semibold">{item.metadata.name}</p>
     <p class="text-sm text-gray-600 dark:text-gray-400">{item.metadata.location}</p>
     {#if item.metadata.role}
-      <p class="text-sm 2xl:text-base">{item.metadata.role}</p>
+      <p>{item.metadata.role}</p>
     {/if}
     <div class="pt-2 leading-tight text-gray-600 dark:text-gray-400 prose dark:prose-dark">
       <svelte:component this={item.default} />

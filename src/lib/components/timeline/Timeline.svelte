@@ -12,11 +12,11 @@
   export let items: TimelineItemFile[]
 </script>
 
-<Container id={name}>
-  <h2 class="text-3xl font-bold text-center">
+<Container title={name}>
+  <svelte:fragment slot="title">
     <Fa {icon} class="inline-block self-center mr-2" />
     {name}
-  </h2>
+  </svelte:fragment>
 
   <Divider />
   <ul class="pt-2">

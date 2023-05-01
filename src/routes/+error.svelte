@@ -30,7 +30,6 @@
 <style lang="postcss">
   .action-button {
     @apply text-white;
-    @apply transition-transform transform;
-    @apply hover:scale-110 hover:text-primary-500;
+    @apply hover:scale-110;
   }
 </style>
