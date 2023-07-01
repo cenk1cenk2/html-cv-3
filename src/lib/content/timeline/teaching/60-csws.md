@@ -1,5 +1,5 @@
 ---
-end: May 2023
+end: March 2023
 start: March 2023
 type: Full-Time
 logo: csws.jpeg
@@ -9,4 +9,3 @@ role: Lecturer
 ---
 
 - JavaScript Basics (2 weeks)
-- Networking Basics (1 week)
