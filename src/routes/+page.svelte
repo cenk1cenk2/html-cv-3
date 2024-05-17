@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { faChalkboardUser, faCode, faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons'
+  import { faChalkboardUser, faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons'
 
   import Section from '$lib/components/Section.svelte'
   import Education from './Education.svelte'
   import Menu from './Menu.svelte'
-  import Skills from './Skills.svelte'
   import Teaching from './Teaching.svelte'
   import UserCard from './UserCard.svelte'
   import Work from './Work.svelte'
@@ -28,9 +27,9 @@
   </div>
 </Section>
 
-<Section title="skills">
-  <Skills />
-</Section>
+<!-- <Section title="skills"> -->
+<!--   <Skills /> -->
+<!-- </Section> -->
 
 <Menu
   items={[
@@ -48,12 +47,12 @@
       text: 'Teaching Experience',
       href: '#teaching-experience',
       icon: faChalkboardUser
-    },
-
-    {
-      text: 'Skills',
-      href: '#skills',
-      icon: faCode
     }
+
+    // {
+    //   text: 'Skills',
+    //   href: '#skills',
+    //   icon: faCode
+    // }
   ]}
 />

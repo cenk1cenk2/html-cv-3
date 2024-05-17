@@ -8,6 +8,6 @@ role: Instrumentation and Control Systems Engineer
 type: Full-Time
 ---
 
-- Working mainly on Oil and Gas Industry.
+- Working mainly in the Oil and Gas Industry.
 - Instrument and Control Systems technical documentation for procurement.
 - Factory tests supervision and commissioning documentation.
