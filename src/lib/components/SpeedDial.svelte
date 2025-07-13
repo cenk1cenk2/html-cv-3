@@ -5,6 +5,8 @@
 </div>
 
 <style lang="postcss">
+  @reference "../../app.css";
+
   .speed-dial {
     @apply z-50 right-8 bottom-8 fixed;
   }

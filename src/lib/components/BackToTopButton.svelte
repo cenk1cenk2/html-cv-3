@@ -36,6 +36,8 @@
 <div class="back-to-top" on:click={goTop} on:keypress={goTop} class:hidden class:opacity-0={hidden}><Fa icon={faChevronUp} /></div>
 
 <style lang="postcss">
+  @reference "../../app.css";
+
   .back-to-top {
     @apply w-12;
     @apply rounded-xl bg-gray-300 dark:bg-gray-700 p-4 shadow-xl;

@@ -5,13 +5,13 @@ import { getColors } from 'theme-colors'
 
 /** @type {import("tailwindcss").Config} */
 export default {
-  content: [ './src/**/*.{html,js,svelte,ts,css}' ],
-  darkMode: 'class',
+  content: ['./src/**/*.{html,js,svelte,ts,css}'],
+  darkMode: 'media',
   theme: {
     extend: {
       fontFamily: {
-        sans: [ 'DM Sans', ...defaultTheme.fontFamily.sans ],
-        mono: [ 'DM Mono', ...defaultTheme.fontFamily.mono ]
+        sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
+        mono: ['DM Mono', ...defaultTheme.fontFamily.mono]
       },
       colors: {
         primary: getColors('#cd0043'),
@@ -81,5 +81,5 @@ export default {
       }
     }
   },
-  plugins: [ typography ]
+  plugins: [typography]
 }

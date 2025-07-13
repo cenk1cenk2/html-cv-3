@@ -11,7 +11,8 @@
 
 <div class="flex items-center py-20 antialiased">
   <div
-    class="mx-auto w-11/12 bg-gray-50 bg-opacity-90 rounded-xl border-2 border-gray-200 shadow-2xl transition duration-300 ease-in-out lg:max-w-3xl lg:border-4 dark:bg-gray-800 dark:border-gray-700"
+    class="mx-auto w-11/12 bg-gray-50/90 rounded-xl border-2 border-gray-200 shadow-2xl transition duration-300 ease-in-out lg:max-w-3xl lg:border-4
+    dark:bg-gray-800/90 dark:border-gray-700"
   >
     <div class="p-9 lg:p-12">
       <h1 class="m-0 font-mono text-7xl font-extrabold text-center text-red-500 lg:text-9xl">{$page.status}</h1>
@@ -28,6 +29,8 @@
 </div>
 
 <style lang="postcss">
+  @reference "../app.css";
+
   .action-button {
     @apply text-white;
     @apply hover:scale-110;

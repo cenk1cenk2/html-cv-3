@@ -15,7 +15,7 @@
     Skills
   </svelte:fragment>
   <div class="grid py-4 lg:grid-cols-2">
-    {#each skills as skill}
+    {#each skills as skill (JSON.stringify(skill.metadata))}
       <SkillSet {skill} />
     {/each}
   </div>

@@ -11,7 +11,7 @@
   <div class="cover">
     <div class="flex items-start pt-20 pb-20 h-auto lg:items-center lg:pt-0 lg:pb-0 lg:my-0 lg:h-screen">
       <div class="mx-auto lg:pl-48">
-        <div class="bg-white bg-opacity-90 rounded-xl shadow-2xl transition duration-300 ease-in-out dark:bg-gray-800 container-border">
+        <div class="bg-white/90  rounded-xl shadow-2xl transition duration-300 ease-in-out dark:bg-gray-800/90 container-border">
           <div class="p-4 text-center lg:p-12 lg:text-left">
             <div class="-mt-16 lg:relative lg:-left-64 lg:top-72 lg:mr-64 lg:-mt-96">
               <div class="profile-image container-border" />
@@ -41,6 +41,8 @@
 </section>
 
 <style lang="postcss">
+  @reference "../app.css";
+
   .cover {
     @apply bg-cover;
     background-image: url('$lib/assets/images/cover.png');
