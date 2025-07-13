@@ -39,8 +39,6 @@
 
 <svelte:window on:scroll={handleOnScroll} />
 
-    // TODO: fix the eslint configuration with globals at somepoint
-    // eslint-disable-next-line no-undef
 <div class="back-to-top" aria-label="back to top" on:click={goTop} on:keypress={goTop} class:hidden class:opacity-0={hidden}><Fa icon={faChevronUp} /></div>
 
 <style lang="postcss">
