@@ -7,10 +7,16 @@
   let hidden = true
 
   const goTop = (): void => {
+    // TODO: fix the eslint configuration with globals at somepoint
+    // eslint-disable-next-line no-undef
     document.body.scrollIntoView()
   }
 
+    // TODO: fix the eslint configuration with globals at somepoint
+    // eslint-disable-next-line no-undef
   const scrollContainer = (): HTMLElement => {
+    // TODO: fix the eslint configuration with globals at somepoint
+    // eslint-disable-next-line no-undef
     return document.documentElement || document.body
   }
 
@@ -33,7 +39,9 @@
 
 <svelte:window on:scroll={handleOnScroll} />
 
-<div class="back-to-top" on:click={goTop} on:keypress={goTop} class:hidden class:opacity-0={hidden}><Fa icon={faChevronUp} /></div>
+    // TODO: fix the eslint configuration with globals at somepoint
+    // eslint-disable-next-line no-undef
+<div class="back-to-top" aria-label="back to top" on:click={goTop} on:keypress={goTop} class:hidden class:opacity-0={hidden}><Fa icon={faChevronUp} /></div>
 
 <style lang="postcss">
   @reference "../../app.css";

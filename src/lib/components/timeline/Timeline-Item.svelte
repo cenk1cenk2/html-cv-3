@@ -46,7 +46,8 @@
   }
 
   .timeline-logo-column {
-    @apply flex place-self-center overflow-hidden p-1 min-w-16 lg:min-w-24 w-16 h-16 bg-white border-2 rounded-xl border-gray-300 shadow-xl lg:w-24 lg:h-24 lg:border-4 dark:border-gray-600;
+    @apply flex place-self-center overflow-hidden p-1 min-w-16 lg:min-w-24 w-16 h-16 bg-white border-2
+    rounded-xl border-gray-300 shadow-xl lg:w-24 lg:h-24 lg:border-4 dark:border-gray-600;
     @apply shadow-2xl;
   }
 

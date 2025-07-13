@@ -14,7 +14,7 @@
         <div class="bg-white/90  rounded-xl shadow-2xl transition duration-300 ease-in-out dark:bg-gray-800/90 container-border">
           <div class="p-4 text-center lg:p-12 lg:text-left">
             <div class="-mt-16 lg:relative lg:-left-64 lg:top-72 lg:mr-64 lg:-mt-96">
-              <div class="profile-image container-border" />
+              <div class="profile-image container-border" ></div>
             </div>
             <div class="lg:pl-48">
               <h1 class="pt-8 text-4xl font-bold text-center lg:pt-0">Cenk Kılıç, M.Sc.</h1>

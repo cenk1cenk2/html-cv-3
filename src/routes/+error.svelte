@@ -17,7 +17,7 @@
     <div class="p-9 lg:p-12">
       <h1 class="m-0 font-mono text-7xl font-extrabold text-center text-red-500 lg:text-9xl">{$page.status}</h1>
 
-      <div class="pt-3 mx-auto mt-12 border-b-2 opacity-50 lg:mx-0 border-primary-500" />
+      <div class="pt-3 mx-auto mt-12 border-b-2 opacity-50 lg:mx-0 border-primary-500" ></div>
 
       <h1 class="pt-8 text-4xl font-bold leading-none text-center uppercase whitespace-nowrap text-primary-500 truncate">{$page.error.message}</h1>
 
