@@ -16,7 +16,7 @@
 
 <UserCard />
 
-<Section title="experience">
+<Section title="work">
     <Work />
 </Section>
 
