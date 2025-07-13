@@ -39,16 +39,18 @@
 </li>
 
 <style lang="postcss">
+  @reference "../../../app.css";
+
   .timeline-time-column {
     @apply flex items-center pr-9 -mr-9 border-r-4 border-gray-300 lg:pr-12 lg:-mr-12 dark:border-gray-600;
   }
 
   .timeline-logo-column {
-    @apply flex place-self-center overflow-hidden p-1 min-w-[theme('spacing.16')] lg:min-w-[theme('spacing.24')] w-16 h-16 bg-white border-2 rounded-xl border-gray-300 shadow-xl lg:w-24 lg:h-24 lg:border-4 dark:border-gray-600;
+    @apply flex place-self-center overflow-hidden p-1 min-w-16 lg:min-w-24 w-16 h-16 bg-white border-2 rounded-xl border-gray-300 shadow-xl lg:w-24 lg:h-24 lg:border-4 dark:border-gray-600;
     @apply shadow-2xl;
   }
 
   .timeline-info-column {
-    @apply flex flex-col flex-grow justify-center py-6 pl-4 lg:pl-8;
+    @apply flex flex-col grow justify-center py-6 pl-4 lg:pl-8;
   }
 </style>

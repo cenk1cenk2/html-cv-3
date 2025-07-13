@@ -16,15 +16,16 @@
 
 <UserCard />
 
-<Section title="education">
-  <Education />
+<Section title="experience">
+    <Work />
 </Section>
 
-<Section title="experience">
-  <div class="grid grid-cols-1 gap-8 w-full lg:grid-cols-2">
-    <Work />
+<Section title="teaching">
     <Teaching />
-  </div>
+</Section>
+
+<Section title="education">
+  <Education />
 </Section>
 
 <!-- <Section title="skills"> -->
@@ -34,11 +35,6 @@
 <Menu
   items={[
     {
-      text: 'Education',
-      href: '#education',
-      icon: faUserGraduate
-    },
-    {
       text: 'Work Experience',
       href: '#work-experience',
       icon: faUserTie
@@ -47,6 +43,11 @@
       text: 'Teaching Experience',
       href: '#teaching-experience',
       icon: faChalkboardUser
+    },
+    {
+      text: 'Education',
+      href: '#education',
+      icon: faUserGraduate
     }
 
     // {

@@ -6,7 +6,7 @@ import { getColors } from 'theme-colors'
 /** @type {import("tailwindcss").Config} */
 export default {
   content: ['./src/**/*.{html,js,svelte,ts,css}'],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
     extend: {
       fontFamily: {

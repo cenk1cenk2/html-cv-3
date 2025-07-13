@@ -16,6 +16,8 @@
 </section>
 
 <style lang="postcss">
+  @reference "../../app.css";
+
   .side-text {
     @apply text-gray-200 dark:text-gray-700 p-4;
 

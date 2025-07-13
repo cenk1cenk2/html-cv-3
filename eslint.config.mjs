@@ -12,7 +12,8 @@ export default [
   },
   {
     ignores: [
-      '.svelte-kit'
+      '.svelte-kit/',
+      'dist/'
     ]
   }
 ]
