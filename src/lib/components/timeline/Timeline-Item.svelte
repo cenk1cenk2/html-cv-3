@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { calculateWorkDuration } from '$lib/utils/date'
+  import { calculateDuration } from '$lib/utils/date'
   import type { TimelineItemFile } from './timeline-item.interface'
 
   export let item: TimelineItemFile
 
-  $: duration = item.metadata.duration !== false ? (item.metadata.end ? calculateWorkDuration(item.metadata.start, item.metadata.end) : '< 1 month') : null
+  $: duration = item.metadata.duration !== false ? calculateDuration(item.metadata.start, item.metadata.end) : null
 </script>
 
 <li class="flex place-items-stretch">
