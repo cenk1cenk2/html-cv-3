@@ -4,6 +4,7 @@ start: May 2016
 logo: tekfen.png
 name: Tekfen Engineering
 location: İstanbul, Turkey
+attendance: On-Site
 role: Instrumentation and Control Systems Engineer
 type: Full-Time
 ---

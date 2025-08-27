@@ -1,9 +1,10 @@
 ---
-end: false
+end: September 2025
 start: March 2024
 logo: rewe-group.png
-name: Rewe Group
+name: Rewe International
 location: Vienna, Austria
+attendance: Remote
 role: Integration Platform Services Expert
 type: Full-Time
 ---

@@ -4,6 +4,7 @@ start: August 2021
 logo: sorwe.jpeg
 name: Sorwe
 location: İstanbul, Turkey
+attendance: Remote
 role: DevOps Architect
 type: Freelance
 ---

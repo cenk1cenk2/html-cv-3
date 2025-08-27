@@ -2,8 +2,10 @@
   import Bio from '$lib/content/bio.md'
 </script>
 
-<div class="flex justify-center place-items-center w-full h-full">
-  <div class="p-4 prose prose-lg dark:prose-dark">
-    <Bio />
+<section id="user-card">
+  <div class="flex h-full w-full place-items-center justify-center">
+    <div class="prose prose-lg dark:prose-dark p-4">
+      <Bio />
+    </div>
   </div>
-</div>
+</section>

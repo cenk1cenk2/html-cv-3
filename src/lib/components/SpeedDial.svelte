@@ -1,5 +1,5 @@
 <div class="speed-dial">
-  <div class="flex space-x-4 flex-end">
+  <div class="flex-end flex space-x-4">
     <slot />
   </div>
 </div>
@@ -8,6 +8,6 @@
   @reference "../../app.css";
 
   .speed-dial {
-    @apply z-50 right-8 bottom-8 fixed;
+    @apply fixed right-8 bottom-8 z-50;
   }
 </style>

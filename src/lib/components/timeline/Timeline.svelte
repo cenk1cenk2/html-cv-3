@@ -13,7 +13,7 @@
 
 <Container title={name}>
   <svelte:fragment slot="title">
-    <Fa {icon} class="inline-block self-center mr-2" />
+    <Fa {icon} class="mr-2 inline-block self-center" />
     {name}
   </svelte:fragment>
 

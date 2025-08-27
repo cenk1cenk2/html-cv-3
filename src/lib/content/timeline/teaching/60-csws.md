@@ -1,5 +1,4 @@
 ---
-end: March 2023
 start: March 2023
 type: Full-Time
 logo: csws.jpeg

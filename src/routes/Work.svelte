@@ -7,10 +7,12 @@
   import WS, { metadata as WS_METADATA } from '$lib/content/timeline/work/20-ws.md'
   import SORWE, { metadata as SORWE_METADATA } from '$lib/content/timeline/work/30-sorwe.md'
   import REWE, { metadata as REWE_METADATA } from '$lib/content/timeline/work/40-rewe.md'
+  import LARAVEL, { metadata as LARAVEL_METADATA } from '$lib/content/timeline/work/50-laravel.md'
 
   export let TIMELINE: TimelineItemFile[] = [
-    { default: REWE, metadata: REWE_METADATA },
+    { default: LARAVEL, metadata: LARAVEL_METADATA },
     { default: SORWE, metadata: SORWE_METADATA },
+    { default: REWE, metadata: REWE_METADATA },
     { default: WS, metadata: WS_METADATA },
     { default: TEKFEN, metadata: TEKFEN_METADATA }
   ]

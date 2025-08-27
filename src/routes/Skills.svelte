@@ -11,7 +11,7 @@
 
 <Container title="skills"
   ><svelte:fragment slot="title">
-    <Fa icon={faCode} class="inline-block self-center mr-2" />
+    <Fa icon={faCode} class="mr-2 inline-block self-center" />
     Skills
   </svelte:fragment>
   <div class="grid py-4 lg:grid-cols-2">
@@ -19,7 +19,7 @@
       <SkillSet {skill} />
     {/each}
   </div>
-  <div class="italic font-thin text-gray-600 dark:text-gray-400">
+  <div class="font-thin text-gray-700 italic dark:text-gray-300">
     Note: the items that I am only familiar rather than comfortable with, due to either knowledge getting a bit rusty or lower level of interaction is marked with a *
   </div>
 </Container>

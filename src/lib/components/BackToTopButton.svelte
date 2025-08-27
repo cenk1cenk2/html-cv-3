@@ -7,16 +7,10 @@
   let hidden = true
 
   const goTop = (): void => {
-    // TODO: fix the eslint configuration with globals at somepoint
-    // eslint-disable-next-line no-undef
     document.body.scrollIntoView()
   }
 
-    // TODO: fix the eslint configuration with globals at somepoint
-    // eslint-disable-next-line no-undef
   const scrollContainer = (): HTMLElement => {
-    // TODO: fix the eslint configuration with globals at somepoint
-    // eslint-disable-next-line no-undef
     return document.documentElement || document.body
   }
 
@@ -37,16 +31,18 @@
   })
 </script>
 
-<svelte:window on:scroll={handleOnScroll} />
+<svelte:window onscroll={handleOnScroll} />
 
-<div class="back-to-top" aria-label="back to top" on:click={goTop} on:keypress={goTop} class:hidden class:opacity-0={hidden}><Fa icon={faChevronUp} /></div>
+<div class="back-to-top" role="button" tabindex="0" aria-label="back to top" onclick={goTop} onkeypress={goTop} class:hidden class:opacity-0={hidden}>
+  <Fa icon={faChevronUp} />
+</div>
 
 <style lang="postcss">
   @reference "../../app.css";
 
   .back-to-top {
     @apply w-12;
-    @apply rounded-xl bg-gray-300 dark:bg-gray-700 p-4 shadow-xl;
-    @apply transform md:hover:text-primary-500;
+    @apply rounded-xl bg-gray-300 p-4 shadow-xl dark:bg-gray-700;
+    @apply md:hover:text-primary-500 transform;
   }
 </style>

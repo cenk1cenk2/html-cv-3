@@ -5,9 +5,9 @@
   export let title: string = ''
 </script>
 
-<div class="p-4 w-full bg-gray-100 rounded-xl shadow-xl dark:bg-gray-800 container-border" id={slugify(title)}>
+<div class="container-border w-full rounded-xl bg-gray-100 p-4 shadow-xl dark:bg-gray-800" id={slugify(title)}>
   {#if title}
-    <h2 class="text-3xl font-bold text-center">
+    <h2 class="text-center text-3xl font-bold">
       <slot name="title" />
     </h2>
     <Divider />
