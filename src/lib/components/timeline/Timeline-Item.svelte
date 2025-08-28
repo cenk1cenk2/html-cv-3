@@ -10,6 +10,7 @@
 <li class="flex place-items-stretch">
   <div class="timeline-time-column">
     <div class="flex w-32 flex-col text-center">
+      <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} class="timeline-logo object-contain md:hidden!" />
       {#if typeof item.metadata.end === 'boolean' && !item.metadata.end}
         <p class="font-semibold text-green-600">Present</p>
       {:else if typeof item.metadata.end === 'string'}
@@ -29,7 +30,7 @@
   </div>
 
   <div class="timeline-logo-column">
-    <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} class="object-contain" />
+    <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} class="timeline-logo" />
   </div>
 
   <div class="timeline-info-column">
@@ -51,13 +52,20 @@
   @reference "../../../app.css";
 
   .timeline-time-column {
-    @apply -mr-9 flex items-center border-r-4 border-gray-300 pr-9 lg:-mr-12 lg:pr-12 dark:border-gray-600;
+    @apply -mr-9 flex items-center border-gray-300 pr-9 md:border-r-4 lg:-mr-12 lg:pr-12 dark:border-gray-600;
+  }
+
+  .timeline-logo {
+    @apply object-contain;
+    @apply flex h-24 w-24 min-w-24 overflow-hidden;
+    @apply rounded-xl border-2 border-gray-300 bg-white p-1 shadow-xl lg:h-24 lg:w-24 lg:min-w-24 lg:border-4 dark:border-gray-600;
+    @apply shadow-2xl;
+    @apply place-self-center;
   }
 
   .timeline-logo-column {
-    @apply flex h-16 w-16 min-w-16 place-self-center overflow-hidden;
-    @apply rounded-xl border-2 border-gray-300 bg-white p-1 shadow-xl lg:h-24 lg:w-24 lg:min-w-24 lg:border-4 dark:border-gray-600;
-    @apply shadow-2xl;
+    @apply hidden md:block;
+    @apply place-self-center;
   }
 
   .timeline-info-column {
