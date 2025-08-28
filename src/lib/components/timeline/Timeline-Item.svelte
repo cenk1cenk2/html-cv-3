@@ -10,7 +10,7 @@
 <li class="flex place-items-stretch">
   <div class="timeline-time-column">
     <div class="flex w-32 flex-col text-center">
-      <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} class="timeline-logo object-contain md:hidden!" />
+      <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} class="timeline-logo mb-4 object-contain md:mb-0 md:hidden!" />
       {#if typeof item.metadata.end === 'boolean' && !item.metadata.end}
         <p class="font-semibold text-green-600">Present</p>
       {:else if typeof item.metadata.end === 'string'}
@@ -52,12 +52,12 @@
   @reference "../../../app.css";
 
   .timeline-time-column {
-    @apply -mr-9 flex items-center border-gray-300 pr-9 md:border-r-4 lg:-mr-12 lg:pr-12 dark:border-gray-600;
+    @apply -mr-9 flex items-start border-gray-300 py-8 pr-9 md:items-center md:border-r-4 lg:-mr-12 lg:pr-12 dark:border-gray-600;
   }
 
   .timeline-logo {
     @apply object-contain;
-    @apply flex h-24 w-24 min-w-24 overflow-hidden;
+    @apply flex h-16 w-16 min-w-16 overflow-hidden;
     @apply rounded-xl border-2 border-gray-300 bg-white p-1 shadow-xl lg:h-24 lg:w-24 lg:min-w-24 lg:border-4 dark:border-gray-600;
     @apply shadow-2xl;
     @apply place-self-center;
@@ -69,6 +69,6 @@
   }
 
   .timeline-info-column {
-    @apply flex grow flex-col justify-center py-6 pl-4 lg:pl-8;
+    @apply flex grow flex-col py-6 pl-4 md:justify-center lg:pl-8;
   }
 </style>

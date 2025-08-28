@@ -61,8 +61,10 @@
   @reference "../../app.css";
 
   .scroll-indicator {
-    @apply absolute top-1/2 right-8 z-50 flex cursor-pointer flex-col items-center text-white transition-all duration-300 hover:scale-110;
-    transform: translateY(-50%);
+    @apply hidden sm:hidden md:block;
+    @apply absolute z-50 flex cursor-pointer flex-col items-center text-white transition-all duration-300 hover:scale-110;
+    @apply md:top-auto md:right-auto md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:translate-y-0;
+    @apply lg:top-1/2 lg:right-14 lg:bottom-auto lg:left-auto lg:translate-x-0 lg:-translate-y-1/2;
     animation: bounce 2s infinite;
   }
 
@@ -77,6 +79,7 @@
 
   .chevron {
     @apply mb-1 h-3 w-3 rotate-45 border-r-2 border-b-2 border-white opacity-75;
+    @apply lg:h-2 lg:w-2;
     animation: fade 2s infinite;
   }
 
@@ -155,17 +158,6 @@
 
     .chevron {
       @apply border-gray-200;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .scroll-indicator {
-      @apply top-auto right-auto bottom-6 left-1/2;
-      transform: translateX(-50%);
-    }
-
-    .chevron {
-      @apply h-2 w-2;
     }
   }
 </style>

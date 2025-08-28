@@ -17,7 +17,7 @@
               <div class="profile-image container-border"></div>
             </div>
             <div class="lg:pl-48">
-              <h1 class="pt-8 text-center text-4xl font-bold lg:pt-0">Cenk Kılıç, M.Sc.</h1>
+              <h1 class="pt-8 text-center text-4xl font-bold lg:pt-0">Cenk Kılıç, MSc.</h1>
 
               <Divider />
               <p class="flex justify-center pt-4 text-base font-bold">Electrical&Electronics Engineer by trait, developer by heart.</p>
