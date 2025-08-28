@@ -1,6 +1,7 @@
 <script lang="ts">
   import { faChalkboardUser, faUser, faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons'
 
+  import ScrollIndicator from '$lib/components/ScrollIndicator.svelte'
   import Section from '$lib/components/Section.svelte'
   import Education from './Education.svelte'
   import Menu from './Menu.svelte'
@@ -24,17 +25,14 @@
   <meta property="og:site_name" content="Cenk Kılıç" />
   <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Cenk Kılıç" />
   <meta name="twitter:description" content="Cenk Kılıç" />
   <meta name="twitter:image" content="https://cenk.kilic.dev/profile.png" />
 
-  <!-- Additional SEO Tags -->
   <link rel="canonical" href="https://cenk.kilic.dev" />
   <meta name="robots" content="index, follow" />
 
-  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -83,11 +81,6 @@
       href: '#education',
       icon: faUserGraduate
     }
-
-    // {
-    //   text: 'Skills',
-    //   href: '#skills',
-    //   icon: faCode
-    // }
   ]}
 />
+<ScrollIndicator />

@@ -18,7 +18,8 @@ export default [
         HTMLElement: 'readonly',
         Element: 'readonly',
         MouseEvent: 'readonly',
-        Event: 'readonly'
+        Event: 'readonly',
+        setTimeout: 'readonly'
       }
     },
     rules: {
