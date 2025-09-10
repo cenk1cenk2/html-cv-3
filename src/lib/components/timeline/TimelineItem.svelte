@@ -8,7 +8,7 @@
   export let item: TimelineItemFile
 </script>
 
-<li class=" md:flex md:place-items-stretch">
+<li class="md:flex md:place-items-stretch">
   <!-- mobile view -->
   <div class="my-8 border-t-2 border-gray-300 first:border-t-0 md:hidden dark:border-gray-600">
     <div class="mb-4 flex gap-4">

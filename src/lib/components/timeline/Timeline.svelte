@@ -17,7 +17,7 @@
     {name}
   </svelte:fragment>
 
-  <ul>
+  <ul class="my-4">
     {#each items as item (JSON.stringify(item.metadata))}
       <TimelineItem {item} />
     {/each}
