@@ -7,9 +7,9 @@
   import Bio from '$lib/content/bio.md'
 </script>
 
-<section id="profile" class="px-2">
+<section id="profile">
   <div class="cover">
-    <div class="flex h-auto items-start pt-20 pb-20 lg:my-0 lg:h-screen lg:items-center lg:pt-0 lg:pb-0">
+    <div class="flex h-auto items-start px-2 pt-20 pb-20 lg:my-0 lg:h-screen lg:items-center lg:pt-0 lg:pb-0">
       <div class="mx-auto lg:pl-48">
         <div class="container-border rounded-xl bg-white/90 shadow-2xl transition duration-300 ease-in-out dark:bg-gray-800/90">
           <div class="p-4 text-center lg:p-12 lg:text-left">
