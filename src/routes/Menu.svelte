@@ -37,6 +37,7 @@
 <aside class="menu container-border" class:hidden={!state} bind:this={menuElement}>
   <div class="divide grid grid-cols-1 divide-y-2 divide-gray-700 border-gray-700">
     {#each items as item (JSON.stringify(item))}
+      <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
       <a href={item.href} class="menu-item" aria-label={item.text} onclick={() => menu.set(false)}>
         <Fa icon={item.icon} />
         <p>{item.text}</p></a

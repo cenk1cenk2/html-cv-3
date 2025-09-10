@@ -22,6 +22,7 @@
       <h1 class="text-primary-500 truncate pt-8 text-center text-4xl leading-none font-bold whitespace-nowrap uppercase">{$page.error.message}</h1>
 
       <div class="mx-auto mt-12 flex w-4/5 flex-wrap items-center justify-evenly pb-16 text-5xl lg:pb-0">
+        <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
         <a href="/" aria-label="Go back to home page." class="action-button"><Fa icon={faHome} /></a>
       </div>
     </div>
