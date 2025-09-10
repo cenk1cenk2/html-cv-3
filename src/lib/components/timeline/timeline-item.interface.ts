@@ -9,7 +9,6 @@ export interface TimelineItemEntry {
   end?: string | false
   type?: string
   role?: string
-  description?: string[]
   duration?: boolean
 }
 

@@ -8,7 +8,7 @@
 
   const scrollToNext = () => {
     const sections = document.querySelectorAll('section')
-    const section = sections.item(2)
+    const section = sections.item(1)
 
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' })

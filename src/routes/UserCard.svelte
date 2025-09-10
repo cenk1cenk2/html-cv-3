@@ -4,10 +4,10 @@
   import Fa from 'svelte-fa'
 
   import Divider from '$lib/components/Divider.svelte'
-  import Bio from './Bio.svelte'
+  import Bio from '$lib/content/bio.md'
 </script>
 
-<section id="profile">
+<section id="profile" class="px-2">
   <div class="cover">
     <div class="flex h-auto items-start pt-20 pb-20 lg:my-0 lg:h-screen lg:items-center lg:pt-0 lg:pb-0">
       <div class="mx-auto lg:pl-48">
@@ -32,7 +32,11 @@
           </div>
           <div class="px-4 lg:pt-12">
             <Divider />
-            <Bio />
+            <div class="flex h-full w-full place-items-center justify-center">
+              <div class="prose prose-lg dark:prose-dark p-4">
+                <Bio />
+              </div>
+            </div>
           </div>
         </div>
       </div>

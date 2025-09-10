@@ -5,7 +5,7 @@
 </script>
 
 <section id={slugify(title)}>
-  <div class="grid grid-cols-12 pt-4">
+  <div class="grid grid-cols-12 px-2 pt-4">
     <div class="hidden text-center text-8xl xl:col-span-1 xl:grid 2xl:col-span-2">
       <p class="side-text">{title}</p>
     </div>

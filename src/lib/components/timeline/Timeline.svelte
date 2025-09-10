@@ -3,7 +3,7 @@
   import Fa from 'svelte-fa'
 
   import type { TimelineItemFile } from './timeline-item.interface'
-  import TimelineItem from './Timeline-Item.svelte'
+  import TimelineItem from './TimelineItem.svelte'
   import Container from '../Container.svelte'
 
   export let name: string
@@ -17,7 +17,7 @@
     {name}
   </svelte:fragment>
 
-  <ul class="pt-4">
+  <ul>
     {#each items as item (JSON.stringify(item.metadata))}
       <TimelineItem {item} />
     {/each}
