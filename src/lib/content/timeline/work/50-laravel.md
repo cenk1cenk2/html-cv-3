@@ -2,7 +2,7 @@
 end: false
 start: September 2025
 logo: laravel.png
-name: Laravel Holdings Inc.
+name: Laravel
 location: New York, USA
 attendance: Remote
 role: Senior Infrastructure Software Engineer
