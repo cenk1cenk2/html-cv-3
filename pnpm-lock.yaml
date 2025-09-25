@@ -65,7 +65,7 @@ importers:
         version: 3.12.4(eslint@9.36.0(jiti@2.6.0))(svelte@5.39.6)
       lint-staged:
         specifier: ^16.1.6
-        version: 16.2.0
+        version: 16.2.1
       mdsvex:
         specifier: ^0.12.6
         version: 0.12.6(svelte@5.39.6)
@@ -1514,8 +1514,8 @@ packages:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
 
-  lint-staged@16.2.0:
-    resolution: {integrity: sha512-spdYSOCQ2MdZ9CM1/bu/kDmaYGsrpNOeu1InFFV8uhv14x6YIubGxbCpSmGILFoxkiheNQPDXSg5Sbb5ZuVnug==}
+  lint-staged@16.2.1:
+    resolution: {integrity: sha512-KMeYmH9wKvHsXdUp+z6w7HN3fHKHXwT1pSTQTYxB9kI6ekK1rlL3kLZEoXZCppRPXFK9PFW/wfQctV7XUqMrPQ==}
     engines: {node: '>=20.17'}
     hasBin: true
 
@@ -3611,7 +3611,7 @@ snapshots:
 
   lilconfig@2.1.0: {}
 
-  lint-staged@16.2.0:
+  lint-staged@16.2.1:
     dependencies:
       commander: 14.0.1
       listr2: 9.0.4
