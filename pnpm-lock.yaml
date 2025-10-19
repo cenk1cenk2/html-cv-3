@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@cenk1cenk2/eslint-config':
         specifier: ^3.1.69
-        version: 3.1.69(eslint-plugin-svelte@3.12.4(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0))(eslint@9.38.0(jiti@2.6.1))(svelte-eslint-parser@1.4.0(svelte@5.41.0))(typescript@5.9.3)
+        version: 3.1.69(eslint-plugin-svelte@3.12.5(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0))(eslint@9.38.0(jiti@2.6.1))(svelte-eslint-parser@1.4.0(svelte@5.41.0))(typescript@5.9.3)
       '@fortawesome/free-brands-svg-icons':
         specifier: ^7.0.1
         version: 7.1.0
@@ -62,7 +62,7 @@ importers:
         version: 10.1.8(eslint@9.38.0(jiti@2.6.1))
       eslint-plugin-svelte:
         specifier: ^3.12.2
-        version: 3.12.4(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0)
+        version: 3.12.5(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0)
       lint-staged:
         specifier: ^16.1.6
         version: 16.2.4
@@ -1078,8 +1078,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-svelte@3.12.4:
-    resolution: {integrity: sha512-hD7wPe+vrPgx3U2X2b/wyTMtWobm660PygMGKrWWYTc9lvtY8DpNFDaU2CJQn1szLjGbn/aJ3g8WiXuKakrEkw==}
+  eslint-plugin-svelte@3.12.5:
+    resolution: {integrity: sha512-4KRG84eAHQfYd9OjZ1K7sCHy0nox+9KwT+s5WCCku3jTim5RV4tVENob274nCwIaApXsYPKAUAZFBxKZ3Wyfjw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.1 || ^9.0.0
@@ -2219,7 +2219,7 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@cenk1cenk2/eslint-config@3.1.69(eslint-plugin-svelte@3.12.4(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0))(eslint@9.38.0(jiti@2.6.1))(svelte-eslint-parser@1.4.0(svelte@5.41.0))(typescript@5.9.3)':
+  '@cenk1cenk2/eslint-config@3.1.69(eslint-plugin-svelte@3.12.5(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0))(eslint@9.38.0(jiti@2.6.1))(svelte-eslint-parser@1.4.0(svelte@5.41.0))(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 9.38.0
       '@stylistic/eslint-plugin': 5.5.0(eslint@9.38.0(jiti@2.6.1))
@@ -2231,7 +2231,7 @@ snapshots:
       load-tsconfig: 0.2.5
       typescript-eslint: 8.46.1(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3)
     optionalDependencies:
-      eslint-plugin-svelte: 3.12.4(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0)
+      eslint-plugin-svelte: 3.12.5(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0)
       svelte-eslint-parser: 1.4.0(svelte@5.41.0)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
@@ -3169,7 +3169,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-svelte@3.12.4(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0):
+  eslint-plugin-svelte@3.12.5(eslint@9.38.0(jiti@2.6.1))(svelte@5.41.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.0(eslint@9.38.0(jiti@2.6.1))
       '@jridgewell/sourcemap-codec': 1.5.5
