@@ -1543,9 +1543,6 @@ packages:
     resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
     engines: {node: '>=18'}
 
-  magic-string@0.30.19:
-    resolution: {integrity: sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==}
-
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
@@ -2509,7 +2506,7 @@ snapshots:
       devalue: 5.4.2
       esm-env: 1.2.2
       kleur: 4.1.5
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       mrmime: 2.0.1
       sade: 1.8.1
       set-cookie-parser: 2.7.1
@@ -2531,7 +2528,7 @@ snapshots:
       '@sveltejs/vite-plugin-svelte-inspector': 5.0.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.4)(vite@7.1.12(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.41.4)(vite@7.1.12(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       debug: 4.4.3
       deepmerge: 4.3.1
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       svelte: 5.41.4
       vite: 7.1.12(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
       vitefu: 1.1.1(vite@7.1.12(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
@@ -3629,10 +3626,6 @@ snapshots:
       slice-ansi: 7.1.2
       strip-ansi: 7.1.2
       wrap-ansi: 9.0.2
-
-  magic-string@0.30.19:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
 
   magic-string@0.30.21:
     dependencies:
