@@ -13,8 +13,8 @@ importers:
         version: 4.1.0
     devDependencies:
       '@cenk1cenk2/eslint-config':
-        specifier: ^3.1.74
-        version: 3.1.74(eslint-plugin-svelte@3.15.0(eslint@10.0.0(jiti@2.6.1))(svelte@5.53.0))(eslint@10.0.0(jiti@2.6.1))(svelte-eslint-parser@1.4.1(svelte@5.53.0))(typescript@5.9.3)
+        specifier: ^3.1.75
+        version: 3.1.75(eslint-plugin-svelte@3.15.0(eslint@10.0.0(jiti@2.6.1))(svelte@5.53.0))(eslint@10.0.0(jiti@2.6.1))(svelte-eslint-parser@1.4.1(svelte@5.53.0))(typescript@5.9.3)
       '@fortawesome/free-brands-svg-icons':
         specifier: ^7.2.0
         version: 7.2.0
@@ -118,8 +118,8 @@ packages:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
 
-  '@cenk1cenk2/eslint-config@3.1.74':
-    resolution: {integrity: sha512-isEF+UBtVQPgsPdA4s+mECvEUa9KlRATdtZ+MZjGnYeo6996E/9cc/y9HcpKoXmg8VCQU26ZfghvV7I4/iVZog==}
+  '@cenk1cenk2/eslint-config@3.1.75':
+    resolution: {integrity: sha512-gSHvpbqLUUakQ51pXNRHAAaEhMiR6MWKeuZmg5pI6fwB3/YIU+XMOAS+FKryljFt038kjDfNPOy9KIL7FD6kdg==}
     peerDependencies:
       '@vue/eslint-config-typescript': '>= 14.1.1'
       eslint: '>= 9'
@@ -2178,7 +2178,7 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@cenk1cenk2/eslint-config@3.1.74(eslint-plugin-svelte@3.15.0(eslint@10.0.0(jiti@2.6.1))(svelte@5.53.0))(eslint@10.0.0(jiti@2.6.1))(svelte-eslint-parser@1.4.1(svelte@5.53.0))(typescript@5.9.3)':
+  '@cenk1cenk2/eslint-config@3.1.75(eslint-plugin-svelte@3.15.0(eslint@10.0.0(jiti@2.6.1))(svelte@5.53.0))(eslint@10.0.0(jiti@2.6.1))(svelte-eslint-parser@1.4.1(svelte@5.53.0))(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 10.0.1(eslint@10.0.0(jiti@2.6.1))
       '@stylistic/eslint-plugin': 5.9.0(eslint@10.0.0(jiti@2.6.1))
