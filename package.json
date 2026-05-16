@@ -33,7 +33,7 @@
     ]
   },
   "devDependencies": {
-    "@cenk1cenk2/eslint-config": "^3.2.3",
+    "@cenk1cenk2/eslint-config": "^3.2.5",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@neoconfetti/svelte": "^2.2.2",
@@ -47,7 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",
     "autoprefixer": "^10.5.0",
-    "eslint": "^10.3.0",
+    "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.17.1",
     "lint-staged": "^16.4.0",
