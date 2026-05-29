@@ -1,6 +1,4 @@
-ignoredBuiltDependencies:
-  - esbuild
-
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - simple-git-hooks
+allowBuilds:
+  '@tailwindcss/oxide': true
+  esbuild: false
+  simple-git-hooks: true
