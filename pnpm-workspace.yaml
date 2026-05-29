@@ -1,3 +1,8 @@
+minimumReleaseAge: 1440
+
+minimumReleaseAgeExclude:
+  - '@cenk1cenk2/*'
+
 allowBuilds:
   '@tailwindcss/oxide': true
   esbuild: false
