@@ -13,13 +13,29 @@ stages:
   - publish
 
 include:
-  - project: devops/pipes
-    file: /templates/node.gitlab-ci.yml
+  - project: devops/pipelines
+    ref: node@1.2.0
+    file:
+      - /node/install.gitlab-ci.yml
+      - /node/build.gitlab-ci.yml
+      - /node/lint.gitlab-ci.yml
+    inputs:
+      rules:
+        - when: always
 
-  - project: devops/pipes
-    file: /templates/v2/docker-build-internal.gitlab-ci.yml
+  - project: devops/pipelines
+    ref: buildah@1.2.2
+    file:
+      - /buildah/build.gitlab-ci.yml
+      - /buildah/registry-gitlab.gitlab-ci.yml
+
+install:
+  stage: install
+  extends: .node-install
 
 build:
+  stage: build
+  extends: .node-build
   needs:
     - install
   artifacts:
@@ -31,24 +47,27 @@ build:
       - 'node_modules/**/*'
 
 lint:
+  stage: build
+  extends: .node-lint
   needs:
     - install
     - build
 
-docker-html:
+container:
   stage: publish
-  extends: .docker-build-internal
+  extends: .container-build
   needs:
     - build
     - lint
   variables:
-    DOCKERFILE_CONTEXT: .
-    DOCKER_IMAGE_INTERNAL_NAME: html
-    DOCKER_IMAGE_TAGS: latest
-    GITLAB_CI_ARCH: amd64
+    CONTAINER_FILE_NAME: Dockerfile
+    CONTAINER_IMAGE_NAME: html
+    CONTAINER_IMAGE_TAGS: latest
   dependencies:
     - build
-  only:
-    refs:
-      - main
-      - tags
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: on_success
+    - if: $CI_COMMIT_TAG
+      when: on_success
+    - when: never
