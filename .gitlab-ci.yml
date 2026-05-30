@@ -10,7 +10,7 @@ variables:
 stages:
   - install
   - build
-  - publish
+  - container
 
 include:
   - project: devops/pipelines
@@ -54,7 +54,7 @@ lint:
     - build
 
 container:
-  stage: publish
+  stage: container
   extends: .container-build
   needs:
     - build
