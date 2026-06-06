@@ -88,7 +88,7 @@ importers:
         specifier: ^2.13.1
         version: 2.13.1
       svelte:
-        specifier: ^5.55.10
+        specifier: ^5.56.0
         version: 5.56.1(@typescript-eslint/types@8.60.0)
       svelte-check:
         specifier: ^4.4.8
