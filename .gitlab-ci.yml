@@ -21,7 +21,7 @@ include:
       - /node/lint.gitlab-ci.yml
     inputs:
       rules:
-        - when: always
+        - when: on_success
 
   - project: devops/pipelines
     ref: buildah@1.2.2
