@@ -29,8 +29,6 @@ include:
 install:
   stage: install
   extends: .node-install
-  rules:
-    - when: on_success
 
 build:
   stage: build
@@ -44,8 +42,6 @@ build:
     exclude:
       - 'node_modules*'
       - 'node_modules/**/*'
-  rules:
-    - when: on_success
 
 lint:
   stage: build
@@ -53,8 +49,6 @@ lint:
   needs:
     - install
     - build
-  rules:
-    - when: on_success
 
 container:
   stage: container
