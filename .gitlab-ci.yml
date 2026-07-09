@@ -14,17 +14,14 @@ stages:
 
 include:
   - project: devops/pipelines
-    ref: node@1.2.0
+    ref: node@2.0.0
     file:
       - /node/install.gitlab-ci.yml
       - /node/build.gitlab-ci.yml
       - /node/lint.gitlab-ci.yml
-    inputs:
-      rules:
-        - when: on_success
 
   - project: devops/pipelines
-    ref: buildah@1.2.2
+    ref: buildah@2.0.0
     file:
       - /buildah/build.gitlab-ci.yml
       - /buildah/registry-gitlab.gitlab-ci.yml
@@ -32,6 +29,8 @@ include:
 install:
   stage: install
   extends: .node-install
+  rules:
+    - when: on_success
 
 build:
   stage: build
@@ -45,6 +44,8 @@ build:
     exclude:
       - 'node_modules*'
       - 'node_modules/**/*'
+  rules:
+    - when: on_success
 
 lint:
   stage: build
@@ -52,6 +53,8 @@ lint:
   needs:
     - install
     - build
+  rules:
+    - when: on_success
 
 container:
   stage: container
