@@ -1,6 +1,6 @@
 ---
 end: false
-start: September 2025
+start: August 2025
 logo: laravel.png
 name: Laravel
 location: New York, USA

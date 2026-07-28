@@ -1,4 +1,4 @@
-import { parse, intervalToDuration, formatDuration } from 'date-fns'
+import { parse, intervalToDuration, formatDuration, addMonths } from 'date-fns'
 
 export function calculateDuration(start: string, end: string | false): string {
   const startDate = parse(start, 'MMMM yyyy', new Date())
@@ -12,7 +12,8 @@ export function calculateDuration(start: string, end: string | false): string {
     endDate = parse(end, 'MMMM yyyy', new Date())
   }
 
-  const duration = intervalToDuration({ start: startDate, end: endDate })
+  // count end month inclusively, like linkedin does, so a single-month stint reads as 1 month
+  const duration = intervalToDuration({ start: startDate, end: addMonths(endDate, 1) })
 
   return (
     formatDuration(duration, {
