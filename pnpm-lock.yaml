@@ -73,7 +73,7 @@ importers:
         specifier: ^0.12.8
         version: 0.12.8(svelte@5.57.0(@typescript-eslint/types@8.70.0))
       postcss:
-        specifier: ^8.5.26
+        specifier: ^8.5.27
         version: 8.5.28
       prettier:
         specifier: ^3.9.6
