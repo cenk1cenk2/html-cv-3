@@ -46,13 +46,13 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       '@types/node':
-        specifier: ^24.13.3
+        specifier: ^24.13.4
         version: 24.13.4
       '@typescript-eslint/eslint-plugin':
-        specifier: ^8.69.0
+        specifier: ^8.70.0
         version: 8.70.0(@typescript-eslint/parser@8.70.0(eslint@10.10.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.10.0(jiti@2.7.0))(typescript@6.0.3)
       '@typescript-eslint/parser':
-        specifier: ^8.69.0
+        specifier: ^8.70.0
         version: 8.70.0(eslint@10.10.0(jiti@2.7.0))(typescript@6.0.3)
       autoprefixer:
         specifier: ^10.6.0
@@ -67,7 +67,7 @@ importers:
         specifier: ^3.23.0
         version: 3.23.0(eslint@10.10.0(jiti@2.7.0))(svelte@5.57.0(@typescript-eslint/types@8.70.0))
       lint-staged:
-        specifier: ^17.5.0
+        specifier: ^17.5.1
         version: 17.5.1
       mdsvex:
         specifier: ^0.12.8
