@@ -19,19 +19,6 @@
     "format": "prettier --log-level warn --write src/ && pnpm run lint --fix",
     "lint": "eslint"
   },
-  "simple-git-hooks": {
-    "pre-commit": "[ -n \"$SKIP_GIT_HOOKS\" ] && true || pnpm exec lint-staged",
-    "prepare-commit-msg": "[ -t 1 ] && exec < /dev/tty && git cz --hook || true"
-  },
-  "lint-staged": {
-    "*.{ts,js,tsx,jsx,cjs,svelte,spec.ts}": [
-      "prettier --loglevel warn --write",
-      "eslint --fix"
-    ],
-    "*.{svelte,html,css,json,md}": [
-      "prettier --loglevel warn --write"
-    ]
-  },
   "devDependencies": {
     "@cenk1cenk2/eslint-config": "^3.3.6",
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
@@ -51,13 +38,11 @@
     "eslint": "^10.10.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.23.0",
-    "lint-staged": "^17.5.1",
     "mdsvex": "^0.12.8",
     "postcss": "^8.5.28",
     "prettier": "^3.9.6",
     "prettier-plugin-svelte": "^4.1.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "simple-git-hooks": "^2.14.0",
     "svelte": "^5.57.0",
     "svelte-check": "^4.7.6",
     "svelte-eslint-parser": "^1.8.1",

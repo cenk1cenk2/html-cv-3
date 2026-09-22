@@ -5,7 +5,7 @@ default:
 variables:
   NODE_VERSION: 22-alpine
   NODE_PACKAGE_MANAGER: pnpm
-  SKIP_GIT_HOOKS: '1'
+  HK: '0'
 
 stages:
   - install
