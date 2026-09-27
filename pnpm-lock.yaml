@@ -46,7 +46,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       '@types/node':
-        specifier: ^24.13.4
+        specifier: ^24.13.6
         version: 24.19.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.70.0
@@ -58,7 +58,7 @@ importers:
         specifier: ^10.6.1
         version: 10.6.1(postcss@8.5.28)
       eslint:
-        specifier: ^10.10.0
+        specifier: ^10.11.0
         version: 10.11.0(jiti@2.7.0)
       eslint-config-prettier:
         specifier: ^10.1.8
@@ -73,7 +73,7 @@ importers:
         specifier: ^8.5.28
         version: 8.5.28
       prettier:
-        specifier: ^3.9.6
+        specifier: ^3.9.8
         version: 3.9.9
       prettier-plugin-svelte:
         specifier: ^4.1.1
