@@ -9,7 +9,7 @@
     "url": "https://cenk.kilic.dev"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.17.0"
   },
   "scripts": {
     "dev:start": "vite dev --clearScreen false --host 0.0.0.0 --port 4200",
@@ -17,16 +17,15 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "preview": "vite preview --clearScreen false --host 0.0.0.0 --port 4200",
     "format": "prettier --log-level warn --write src/ && pnpm run lint --fix",
-    "lint": "eslint"
+    "lint": "svelte-kit sync && eslint"
   },
   "devDependencies": {
     "@cenk1cenk2/eslint-config": "^3.3.7",
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@neoconfetti/svelte": "^2.2.2",
-    "@sveltejs/adapter-auto": "^7.0.1",
-    "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/adapter-static": "^4.0.0",
+    "@sveltejs/kit": "^3.0.1",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
@@ -43,7 +42,7 @@
     "prettier": "^3.9.8",
     "prettier-plugin-svelte": "^4.1.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "svelte": "^5.57.1",
+    "svelte": "^5.57.2",
     "svelte-check": "^4.7.6",
     "svelte-eslint-parser": "^1.8.1",
     "svelte-fa": "^4.0.4",
@@ -55,5 +54,8 @@
   },
   "dependencies": {
     "date-fns": "^4.4.0"
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*"
   }
 }

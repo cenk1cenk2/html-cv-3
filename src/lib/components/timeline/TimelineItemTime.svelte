@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { calculateDuration } from '$lib/utils/date'
+  import { calculateDuration } from '#lib/utils/date.js'
   import type { TimelineItemFile } from './timeline-item.interface'
 
   export let item: TimelineItemFile

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { slugify } from '$lib/utils'
+  import { slugify } from '#lib/utils/index.js'
 
   export let title: string
 </script>

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import BackToTopButton from '$lib/components/BackToTopButton.svelte'
-  import MenuButton from '$lib/components/MenuButton.svelte'
-  import SpeedDial from '$lib/components/SpeedDial.svelte'
+  import BackToTopButton from '#lib/components/BackToTopButton.svelte'
+  import MenuButton from '#lib/components/MenuButton.svelte'
+  import SpeedDial from '#lib/components/SpeedDial.svelte'
   import Footer from './Footer.svelte'
   import '../app.css'
 </script>

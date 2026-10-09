@@ -2,7 +2,7 @@
   import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
-  import { menu } from '$lib/stores/menu.store'
+  import { menu } from '#lib/stores/menu.store.js'
 
   $: icon = $menu ? faTimes : faBars
 

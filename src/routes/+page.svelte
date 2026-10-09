@@ -1,8 +1,8 @@
 <script lang="ts">
   import { faChalkboardUser, faUser, faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons'
 
-  import ScrollIndicator from '$lib/components/ScrollIndicator.svelte'
-  import Section from '$lib/components/Section.svelte'
+  import ScrollIndicator from '#lib/components/ScrollIndicator.svelte'
+  import Section from '#lib/components/Section.svelte'
   import Education from './Education.svelte'
   import Menu from './Menu.svelte'
   import Teaching from './Teaching.svelte'

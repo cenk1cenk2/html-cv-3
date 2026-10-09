@@ -3,8 +3,8 @@
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
-  import Divider from '$lib/components/Divider.svelte'
-  import Bio from '$lib/content/bio.md'
+  import Divider from '#lib/components/Divider.svelte'
+  import Bio from '#lib/content/bio.md'
 </script>
 
 <section id="profile">

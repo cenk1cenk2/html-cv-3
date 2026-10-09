@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { slugify } from '$lib/utils'
+  import { slugify } from '#lib/utils/index.js'
   import Divider from './Divider.svelte'
 
   export let title: string = ''

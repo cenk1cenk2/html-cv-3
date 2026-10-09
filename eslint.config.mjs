@@ -40,8 +40,7 @@ export default dedupePlugins([
   ...configs['typescript-dynamic'],
   ...configSvelteTypescript,
   ...utils.configImportGroup({
-    tsconfigDir: import.meta.dirname,
-    tsconfig: 'tsconfig.json'
+    paths: ['#lib']
   }),
   {
     languageOptions: {
