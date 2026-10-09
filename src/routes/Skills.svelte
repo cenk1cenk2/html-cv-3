@@ -2,9 +2,9 @@
   import { faCode } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
-  import Container from '$lib/components/Container.svelte'
-  import type { SkillSetItemFile } from '$lib/components/skills/skill-set.interface'
-  import SkillSet from '$lib/components/skills/SkillSet.svelte'
+  import Container from '#lib/components/Container.svelte'
+  import type { SkillSetItemFile } from '#lib/components/skills/skill-set.interface.js'
+  import SkillSet from '#lib/components/skills/SkillSet.svelte'
 
   let skills: SkillSetItemFile[] = []
 </script>

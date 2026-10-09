@@ -2,11 +2,11 @@
   import { faHome } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
 </script>
 
 <svelte:head>
-  <title>kilic.dev: {$page.status} - {$page.error.message}</title>
+  <title>kilic.dev: {page.status} - {page.error.message}</title>
 </svelte:head>
 
 <div class="flex items-center py-20 antialiased">
@@ -15,11 +15,11 @@
     dark:border-gray-700 dark:bg-gray-800/90"
   >
     <div class="p-9 lg:p-12">
-      <h1 class="m-0 text-center font-mono text-7xl font-extrabold text-red-500 lg:text-9xl">{$page.status}</h1>
+      <h1 class="m-0 text-center font-mono text-7xl font-extrabold text-red-500 lg:text-9xl">{page.status}</h1>
 
       <div class="border-primary-500 mx-auto mt-12 border-b-2 pt-3 opacity-50 lg:mx-0"></div>
 
-      <h1 class="text-primary-500 truncate pt-8 text-center text-4xl leading-none font-bold whitespace-nowrap uppercase">{$page.error.message}</h1>
+      <h1 class="text-primary-500 truncate pt-8 text-center text-4xl leading-none font-bold whitespace-nowrap uppercase">{page.error.message}</h1>
 
       <div class="mx-auto mt-12 flex w-4/5 flex-wrap items-center justify-evenly pb-16 text-5xl lg:pb-0">
         <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->

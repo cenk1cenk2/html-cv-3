@@ -3,7 +3,7 @@
   import { onMount } from 'svelte'
   import Fa from 'svelte-fa'
 
-  import { menu } from '$lib/stores/menu.store'
+  import { menu } from '#lib/stores/menu.store.js'
 
   export let items: { icon: IconDefinition; href: string; text: string }[]
 
