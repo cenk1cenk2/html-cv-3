@@ -31,7 +31,7 @@
             width="800"
             height="800"
             fetchpriority="high"
-            class="container-border aspect-square rounded-xl object-cover max-lg:h-[min(100%,calc(100vw-1rem))] max-lg:w-auto lg:size-80"
+            class="container-border aspect-square rounded-xl object-cover max-lg:h-[min(100%,calc(100vw-1rem))] max-lg:w-auto lg:size-[22.375rem]"
           />
         </picture>
       </div>
