@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { TimelineItemFile } from './timeline-item.interface'
 
-  export let item: TimelineItemFile
+  interface Props {
+    item: TimelineItemFile
+  }
+
+  let { item }: Props = $props()
 </script>
 
 <picture class="block">

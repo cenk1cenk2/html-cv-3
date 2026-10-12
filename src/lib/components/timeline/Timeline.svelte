@@ -7,9 +7,13 @@
   import TimelineItem from './TimelineItem.svelte'
   import Divider from '../Divider.svelte'
 
-  export let name: string
-  export let icon: IconDefinition
-  export let items: TimelineItemFile[]
+  interface Props {
+    name: string
+    icon: IconDefinition
+    items: TimelineItemFile[]
+  }
+
+  let { name, icon, items }: Props = $props()
 </script>
 
 <div class="w-full" id={slugify(name)}>

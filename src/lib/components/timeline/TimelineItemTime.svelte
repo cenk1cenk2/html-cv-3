@@ -5,10 +5,14 @@
   import { calculateDuration, formatMonth } from '#lib/utils/date.js'
   import type { TimelineItemFile } from './timeline-item.interface'
 
-  export let item: TimelineItemFile
+  interface Props {
+    item: TimelineItemFile
+  }
 
-  $: current = item.metadata.end === false
-  $: duration = item.metadata.duration !== false ? calculateDuration(item.metadata.start, item.metadata.end) : null
+  let { item }: Props = $props()
+
+  let current = $derived(item.metadata.end === false)
+  let duration = $derived(item.metadata.duration !== false ? calculateDuration(item.metadata.start, item.metadata.end) : null)
 </script>
 
 <div class="timeline-date">

@@ -1,6 +1,6 @@
 import type { Action } from 'svelte/action'
 
-import { activeSection } from '#lib/stores/section.store.js'
+import { section } from '#lib/stores/section.svelte.js'
 
 const nodes = new Set<HTMLElement>()
 let frame: number | null = null
@@ -16,7 +16,7 @@ const update = (): void => {
   }
 
   if (active) {
-    activeSection.set(active.id)
+    section.active = active.id
   }
 }
 

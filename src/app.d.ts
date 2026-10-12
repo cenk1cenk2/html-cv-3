@@ -9,8 +9,12 @@ declare global {
   }
 
   declare module '*.md' {
+    import type { Component } from 'svelte'
+
     export const metadata: any
-    export { SvelteComponent as default } from 'svelte'
+    const component: Component
+
+    export default component
   }
 }
 

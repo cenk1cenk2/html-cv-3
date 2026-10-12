@@ -6,10 +6,14 @@
   import TimelineItemText from './TimelineItemText.svelte'
   import TimelineItemTime from './TimelineItemTime.svelte'
 
-  export let item: TimelineItemFile
+  interface Props {
+    item: TimelineItemFile
+  }
 
-  let expanded = false
-  let collapsible = false
+  let { item }: Props = $props()
+
+  let expanded = $state(false)
+  let collapsible = $state(false)
 
   const toggle = (event: MouseEvent): void => {
     if (!collapsible || (event.target as Element).closest('a, button')) {

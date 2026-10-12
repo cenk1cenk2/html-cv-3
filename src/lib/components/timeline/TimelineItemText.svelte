@@ -5,9 +5,13 @@
 
   import type { TimelineItemFile } from './timeline-item.interface'
 
-  export let item: TimelineItemFile
-  export let expanded = false
-  export let collapsible = false
+  interface Props {
+    item: TimelineItemFile
+    expanded?: boolean
+    collapsible?: boolean
+  }
+
+  let { item, expanded = $bindable(false), collapsible = $bindable(false) }: Props = $props()
 
   let content: HTMLElement
 
@@ -17,7 +21,7 @@
 </script>
 
 <div class="timeline-text" class:collapsed={collapsible && !expanded} bind:this={content}>
-  <svelte:component this={item.default} />
+  <item.default />
 </div>
 
 {#if collapsible}

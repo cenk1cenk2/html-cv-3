@@ -2,15 +2,19 @@
   import type { IconDefinition } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
-  import { activeSection } from '#lib/stores/section.store.js'
+  import { section } from '#lib/stores/section.svelte.js'
 
-  export let items: { icon: IconDefinition; href: string; text: string }[]
+  interface Props {
+    items: { icon: IconDefinition; href: string; text: string }[]
+  }
+
+  let { items }: Props = $props()
 </script>
 
 <nav class="navbar" aria-label="Sections">
   <span class="scroll-progress border-primary-500 pointer-events-none absolute -inset-0.5 rounded-xl border-2" aria-hidden="true"></span>
   {#each items as item (item.href)}
-    {@const active = item.href === `#${$activeSection}`}
+    {@const active = item.href === `#${section.active}`}
     <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
     <a href={item.href} class="navbar-item" class:active aria-current={active ? 'location' : undefined}>
       <Fa icon={item.icon} size="lg" />

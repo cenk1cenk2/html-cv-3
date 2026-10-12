@@ -7,7 +7,7 @@
   import KOC, { metadata as KOC_METADATA } from '#lib/content/timeline/education/20-koc.md'
   import FH_TW, { metadata as FH_TW_METADATA } from '#lib/content/timeline/education/30-fh-tw.md'
 
-  export let TIMELINE: TimelineItemFile[] = [
+  const TIMELINE: TimelineItemFile[] = [
     { default: FH_TW, metadata: FH_TW_METADATA },
     { default: KOC, metadata: KOC_METADATA },
     { default: KAL, metadata: KAL_METADATA }
