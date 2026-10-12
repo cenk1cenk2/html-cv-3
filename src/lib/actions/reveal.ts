@@ -5,16 +5,9 @@ export const reveal: Action<HTMLElement> = (node) => {
     return
   }
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        node.dataset.reveal = 'visible'
-      } else {
-        node.dataset.reveal = entry.boundingClientRect.top < 0 ? 'above' : 'below'
-      }
-    },
-    { rootMargin: '0px 0px -10% 0px' }
-  )
+  const observer = new IntersectionObserver(([entry]) => {
+    node.dataset.reveal = entry.isIntersecting || entry.boundingClientRect.top < 0 ? 'visible' : 'below'
+  })
 
   observer.observe(node)
 
