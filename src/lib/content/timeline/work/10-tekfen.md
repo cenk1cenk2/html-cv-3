@@ -11,6 +11,10 @@ role: Instrumentation and Control Systems Engineer
 type: Full-Time
 ---
 
-- Working mainly in the Oil and Gas Industry.
-- Instrument and Control Systems technical documentation for procurement.
-- Factory tests supervision and commissioning documentation.
+**Role:** Where it all started: instrumentation and control systems for oil and gas plants, back when my pipelines still carried actual oil.
+
+<!-- more -->
+
+- Working mainly on oil and gas projects within a multidisciplinary engineering team.
+- Preparing the technical documentation for procuring instrumentation and control systems.
+- Supervising factory acceptance tests and documenting the systems for commissioning.
