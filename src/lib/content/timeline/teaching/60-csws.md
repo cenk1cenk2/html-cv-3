@@ -9,4 +9,8 @@ location: Klagenfurt, Carinthia, Austria
 role: Lecturer
 ---
 
+Teaching JavaScript to a new full-time cohort, giving future developers the foundations to build their careers on.
+
+<!-- more -->
+
 - JavaScript Basics (2 weeks)

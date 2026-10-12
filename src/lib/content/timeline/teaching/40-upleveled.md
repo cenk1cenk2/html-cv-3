@@ -9,4 +9,8 @@ location: Vienna, Austria
 role: Guest Lecturer
 ---
 
+Guest lecturing at a full-stack bootcamp for a one-day deep dive into functional programming and programming paradigms in JavaScript.
+
+<!-- more -->
+
 - JavaScript - Functional Programming and Programming Paradigms (1 day)
