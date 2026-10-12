@@ -9,7 +9,17 @@ const update = (): void => {
   frame = null
 
   const line = window.innerHeight / 2
-  const active = [...nodes].filter((node) => node.getBoundingClientRect().top <= line).sort((a, b) => b.getBoundingClientRect().top - a.getBoundingClientRect().top)[0]
+  let active: HTMLElement | undefined
+  let closest = -Infinity
+
+  for (const node of nodes) {
+    const { top } = node.getBoundingClientRect()
+
+    if (top <= line && top > closest) {
+      active = node
+      closest = top
+    }
+  }
 
   for (const node of nodes) {
     node.dataset.spotlight = node === active ? 'on' : 'off'

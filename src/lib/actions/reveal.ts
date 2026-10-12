@@ -10,7 +10,8 @@ export const reveal: Action<HTMLElement, RevealOptions | undefined> = (node, opt
     return
   }
 
-  const { above = false, threshold = 0 } = options ?? {}
+  const { above = false } = options ?? {}
+  const threshold = Math.min(options?.threshold ?? 0, window.innerHeight / node.offsetHeight)
 
   const observer = new IntersectionObserver(
     ([entry]) => {
