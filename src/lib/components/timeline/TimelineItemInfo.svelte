@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { faBuilding, faHouseLaptop, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+  import { faBuilding, faGlobe, faHouseLaptop, faLocationDot } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
   import type { TimelineItemFile } from './timeline-item.interface'
@@ -16,6 +16,12 @@
     <span class="tag-pill"><Fa icon={faLocationDot} /> {item.metadata.location}</span>
     {#if item.metadata.attendance}
       <span class="tag-pill"><Fa icon={item.metadata.attendance === 'Remote' ? faHouseLaptop : faBuilding} /> {item.metadata.attendance}</span>
+    {/if}
+    {#if item.metadata.website}
+      <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+      <a href={item.metadata.website} target="_blank" rel="noopener" class="tag-pill hover:border-primary-500"
+        ><Fa icon={faGlobe} /> {item.metadata.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a
+      >
     {/if}
   </div>
 </div>

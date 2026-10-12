@@ -10,6 +10,7 @@ export interface TimelineItemEntry {
   type?: string
   role?: string
   duration?: boolean
+  website?: string
 }
 
 export interface TimelineItemFile {

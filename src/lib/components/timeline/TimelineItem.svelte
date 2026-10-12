@@ -18,6 +18,15 @@
 
     expanded = !expanded
   }
+
+  const toggleWithKey = (event: KeyboardEvent): void => {
+    if (!collapsible || event.target !== event.currentTarget || (event.key !== 'Enter' && event.key !== ' ')) {
+      return
+    }
+
+    event.preventDefault()
+    expanded = !expanded
+  }
 </script>
 
 {#snippet tetherOut(extra: string = 'flex')}
@@ -44,14 +53,16 @@
       <TimelineItemLogo {item}></TimelineItemLogo>
       {@render tetherOut('hidden md:flex')}
     </div>
+    <span class="tether-down"></span>
   </div>
-  <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
-  <article class="timeline-card reveal-slide" class:cursor-pointer={collapsible} onclick={toggle}>
+  <!-- svelte-ignore a11y_no_noninteractive_tabindex, a11y_no_noninteractive_element_interactions -->
+  <article class="timeline-card reveal-slide" class:cursor-pointer={collapsible} tabindex="0" onclick={toggle} onkeydown={toggleWithKey}>
     {@render tetherIn('hidden md:flex')}
-    <div class="reveal-item delay-450 md:delay-150">
+    <span class="tether-up"></span>
+    <div class="reveal-item delay-150">
       <TimelineItemInfo {item}></TimelineItemInfo>
     </div>
-    <div class="reveal-item delay-600 md:delay-300">
+    <div class="reveal-item delay-300">
       <TimelineItemText {item} bind:expanded bind:collapsible></TimelineItemText>
     </div>
   </article>
@@ -61,7 +72,7 @@
   @reference "../../../app.css";
 
   .timeline-item {
-    @apply relative isolate grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-4 [view-timeline-name:--row];
+    @apply relative isolate grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-4 [view-timeline-inset:0px] [view-timeline-name:--row];
     @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
   }
 
@@ -70,7 +81,7 @@
   }
 
   .timeline-logo-cell {
-    @apply col-start-4 row-start-1 flex justify-center [--slide-x:0px] [--slide-y:0px] md:col-start-2 md:[--slide-x:1.5rem];
+    @apply relative col-start-4 row-start-1 flex items-center justify-center self-stretch [--slide-x:0px] [--slide-y:0px] md:col-start-2 md:self-center md:[--slide-x:1.5rem];
   }
 
   .timeline-chain {
@@ -78,7 +89,7 @@
   }
 
   .timeline-line {
-    @apply absolute top-1.5 bottom-1.5 left-(--chain-x) w-[3px] origin-top -translate-x-1/2 bg-gray-300 dark:bg-gray-600;
+    @apply absolute top-[5px] bottom-[5px] left-(--chain-x) w-1 origin-top -translate-x-1/2 bg-gray-400;
   }
 
   li:first-child .timeline-line {
@@ -90,7 +101,7 @@
   }
 
   .timeline-link {
-    @apply absolute left-(--chain-x) h-1.5 w-3 -translate-x-1/2 border-[3px] border-gray-300 dark:border-gray-600;
+    @apply absolute left-(--chain-x) h-[5px] w-2.5 -translate-x-1/2 border-[3px] border-gray-400;
   }
 
   .timeline-link-top {
@@ -103,7 +114,7 @@
 
   li:first-child .timeline-link-top,
   li:last-child .timeline-link-bottom {
-    @apply h-[3px] w-4 rounded-full border-0 bg-gray-300 dark:bg-gray-600;
+    @apply h-1 w-4 rounded-full border-0 bg-gray-400;
   }
 
   .tether {
@@ -119,7 +130,7 @@
   }
 
   .tether-stub {
-    @apply h-[3px] w-1.5 bg-gray-300 dark:bg-gray-600;
+    @apply h-1 w-[7px] bg-gray-400;
   }
 
   .tether-out .tether-stub {
@@ -131,7 +142,7 @@
   }
 
   .tether-half {
-    @apply h-3 w-1.5 border-[3px] border-gray-300 dark:border-gray-600;
+    @apply h-2.5 w-[5px] border-[3px] border-gray-400;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -139,33 +150,58 @@
       .timeline-line {
         animation: draw-y linear both;
         animation-timeline: --row;
-        animation-range: entry 0% entry 350px;
+        animation-range: entry-crossing 200px entry-crossing calc(100% + 200px);
       }
 
       .timeline-link-top {
         animation: fade-in linear both;
         animation-timeline: --row;
-        animation-range: entry 0% entry 60px;
+        animation-range: entry-crossing calc(200px - 20px) entry-crossing 200px;
       }
 
       .timeline-link-bottom {
         animation: fade-in linear both;
         animation-timeline: --row;
-        animation-range: entry 330px entry 380px;
+        animation-range: entry-crossing calc(100% + 200px - 20px) entry-crossing calc(100% + 200px);
       }
 
       .tether-stub {
         animation: draw-x ease-out both;
         animation-timeline: --row;
-        animation-range: entry 40px entry 160px;
+        animation-range: entry-crossing calc(200px + 30px) entry-crossing calc(200px + 70px);
+      }
+
+      .tether-down,
+      .tether-up {
+        animation: fade-in linear both;
+        animation-timeline: --row;
+        animation-range: entry-crossing calc(200px + 90px) entry-crossing calc(200px + 110px);
       }
 
       .tether-half {
         animation: fade-in linear both;
         animation-timeline: --row;
-        animation-range: entry 140px entry 200px;
+        animation-range: entry-crossing calc(200px + 60px) entry-crossing calc(200px + 90px);
+      }
+
+      @media (width >= 48rem) {
+        .tether-stub {
+          animation-range: entry-crossing calc(50% + 200px - 40px) entry-crossing calc(50% + 200px);
+        }
+
+        .tether-half {
+          animation-range: entry-crossing calc(50% + 200px - 10px) entry-crossing calc(50% + 200px + 20px);
+        }
       }
     }
+  }
+
+  .tether-down {
+    @apply absolute top-[calc(100%+3px)] left-1/2 h-[5px] w-2.5 -translate-x-1/2 rounded-t-full border-[3px] border-b-0 border-gray-400 bg-white md:hidden dark:bg-gray-900;
+  }
+
+  .tether-up {
+    @apply absolute -top-[10px] left-[calc(50%+6.25rem)] h-[5px] w-2.5 -translate-x-1/2 rounded-b-full border-[3px] border-t-0 border-gray-400 bg-white md:hidden dark:bg-gray-900;
   }
 
   .tether-half-left {
@@ -178,9 +214,9 @@
 
   .timeline-card {
     @apply relative col-span-full row-start-2 md:col-span-1 md:col-start-3 md:row-start-1;
-    @apply delay-300 [--slide-x:0px] [--slide-y:1.5rem] md:delay-0 md:[--slide-x:3rem] md:[--slide-y:0px];
+    @apply [--slide-x:0px] [--slide-y:1.5rem] md:[--slide-x:3rem] md:[--slide-y:0px];
     @apply rounded-xl border-2 border-gray-200 bg-white p-5 shadow-xl backdrop-blur md:bg-white/60 md:p-6 lg:border-4 dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-800/50;
-    @apply hover:border-primary-500/50;
+    @apply hover:border-primary-500/50 max-md:opacity-100;
   }
 
   .timeline-card .tether-in {
