@@ -192,7 +192,7 @@ a {
 
 @keyframes parallax {
   to {
-    translate: 0 35vh;
+    translate: 0 15vh;
   }
 }
 
@@ -258,6 +258,6 @@ a {
 
 @utility reveal-stagger {
   @apply *:transition *:duration-700 *:ease-out *:nth-2:delay-150 *:nth-3:delay-300 *:nth-4:delay-450;
-  @apply data-[reveal=below]:*:translate-y-12 data-[reveal=below]:*:opacity-0;
-  @apply data-[reveal=above]:*:-translate-y-12 data-[reveal=above]:*:opacity-0;
+  @apply data-[reveal=below]:*:translate-y-6 data-[reveal=below]:*:opacity-0;
+  @apply data-[reveal=above]:*:-translate-y-6 data-[reveal=above]:*:opacity-0;
 }

@@ -9,25 +9,31 @@
   export let item: TimelineItemFile
 </script>
 
+{#snippet chain()}
+  <div class="timeline-chain">
+    <span class="timeline-line"></span>
+    <span class="timeline-link timeline-link-top"></span>
+    <span class="timeline-link timeline-link-bottom"></span>
+  </div>
+{/snippet}
+
 <li class="md:flex md:place-items-stretch">
   <!-- mobile view -->
-  <div class="reveal-stagger my-8 border-t-2 border-gray-300 first:border-t-0 md:hidden dark:border-gray-600" use:reveal>
+  <div class="reveal-stagger relative isolate py-6 [--chain-x:2rem] md:hidden" use:reveal>
+    {@render chain()}
     <div class="mb-4 flex gap-4">
       <TimelineItemLogo {item}></TimelineItemLogo>
       <TimelineItemInfo {item}></TimelineItemInfo>
       <TimelineItemTime {item}></TimelineItemTime>
     </div>
-
-    <TimelineItemText {item}></TimelineItemText>
+    <div class="pl-20">
+      <TimelineItemText {item}></TimelineItemText>
+    </div>
   </div>
 
   <!-- desktop view -->
-  <div class="reveal-stagger hidden md:relative md:isolate md:flex md:w-full md:place-items-stretch" use:reveal>
-    <div class="timeline-chain">
-      <span class="timeline-line"></span>
-      <span class="timeline-link timeline-link-top"></span>
-      <span class="timeline-link timeline-link-bottom"></span>
-    </div>
+  <div class="reveal-stagger hidden [--chain-x:11rem] md:relative md:isolate md:flex md:w-full md:place-items-stretch" use:reveal>
+    {@render chain()}
     <TimelineItemTime {item}></TimelineItemTime>
     <TimelineItemLogo {item}></TimelineItemLogo>
     <div class="timeline-info-column">
@@ -45,7 +51,7 @@
   }
 
   .timeline-line {
-    @apply absolute top-2 bottom-2 left-44 w-1 -translate-x-1/2 bg-gray-300 dark:bg-gray-600;
+    @apply absolute top-2 bottom-2 left-(--chain-x) w-1 -translate-x-1/2 bg-gray-300 dark:bg-gray-600;
   }
 
   li:first-child .timeline-line {
@@ -57,7 +63,7 @@
   }
 
   .timeline-link {
-    @apply absolute left-44 h-2 w-4 -translate-x-1/2 border-4 border-gray-300 dark:border-gray-600;
+    @apply absolute left-(--chain-x) h-2 w-4 -translate-x-1/2 border-4 border-gray-300 dark:border-gray-600;
   }
 
   .timeline-link-top {
