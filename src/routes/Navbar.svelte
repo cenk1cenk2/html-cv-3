@@ -8,6 +8,7 @@
 </script>
 
 <nav class="navbar" aria-label="Sections">
+  <span class="scroll-progress border-primary-500 pointer-events-none absolute -inset-0.5 rounded-xl border-2" aria-hidden="true"></span>
   {#each items as item (item.href)}
     {@const active = item.href === `#${$activeSection}`}
     <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->

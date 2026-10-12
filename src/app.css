@@ -213,6 +213,27 @@ a {
   }
 }
 
+@keyframes scroll-progress {
+  from {
+    clip-path: inset(0 100% calc(100% - var(--radius-xl)) 0);
+  }
+
+  to {
+    clip-path: inset(0 0 calc(100% - var(--radius-xl)) 0);
+  }
+}
+
+@utility scroll-progress {
+  @apply hidden;
+
+  @supports (animation-timeline: scroll()) {
+    @apply block;
+
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
 @utility reveal-stagger {
   @apply *:transition *:duration-700 *:ease-out *:nth-2:delay-150 *:nth-3:delay-300 *:nth-4:delay-450;
   @apply data-[reveal=below]:*:translate-y-12 data-[reveal=below]:*:opacity-0;
