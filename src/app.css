@@ -18,7 +18,7 @@
   --color-primary-950: #231606;
 
   --shadow-xl: 0 20px 25px -5px var(--shadow-soft), 0 8px 10px -6px var(--shadow-soft);
-  --shadow-2xl: 0 4px 32px 4px var(--shadow-halo), 0 25px 50px -12px var(--shadow-deep);
+  --shadow-2xl: 0 4px 28px 3px var(--shadow-halo), 0 25px 50px -12px var(--shadow-deep);
 
   --color-gray-50: #f6f6f6;
   --color-gray-100: #ecedee;
@@ -31,12 +31,6 @@
   --color-gray-800: #1e2124;
   --color-gray-900: #141618;
   --color-gray-950: #0d0f10;
-
-  --max-height-\(screen-16\): calc(100vh - 4rem);
-
-  --inset-16: 4rem;
-
-  --transition-property-padding: padding;
 
   --animate-rise: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-scroll-line: scroll-line 1.8s ease-in-out infinite;
@@ -72,7 +66,7 @@
     --color-primary-500: #d6af66;
     --shadow-soft: color-mix(in oklab, var(--color-primary-500) 10%, transparent);
     --shadow-deep: color-mix(in oklab, var(--color-primary-500) 16%, transparent);
-    --shadow-halo: color-mix(in oklab, var(--color-primary-500) 40%, transparent);
+    --shadow-halo: color-mix(in oklab, var(--color-primary-500) 32%, transparent);
   }
 }
 
