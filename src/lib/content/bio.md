@@ -1,3 +1,5 @@
-I am the guy that might have one too many servers at home according to my wife and running complex setups that mostly serve me. But the plus side to that is I have big enough of a playground to experiment with new technologies as well as sharpening my skill-set to have a solution for novelty cases when I encounter them in real-life.
+I build and run the platforms other engineers ship on, and my job is to make that infrastructure boring enough that they never have to care. I run servers for a living, and apparently also for fun.
 
-One of the joys of my life is to discuss this "nerdy" stuff with like-minded people and exchange ideas even though according to my experience they are rarer than unicorns.
+At home, I am the guy with one too many servers, at least according to my wife. That homelab is my playground, where new technology gets tried long before I need it, so unusual problems rarely catch me off guard.
+
+One of the joys of my life is trading ideas about this nerdy stuff with like-minded people. In my experience they are rarer than unicorns, which makes every one of those conversations count.
