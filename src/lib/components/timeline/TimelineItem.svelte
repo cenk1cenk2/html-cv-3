@@ -37,7 +37,7 @@
   <span class="tether tether-in {extra}"><span class="tether-half tether-half-right"></span><span class="tether-stub"></span></span>
 {/snippet}
 
-<li class="timeline-item group" use:reveal>
+<li class="timeline-item group" class:expanded use:reveal>
   <div class="timeline-chain">
     <span class="timeline-line"></span>
     <span class="timeline-link timeline-link-top"></span>
@@ -163,6 +163,11 @@
         animation: fade-in linear both;
         animation-timeline: --row;
         animation-range: entry-crossing calc(100% + 200px - 20px) entry-crossing calc(100% + 200px);
+      }
+
+      .expanded .timeline-line,
+      .expanded .timeline-link-bottom {
+        animation: none;
       }
 
       .tether-stub {
