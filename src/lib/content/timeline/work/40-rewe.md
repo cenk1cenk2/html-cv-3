@@ -11,6 +11,8 @@ type: Full-Time
 
 **Role:** Automating everything through Kubernetes operators for developers to have a self-service platform, while building the next generation of the infrastructure in the scope of the company’s digitalization process.
 
+<!-- more -->
+
 - Responsible for company-wide Kubernetes based integration utilities consisting of Kafka and its auxiliaries, Istio on an event-driven programming environment.
 - Design and implementation of a self-service platform in Kubernetes with operators through kubebuilder and Go for the current and the next generation of the architecture.
 - Design and implementation of short-term problem-solving tools and backends with Go.

@@ -7,6 +7,17 @@
   import TimelineItemTime from './TimelineItemTime.svelte'
 
   export let item: TimelineItemFile
+
+  let expanded = false
+  let collapsible = false
+
+  const toggle = (event: MouseEvent): void => {
+    if (!collapsible || (event.target as Element).closest('a, button')) {
+      return
+    }
+
+    expanded = !expanded
+  }
 </script>
 
 {#snippet tetherOut(extra: string = 'flex')}
@@ -34,13 +45,14 @@
       {@render tetherOut('hidden md:flex')}
     </div>
   </div>
-  <article class="timeline-card reveal-slide">
+  <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
+  <article class="timeline-card reveal-slide" class:cursor-pointer={collapsible} onclick={toggle}>
     {@render tetherIn('hidden md:flex')}
     <div class="reveal-item delay-450 md:delay-150">
       <TimelineItemInfo {item}></TimelineItemInfo>
     </div>
     <div class="reveal-item delay-600 md:delay-300">
-      <TimelineItemText {item}></TimelineItemText>
+      <TimelineItemText {item} bind:expanded bind:collapsible></TimelineItemText>
     </div>
   </article>
 </li>
