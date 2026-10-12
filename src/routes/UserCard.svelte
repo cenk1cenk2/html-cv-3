@@ -7,8 +7,9 @@
   import Bio from '#lib/content/bio.md'
 </script>
 
-<section id="profile">
-  <div class="cover">
+<section id="profile" class="relative isolate overflow-hidden">
+  <div class="cover parallax"></div>
+  <div>
     <div class="flex h-auto min-h-min items-start px-2 pt-20 pb-20 lg:my-0 lg:h-screen lg:items-center lg:pt-0 lg:pb-0">
       <div class="mx-auto lg:pl-48">
         <div class="container-border rounded-xl bg-white/90 shadow-2xl transition duration-300 ease-in-out dark:bg-gray-800/90">
@@ -20,7 +21,7 @@
               <h1 class="pt-8 text-center text-4xl font-bold lg:pt-0">Cenk Kılıç, MSc.</h1>
 
               <Divider />
-              <p class="flex justify-center pt-4 text-base font-bold">Electrical&Electronics Engineer by trait, developer by heart.</p>
+              <p class="flex justify-center pt-4 text-base font-bold">Electrical&Electronics Engineer by trade, developer by heart.</p>
               <p class="flex justify-center pt-4 text-sm">Vienna, Austria</p>
 
               <div class="mx-auto mt-6 flex w-4/5 flex-wrap items-center justify-evenly lg:w-full">
@@ -48,7 +49,7 @@
   @reference "../app.css";
 
   .cover {
-    @apply bg-cover;
+    @apply absolute inset-x-0 -top-1/4 -bottom-1/4 -z-10 bg-cover bg-center;
     background-image: url('/cover.png');
   }
 
