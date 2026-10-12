@@ -20,13 +20,13 @@
     <p class="text-base leading-tight font-semibold text-gray-900 dark:text-white">{duration}</p>
   {/if}
   <p class="inline-flex items-center gap-1.5 whitespace-nowrap tabular-nums {duration ? 'mt-1 text-sm text-gray-900 dark:text-white' : 'font-medium'}">
+    {formatMonth(item.metadata.start)}{#if typeof item.metadata.end !== 'undefined'}&nbsp;– {current ? 'Now' : formatMonth(String(item.metadata.end))}{/if}
     {#if current}
       <span class="relative flex size-2">
         <span class="absolute inline-flex size-full rounded-full bg-green-500 opacity-75 motion-safe:animate-ping"></span>
         <span class="relative inline-flex size-2 rounded-full bg-green-500"></span>
       </span>
     {/if}
-    {formatMonth(item.metadata.start)}{#if typeof item.metadata.end !== 'undefined'}&nbsp;– {current ? 'Now' : formatMonth(String(item.metadata.end))}{/if}
   </p>
   {#if item.metadata.type}
     <span class="tag-pill mt-2"><Fa icon={/degree|school/i.test(item.metadata.type) ? faGraduationCap : faBriefcase} /> {item.metadata.type}</span>
