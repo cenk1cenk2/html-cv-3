@@ -50,9 +50,9 @@
           Electrical & Electronics Engineer by trade, <span class="text-primary-500 font-semibold">developer by heart.</span>
         </p>
         <div class="motion-safe:animate-rise mt-10 flex flex-wrap justify-center gap-3 motion-safe:[animation-delay:300ms] lg:justify-start">
-          <a href="mailto:cenk@kilic.dev" target="_blank" class="pill-link" aria-label="Link for mailing me."><Fa icon={faEnvelope} /> Email</a>
-          <a href="https://srcs.kilic.dev" target="_blank" class="pill-link" aria-label="Link for GitHub profile."><Fa icon={faGithub} /> GitHub</a>
-          <a href="https://linkedin.com/in/cenkkilic" target="_blank" class="pill-link" aria-label="Link for Linkedin profile."><Fa icon={faLinkedin} /> LinkedIn</a>
+          <a href="mailto:cenk@kilic.dev" class="pill-link"><Fa icon={faEnvelope} /> Email</a>
+          <a href="https://srcs.kilic.dev" target="_blank" class="pill-link"><Fa icon={faGithub} /> GitHub</a>
+          <a href="https://www.linkedin.com/in/cenkkilic/" target="_blank" class="pill-link"><Fa icon={faLinkedin} /> LinkedIn</a>
         </div>
       </div>
     </div>

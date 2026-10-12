@@ -53,7 +53,7 @@
         { "@type": "CollegeOrUniversity", "name": "Koç University" }
       ],
       "knowsAbout": ["Kubernetes", "Platform Engineering", "CI/CD", "Go", "Ansible", "Terraform", "Infrastructure Automation"],
-      "sameAs": ["https://github.com/cenk1cenk2", "https://linkedin.com/in/cenk1cenk2"]
+      "sameAs": ["https://github.com/cenk1cenk2", "https://www.linkedin.com/in/cenkkilic/"]
     }
   </script>
 </svelte:head>
