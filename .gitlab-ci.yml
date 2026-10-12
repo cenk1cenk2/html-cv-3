@@ -3,7 +3,7 @@ default:
   interruptible: true
 
 variables:
-  NODE_VERSION: 22-alpine
+  NODE_VERSION: 26-alpine
   NODE_PACKAGE_MANAGER: pnpm
   HK: '0'
 
