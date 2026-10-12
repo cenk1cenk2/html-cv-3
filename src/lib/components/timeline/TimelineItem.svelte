@@ -197,24 +197,24 @@
       .timeline-logo-cell :global(.timeline-logo) {
         animation: border-fill linear both;
         animation-timeline: --row;
-        animation-range: entry-crossing calc(200px + 40px) entry-crossing calc(200px + 90px);
+        animation-range: entry-crossing 200px entry-crossing calc(200px + 140px);
       }
 
       .timeline-date-cell :global(.timeline-date),
       .timeline-card {
         animation: border-fill linear both;
         animation-timeline: --row;
-        animation-range: entry-crossing calc(200px + 110px) entry-crossing calc(200px + 160px);
+        animation-range: entry-crossing calc(200px + 140px) entry-crossing calc(200px + 360px);
       }
 
       @media (width >= 48rem) {
         .timeline-logo-cell :global(.timeline-logo) {
-          animation-range: entry-crossing calc(50% + 200px - 60px) entry-crossing calc(50% + 200px - 10px);
+          animation-range: entry-crossing calc(50% + 200px - 120px) entry-crossing calc(50% + 200px + 40px);
         }
 
         .timeline-date-cell :global(.timeline-date),
         .timeline-card {
-          animation-range: entry-crossing calc(50% + 200px + 20px) entry-crossing calc(50% + 200px + 80px);
+          animation-range: entry-crossing calc(50% + 200px + 40px) entry-crossing calc(50% + 200px + 260px);
         }
 
         .tether-stub {
