@@ -31,6 +31,6 @@
   @reference "../../../app.css";
 
   .timeline-time-column {
-    @apply flex items-center border-gray-300 md:-mr-12 md:items-center md:border-r-4 md:pr-12 dark:border-gray-600;
+    @apply flex items-center md:items-center;
   }
 </style>

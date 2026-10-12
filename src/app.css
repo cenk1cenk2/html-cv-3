@@ -169,3 +169,43 @@ a {
   @apply shadow-xl transition-colors duration-500 ease-in-out;
   @apply dark:border-gray-700;
 }
+
+@keyframes parallax {
+  to {
+    translate: 0 35vh;
+  }
+}
+
+@utility parallax {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      animation: parallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+
+@keyframes draw-x {
+  from {
+    scale: 0 1;
+  }
+}
+
+@utility draw-x {
+  @apply origin-left;
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: draw-x ease-out both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+
+@utility reveal-stagger {
+  @apply *:transition *:duration-700 *:ease-out *:nth-2:delay-150 *:nth-3:delay-300 *:nth-4:delay-450;
+  @apply data-[reveal=below]:*:translate-y-12 data-[reveal=below]:*:opacity-0;
+  @apply data-[reveal=above]:*:-translate-y-12 data-[reveal=above]:*:opacity-0;
+}

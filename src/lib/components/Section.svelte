@@ -1,11 +1,13 @@
 <script lang="ts">
+  import { reveal } from '#lib/actions/reveal.js'
+  import { spotlight } from '#lib/actions/spotlight.js'
   import { slugify } from '#lib/utils/index.js'
 
   export let title: string
 </script>
 
-<section id={slugify(title)}>
-  <div class="grid grid-cols-12 px-2 pt-4">
+<section id={slugify(title)} class="transition duration-500 data-[spotlight=off]:opacity-30 data-[spotlight=off]:grayscale" use:spotlight>
+  <div class="reveal-stagger grid grid-cols-12 px-2 pt-4" use:reveal>
     <div class="hidden text-center text-8xl xl:col-span-1 xl:grid 2xl:col-span-2">
       <p class="side-text">{title}</p>
     </div>
