@@ -2,23 +2,45 @@ import type { Action } from 'svelte/action'
 
 import { activeSection } from '#lib/stores/section.store.js'
 
+const nodes = new Set<HTMLElement>()
+let frame: number | null = null
+
+const update = (): void => {
+  frame = null
+
+  const line = window.innerHeight / 2
+  const active = [...nodes].filter((node) => node.getBoundingClientRect().top <= line).sort((a, b) => b.getBoundingClientRect().top - a.getBoundingClientRect().top)[0]
+
+  for (const node of nodes) {
+    node.dataset.spotlight = node === active ? 'on' : 'off'
+  }
+
+  if (active) {
+    activeSection.set(active.id)
+  }
+}
+
+const schedule = (): void => {
+  frame ??= requestAnimationFrame(update)
+}
+
 export const spotlight: Action<HTMLElement> = (node) => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      node.dataset.spotlight = entry.isIntersecting ? 'on' : 'off'
+  if (nodes.size === 0) {
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule, { passive: true })
+  }
 
-      if (entry.isIntersecting) {
-        activeSection.set(node.id)
-      }
-    },
-    { rootMargin: '-50% 0px -50% 0px' }
-  )
-
-  observer.observe(node)
+  nodes.add(node)
+  schedule()
 
   return {
     destroy(): void {
-      observer.disconnect()
+      nodes.delete(node)
+
+      if (nodes.size === 0) {
+        window.removeEventListener('scroll', schedule)
+        window.removeEventListener('resize', schedule)
+      }
     }
   }
 }
