@@ -1,36 +1,39 @@
 <script lang="ts">
-  import { calculateDuration } from '#lib/utils/date.js'
+  import { faBriefcase, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+  import Fa from 'svelte-fa'
+
+  import { calculateDuration, formatMonth } from '#lib/utils/date.js'
   import type { TimelineItemFile } from './timeline-item.interface'
 
   export let item: TimelineItemFile
 
+  $: current = item.metadata.end === false
   $: duration = item.metadata.duration !== false ? calculateDuration(item.metadata.start, item.metadata.end) : null
 </script>
 
-<div class="timeline-time-column">
-  <div class="flex w-24 flex-col text-center text-xs md:w-32 md:text-base">
-    {#if typeof item.metadata.end === 'boolean' && !item.metadata.end}
-      <p class="font-semibold text-green-600">Present</p>
-    {:else if typeof item.metadata.end === 'string'}
-      <p>{item.metadata.end}</p>
+<div class="timeline-date">
+  {#if duration}
+    <p class="text-base leading-tight font-semibold text-gray-900 dark:text-white">{duration}</p>
+  {/if}
+  <p class="inline-flex items-center gap-1.5 whitespace-nowrap tabular-nums {duration ? 'mt-1 text-sm text-gray-900 dark:text-white' : 'font-medium'}">
+    {#if current}
+      <span class="relative flex size-2">
+        <span class="absolute inline-flex size-full rounded-full bg-green-500 opacity-75 motion-safe:animate-ping"></span>
+        <span class="relative inline-flex size-2 rounded-full bg-green-500"></span>
+      </span>
     {/if}
-    {#if typeof item.metadata.end !== 'undefined'}
-      <p>–</p>
-    {/if}
-    <p>{item.metadata.start}</p>
-    {#if duration}
-      <p class="text-sm text-gray-800 dark:text-gray-200">({duration})</p>
-    {/if}
-    {#if item.metadata.type}
-      <p class="text-sm text-gray-700 italic dark:text-gray-300">{item.metadata.type}</p>
-    {/if}
-  </div>
+    {formatMonth(item.metadata.start)}{#if typeof item.metadata.end !== 'undefined'}&nbsp;– {current ? 'Now' : formatMonth(String(item.metadata.end))}{/if}
+  </p>
+  {#if item.metadata.type}
+    <span class="tag-pill mt-2"><Fa icon={/degree|school/i.test(item.metadata.type) ? faGraduationCap : faBriefcase} /> {item.metadata.type}</span>
+  {/if}
 </div>
 
 <style lang="postcss">
   @reference "../../../app.css";
 
-  .timeline-time-column {
-    @apply flex items-center md:items-center;
+  .timeline-date {
+    @apply flex w-full flex-col items-center px-2 py-3 text-center text-xs leading-snug md:text-sm;
+    @apply rounded-xl border-2 border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900;
   }
 </style>

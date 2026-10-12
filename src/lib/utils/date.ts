@@ -1,4 +1,4 @@
-import { parse, intervalToDuration, formatDuration, addMonths } from 'date-fns'
+import { addMonths, format, formatDuration, intervalToDuration, isValid, parse } from 'date-fns'
 
 export function calculateDuration(start: string, end: string | false): string {
   const startDate = parse(start, 'MMMM yyyy', new Date())
@@ -22,4 +22,10 @@ export function calculateDuration(start: string, end: string | false): string {
       zero: true
     }) || '< 1 month'
   )
+}
+
+export function formatMonth(value: string): string {
+  const date = parse(value, 'MMMM yyyy', new Date())
+
+  return isValid(date) ? format(date, 'MM.yyyy') : value
 }

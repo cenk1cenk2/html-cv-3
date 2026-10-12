@@ -217,10 +217,22 @@ a {
 
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
-      animation: draw-x ease-out both;
+      animation: draw-x linear both;
       animation-timeline: view();
-      animation-range: entry 0% cover 45%;
+      animation-range: cover 5% cover 65%;
     }
+  }
+}
+
+@keyframes draw-y {
+  from {
+    scale: 1 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
 }
 
@@ -256,8 +268,23 @@ a {
   @apply hover:border-primary-500 transition-colors dark:border-gray-700 dark:bg-gray-800/60;
 }
 
-@utility reveal-stagger {
-  @apply *:transition *:duration-700 *:ease-out *:nth-2:delay-150 *:nth-3:delay-300 *:nth-4:delay-450;
-  @apply data-[reveal=below]:*:translate-y-6 data-[reveal=below]:*:opacity-0;
-  @apply data-[reveal=above]:*:-translate-y-6 data-[reveal=above]:*:opacity-0;
+@utility tag-pill {
+  @apply inline-flex items-center gap-1.5 rounded-lg border-2 border-gray-200 px-2.5 py-0.5 text-xs font-medium whitespace-nowrap text-gray-600 dark:border-gray-700 dark:text-gray-300;
+}
+
+@utility reveal-fade {
+  @apply *:transition-opacity *:duration-700 *:ease-out;
+  @apply data-[reveal=above]:*:opacity-0 data-[reveal=below]:*:opacity-0;
+}
+
+@utility reveal-slide {
+  @apply transition duration-700 ease-out;
+  @apply group-data-[reveal=below]:translate-x-(--slide-x) group-data-[reveal=below]:translate-y-(--slide-y) group-data-[reveal=below]:opacity-0;
+  @apply group-data-[reveal=above]:translate-x-(--slide-x) group-data-[reveal=above]:-translate-y-(--slide-y) group-data-[reveal=above]:opacity-0;
+}
+
+@utility reveal-item {
+  @apply transition duration-700 ease-out [--slide-x:0px] [--slide-y:0.75rem] md:[--slide-x:0.75rem] md:[--slide-y:0px];
+  @apply group-data-[reveal=below]:translate-x-(--slide-x) group-data-[reveal=below]:translate-y-(--slide-y) group-data-[reveal=below]:opacity-0;
+  @apply group-data-[reveal=above]:translate-x-(--slide-x) group-data-[reveal=above]:-translate-y-(--slide-y) group-data-[reveal=above]:opacity-0;
 }

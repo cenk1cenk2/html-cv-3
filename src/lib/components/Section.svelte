@@ -6,8 +6,8 @@
   export let title: string
 </script>
 
-<section id={slugify(title)} class="transition duration-500 data-[spotlight=off]:opacity-30 data-[spotlight=off]:grayscale" use:spotlight>
-  <div class="reveal-stagger grid grid-cols-12 px-2 pt-4" use:reveal>
+<section id={slugify(title)} class="overflow-x-clip transition duration-500 data-[spotlight=off]:opacity-30 data-[spotlight=off]:grayscale" use:spotlight>
+  <div class="reveal-fade grid grid-cols-12 px-2 pt-4" use:reveal>
     <div class="hidden text-center text-8xl xl:col-span-1 xl:grid 2xl:col-span-2">
       <p class="side-text">{title}</p>
     </div>
