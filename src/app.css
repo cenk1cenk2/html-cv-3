@@ -18,7 +18,7 @@
   --color-primary-950: #231606;
 
   --shadow-xl: 0 20px 25px -5px var(--shadow-soft), 0 8px 10px -6px var(--shadow-soft);
-  --shadow-2xl: 0 4px 18px var(--shadow-halo), 0 25px 50px -12px var(--shadow-deep);
+  --shadow-2xl: 0 4px 32px 4px var(--shadow-halo), 0 25px 50px -12px var(--shadow-deep);
 
   --color-gray-50: #f6f6f6;
   --color-gray-100: #ecedee;
@@ -63,7 +63,7 @@
   :root {
     --shadow-soft: rgb(0 0 0 / 0.1);
     --shadow-deep: rgb(0 0 0 / 0.25);
-    --shadow-halo: rgb(0 0 0 / 0.08);
+    --shadow-halo: rgb(0 0 0 / 0.16);
   }
 }
 
@@ -72,7 +72,7 @@
     --color-primary-500: #d6af66;
     --shadow-soft: color-mix(in oklab, var(--color-primary-500) 10%, transparent);
     --shadow-deep: color-mix(in oklab, var(--color-primary-500) 16%, transparent);
-    --shadow-halo: color-mix(in oklab, var(--color-primary-500) 18%, transparent);
+    --shadow-halo: color-mix(in oklab, var(--color-primary-500) 40%, transparent);
   }
 }
 
