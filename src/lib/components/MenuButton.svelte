@@ -11,7 +11,7 @@
   }
 </script>
 
-<div class="menu-button" role="button" tabindex="0" aria-label={$menu ? 'Close menu' : 'Open menu'} onclick={handleMenu} onkeypress={handleMenu}><Fa {icon} /></div>
+<button type="button" class="menu-button" aria-label={$menu ? 'Close menu' : 'Open menu'} onclick={handleMenu}><Fa {icon} /></button>
 
 <style lang="postcss">
   @reference "../../app.css";

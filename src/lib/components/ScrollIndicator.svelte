@@ -37,24 +37,16 @@
 </script>
 
 {#if visible}
-  <div
-    bind:this={scrollIndicator}
-    class="scroll-indicator"
-    onclick={scrollToNext}
-    role="button"
-    tabindex="0"
-    onkeydown={(e) => e.key === 'Enter' && scrollToNext()}
-    aria-label="Scroll down to see more content"
-  >
-    <div class="scroll-icon">
+  <button type="button" bind:this={scrollIndicator} class="scroll-indicator" onclick={scrollToNext} aria-label="Scroll down to see more content">
+    <span class="scroll-icon">
       <Fa icon={faMouse} size="2x" />
-    </div>
-    <div class="scroll-arrow">
-      <div class="chevron"></div>
-      <div class="chevron"></div>
-      <div class="chevron"></div>
-    </div>
-  </div>
+    </span>
+    <span class="scroll-arrow">
+      <span class="chevron"></span>
+      <span class="chevron"></span>
+      <span class="chevron"></span>
+    </span>
+  </button>
 {/if}
 
 <style lang="postcss">

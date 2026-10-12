@@ -33,9 +33,9 @@
 
 <svelte:window onscroll={handleOnScroll} />
 
-<div class="back-to-top" role="button" tabindex="0" aria-label="back to top" onclick={goTop} onkeypress={goTop} class:hidden class:opacity-0={hidden}>
+<button type="button" class="back-to-top" aria-label="back to top" onclick={goTop} class:hidden class:opacity-0={hidden}>
   <Fa icon={faChevronUp} />
-</div>
+</button>
 
 <style lang="postcss">
   @reference "../../app.css";
