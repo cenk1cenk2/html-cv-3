@@ -8,13 +8,14 @@ import { defineConfig } from 'vite'
 const more = /^<!--\s*more\s*-->$/
 
 function remarkMore() {
-  return (tree: { children: { type: string; value?: string }[] }): void => {
+  return (tree: { children: { type: string; value?: string }[] }, file: { data: { fm?: Record<string, unknown> } }): void => {
     const index = tree.children.findIndex((node) => node.type === 'html' && more.test(node.value?.trim() ?? ''))
 
     if (index === -1) {
       return
     }
 
+    file.data.fm = { ...file.data.fm, more: true }
     tree.children.splice(index, 1, { type: 'html', value: '<div class="more">' })
     tree.children.push({ type: 'html', value: '</div>' })
   }

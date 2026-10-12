@@ -13,22 +13,12 @@
   let { item }: Props = $props()
 
   let expanded = $state(false)
-  let collapsible = $state(false)
 
   const toggle = (event: MouseEvent): void => {
-    if (!collapsible || (event.target as Element).closest('a, button')) {
+    if (!item.metadata.more || (event.target as Element).closest('a, button') || window.getSelection()?.toString()) {
       return
     }
 
-    expanded = !expanded
-  }
-
-  const toggleWithKey = (event: KeyboardEvent): void => {
-    if (!collapsible || event.target !== event.currentTarget || (event.key !== 'Enter' && event.key !== ' ')) {
-      return
-    }
-
-    event.preventDefault()
     expanded = !expanded
   }
 </script>
@@ -59,15 +49,15 @@
     </div>
     <span class="tether-down"></span>
   </div>
-  <!-- svelte-ignore a11y_no_noninteractive_tabindex, a11y_no_noninteractive_element_interactions -->
-  <article class="timeline-card reveal-slide" class:cursor-pointer={collapsible} tabindex="0" onclick={toggle} onkeydown={toggleWithKey}>
+  <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
+  <article class="timeline-card reveal-slide" class:cursor-pointer={item.metadata.more} onclick={toggle}>
     {@render tetherIn('hidden md:flex')}
     <span class="tether-up"></span>
     <div class="reveal-item delay-150">
       <TimelineItemInfo {item}></TimelineItemInfo>
     </div>
     <div class="reveal-item delay-300">
-      <TimelineItemText {item} bind:expanded bind:collapsible></TimelineItemText>
+      <TimelineItemText {item} bind:expanded></TimelineItemText>
     </div>
   </article>
 </li>

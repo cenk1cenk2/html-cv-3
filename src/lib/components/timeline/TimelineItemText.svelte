@@ -1,6 +1,5 @@
 <script lang="ts">
   import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-  import { onMount } from 'svelte'
   import Fa from 'svelte-fa'
 
   import type { TimelineItemFile } from './timeline-item.interface'
@@ -8,24 +7,19 @@
   interface Props {
     item: TimelineItemFile
     expanded?: boolean
-    collapsible?: boolean
   }
 
-  let { item, expanded = $bindable(false), collapsible = $bindable(false) }: Props = $props()
+  let { item, expanded = $bindable(false) }: Props = $props()
 
-  let content: HTMLElement
-
-  onMount(() => {
-    collapsible = content.querySelector('.more') !== null
-  })
+  const id = $props.id()
 </script>
 
-<div class="timeline-text" class:collapsed={collapsible && !expanded} bind:this={content}>
+<div id="{id}-text" class="timeline-text" class:collapsed={item.metadata.more && !expanded}>
   <item.default />
 </div>
 
-{#if collapsible}
-  <button type="button" class="timeline-toggle" tabindex="-1" aria-expanded={expanded} onclick={() => (expanded = !expanded)}>
+{#if item.metadata.more}
+  <button type="button" class="timeline-toggle" aria-expanded={expanded} aria-controls="{id}-text" onclick={() => (expanded = !expanded)}>
     {expanded ? 'Show less' : 'Show more'}
     <Fa icon={faChevronDown} class="transition-transform duration-300 {expanded ? 'rotate-180' : ''}" />
   </button>
@@ -39,13 +33,13 @@
   }
 
   .timeline-text :global(.more) {
-    @apply h-auto overflow-hidden transition-[height] duration-500 ease-out motion-reduce:transition-none;
+    @apply h-auto overflow-hidden transition-[height,visibility] duration-500 ease-out motion-reduce:transition-none;
 
     interpolate-size: allow-keywords;
   }
 
   .timeline-text.collapsed :global(.more) {
-    @apply h-0;
+    @apply invisible h-0;
   }
 
   .timeline-toggle {
