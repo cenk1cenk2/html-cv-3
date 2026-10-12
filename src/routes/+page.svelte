@@ -8,26 +8,30 @@
   import Teaching from './Teaching.svelte'
   import UserCard from './UserCard.svelte'
   import Work from './Work.svelte'
+
+  const title = 'Cenk Kılıç, MSc. – Software Platform Engineer'
+  const description = 'Software Platform Engineer at Laravel, based in Vienna, Austria. Kubernetes operators, CI/CD and infrastructure automation with Go, Ansible and Terraform.'
 </script>
 
 <svelte:head>
-  <title>Cenk Kılıç</title>
-  <meta name="description" content="Cenk Kılıç" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
 
   <!-- Open Graph Tags -->
-  <meta property="og:title" content="Cenk Kılıç" />
-  <meta property="og:description" content="Cenk Kılıç" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://cenk.kilic.dev" />
   <meta property="og:image" content="https://cenk.kilic.dev/portrait.jpg" />
   <meta property="og:image:width" content="800" />
   <meta property="og:image:height" content="800" />
+  <meta property="og:image:alt" content="Portrait of Cenk Kılıç" />
   <meta property="og:site_name" content="Cenk Kılıç" />
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cenk Kılıç" />
-  <meta name="twitter:description" content="Cenk Kılıç" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://cenk.kilic.dev/portrait.jpg" />
 
   <link rel="canonical" href="https://cenk.kilic.dev" />
@@ -40,6 +44,15 @@
       "name": "Cenk Kılıç",
       "url": "https://cenk.kilic.dev",
       "image": "https://cenk.kilic.dev/portrait.jpg",
+      "jobTitle": "Software Platform Engineer",
+      "honorificSuffix": "MSc.",
+      "worksFor": { "@type": "Organization", "name": "Laravel", "url": "https://laravel.com" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Vienna", "addressCountry": "AT" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "FH Technikum Wien" },
+        { "@type": "CollegeOrUniversity", "name": "Koç University" }
+      ],
+      "knowsAbout": ["Kubernetes", "Platform Engineering", "CI/CD", "Go", "Ansible", "Terraform", "Infrastructure Automation"],
       "sameAs": ["https://github.com/cenk1cenk2", "https://linkedin.com/in/cenk1cenk2"]
     }
   </script>

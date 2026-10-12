@@ -24,7 +24,7 @@
         <div class="bg-primary-500/30 absolute -inset-6 -z-10 rounded-xl blur-3xl"></div>
         <picture>
           <source srcset="/portrait.avif" type="image/avif" />
-          <img src="/portrait.jpg" alt="Cenk Kılıç" width="800" height="800" class="container-border size-56 rounded-xl object-cover sm:size-64 lg:size-80" />
+          <img src="/portrait.jpg" alt="Cenk Kılıç" width="800" height="800" fetchpriority="high" class="container-border size-56 rounded-xl object-cover sm:size-64 lg:size-80" />
         </picture>
       </div>
 
@@ -37,7 +37,8 @@
             >Kılıç<span class="text-3xl font-medium tracking-normal text-gray-500 sm:text-4xl lg:text-5xl dark:text-gray-400">,&nbsp;MSc.</span></span
           >
         </h1>
-        <p class="motion-safe:animate-rise mt-6 max-w-xl text-xl text-gray-500 motion-safe:[animation-delay:200ms] lg:text-2xl dark:text-gray-300">
+        <p class="motion-safe:animate-rise mt-5 text-2xl font-semibold motion-safe:[animation-delay:150ms] lg:text-3xl">Software Platform Engineer</p>
+        <p class="motion-safe:animate-rise mt-3 max-w-xl text-xl text-gray-500 motion-safe:[animation-delay:200ms] lg:text-2xl dark:text-gray-300">
           Electrical & Electronics Engineer by trade, <span class="text-primary-500 font-semibold">developer by heart.</span>
         </p>
         <div class="motion-safe:animate-rise mt-10 flex flex-wrap justify-center gap-3 motion-safe:[animation-delay:300ms] lg:justify-start">
