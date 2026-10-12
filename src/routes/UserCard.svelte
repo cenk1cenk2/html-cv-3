@@ -18,13 +18,20 @@
   <div class="hero-fade"></div>
   <div class="hero-grid"></div>
 
-  <div class="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-16 px-2 py-24 md:px-6">
-    <div class="flex flex-col items-center gap-12 lg:flex-row lg:justify-between lg:gap-16">
-      <div class="motion-safe:animate-rise relative shrink-0 motion-safe:[animation-delay:450ms] lg:order-last">
+  <div class="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-16 px-2 pt-6 pb-24 md:px-6 md:pt-24">
+    <div class="hero-top flex flex-col items-center gap-6 md:gap-12 lg:flex-row lg:justify-between lg:gap-16">
+      <div class="hero-photo motion-safe:animate-rise relative motion-safe:[animation-delay:450ms] lg:order-last">
         <div class="bg-primary-500/30 absolute -inset-6 -z-10 rounded-xl blur-3xl"></div>
-        <picture>
+        <picture class="contents">
           <source srcset="/portrait.avif" type="image/avif" />
-          <img src="/portrait.jpg" alt="Cenk Kılıç" width="800" height="800" fetchpriority="high" class="container-border size-56 rounded-xl object-cover sm:size-64 lg:size-80" />
+          <img
+            src="/portrait.jpg"
+            alt="Cenk Kılıç"
+            width="800"
+            height="800"
+            fetchpriority="high"
+            class="container-border aspect-square rounded-xl object-cover max-lg:h-[min(100%,calc(100vw-1rem))] max-lg:w-auto lg:size-80"
+          />
         </picture>
       </div>
 
@@ -32,12 +39,12 @@
         <p class="hero-eyebrow motion-safe:animate-rise">
           <span class="inline-flex items-center gap-1.5"><Fa icon={faLocationDot} /> Vienna, Austria</span>
         </p>
-        <h1 class="motion-safe:animate-rise mt-4 text-6xl leading-[0.9] font-bold tracking-tighter motion-safe:[animation-delay:100ms] sm:text-7xl lg:text-8xl">
+        <h1 class="hero-name motion-safe:animate-rise mt-4 text-6xl leading-[0.9] font-bold tracking-tighter motion-safe:[animation-delay:100ms] sm:text-7xl lg:text-8xl">
           Cenk <span class="whitespace-nowrap"
             >Kılıç<span class="text-3xl font-medium tracking-normal text-gray-500 sm:text-4xl lg:text-5xl dark:text-gray-400">,&nbsp;MSc.</span></span
           >
         </h1>
-        <p class="motion-safe:animate-rise mt-5 text-2xl font-semibold motion-safe:[animation-delay:150ms] lg:text-3xl">Software Platform Engineer</p>
+        <p class="motion-safe:animate-rise mt-5 text-xl font-semibold motion-safe:[animation-delay:150ms] sm:text-2xl lg:text-3xl">Software Platform Engineer</p>
         <p class="motion-safe:animate-rise mt-3 max-w-xl text-xl text-gray-500 motion-safe:[animation-delay:200ms] lg:text-2xl dark:text-gray-300">
           Electrical & Electronics Engineer by trade, <span class="text-primary-500 font-semibold">developer by heart.</span>
         </p>
@@ -62,6 +69,18 @@
 
   .hero-background {
     @apply absolute inset-x-0 -top-1/4 -bottom-1/4 -z-20;
+  }
+
+  .hero-top {
+    @apply h-[calc(100svh-1.5rem)] pb-24 md:h-[calc(100svh-6rem)] lg:h-auto lg:pb-0;
+  }
+
+  .hero-photo {
+    @apply flex min-h-0 flex-1 items-center justify-center lg:flex-none lg:shrink-0;
+  }
+
+  .hero-name {
+    @apply [@media(max-height:700px)]:text-5xl;
   }
 
   .hero-scrim {
