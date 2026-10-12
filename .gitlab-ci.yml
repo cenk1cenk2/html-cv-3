@@ -10,6 +10,7 @@ variables:
 stages:
   - install
   - build
+  - publish
   - container
 
 include:
@@ -19,6 +20,11 @@ include:
       - /node/install.gitlab-ci.yml
       - /node/build.gitlab-ci.yml
       - /node/lint.gitlab-ci.yml
+
+  - project: devops/pipelines
+    ref: semantic-release@2.3.1
+    file:
+      - /semantic-release/publish.gitlab-ci.yml
 
   - project: devops/pipelines
     ref: buildah@2.0.1
@@ -50,6 +56,13 @@ lint:
     - install
     - build
 
+semantic-release:
+  stage: publish
+  extends: .semantic-release
+  needs:
+    - build
+    - lint
+
 container:
   stage: container
   extends: .container-build
@@ -64,7 +77,5 @@ container:
     - build
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      when: on_success
-    - if: $CI_COMMIT_TAG
       when: on_success
     - when: never
