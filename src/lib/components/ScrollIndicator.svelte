@@ -33,7 +33,15 @@
   })
 </script>
 
-<button type="button" class="scroll-hint" class:opacity-0={!visible} class:pointer-events-none={!visible} onclick={scrollToNext} aria-label="Scroll down to see more content">
+<button
+  type="button"
+  class="scroll-hint"
+  class:opacity-0={!visible}
+  class:pointer-events-none={!visible}
+  inert={!visible}
+  onclick={scrollToNext}
+  aria-label="Scroll down to see more content"
+>
   <span class="scroll-hint-label">Scroll</span>
   <span class="scroll-hint-track">
     <span class="scroll-hint-thumb"></span>
