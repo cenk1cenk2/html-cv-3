@@ -76,6 +76,7 @@
   @reference "../../../app.css";
 
   .timeline-item {
+    @apply [--chain:var(--color-gray-300)] dark:[--chain:var(--color-gray-600)];
     @apply relative isolate grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-4 [view-timeline-inset:0px] [view-timeline-name:--row];
     @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
   }
@@ -93,7 +94,7 @@
   }
 
   .timeline-line {
-    @apply absolute top-[5px] bottom-[5px] left-(--chain-x) w-1 origin-top -translate-x-1/2 bg-gray-400;
+    @apply absolute top-[5px] bottom-[5px] left-(--chain-x) w-1 origin-top -translate-x-1/2 bg-(--chain);
   }
 
   li:first-child .timeline-line {
@@ -105,7 +106,7 @@
   }
 
   .timeline-link {
-    @apply absolute left-(--chain-x) h-[5px] w-2.5 -translate-x-1/2 border-[3px] border-gray-400;
+    @apply absolute left-(--chain-x) h-[5px] w-2.5 -translate-x-1/2 border-[3px] border-(--chain);
   }
 
   .timeline-link-top {
@@ -118,7 +119,7 @@
 
   li:first-child .timeline-link-top,
   li:last-child .timeline-link-bottom {
-    @apply h-1 w-4 rounded-full border-0 bg-gray-400;
+    @apply h-1 w-4 rounded-full border-0 bg-(--chain);
   }
 
   .tether {
@@ -134,7 +135,7 @@
   }
 
   .tether-stub {
-    @apply h-1 w-[7px] bg-gray-400;
+    @apply h-1 w-[7px] bg-(--chain);
   }
 
   .tether-out .tether-stub {
@@ -146,7 +147,7 @@
   }
 
   .tether-half {
-    @apply h-2.5 w-[5px] border-[3px] border-gray-400;
+    @apply h-2.5 w-[5px] border-[3px] border-(--chain);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -206,11 +207,11 @@
   }
 
   .tether-down {
-    @apply absolute top-[calc(100%+3px)] left-1/2 h-[5px] w-2.5 -translate-x-1/2 rounded-t-full border-[3px] border-b-0 border-gray-400 bg-white md:hidden dark:bg-gray-900;
+    @apply absolute top-[calc(100%+3px)] left-1/2 h-[5px] w-2.5 -translate-x-1/2 rounded-t-full border-[3px] border-b-0 border-(--chain) bg-white md:hidden dark:bg-gray-900;
   }
 
   .tether-up {
-    @apply absolute -top-[10px] left-[calc(50%+6.25rem)] h-[5px] w-2.5 -translate-x-1/2 rounded-b-full border-[3px] border-t-0 border-gray-400 bg-white md:hidden dark:bg-gray-900;
+    @apply absolute -top-[10px] left-[calc(50%+6.25rem)] h-[5px] w-2.5 -translate-x-1/2 rounded-b-full border-[3px] border-t-0 border-(--chain) bg-white md:hidden dark:bg-gray-900;
   }
 
   .tether-half-left {
