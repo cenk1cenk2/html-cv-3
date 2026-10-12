@@ -27,7 +27,7 @@
   @reference "../app.css";
 
   .navbar {
-    @apply fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 gap-1 rounded-xl border-2 border-gray-200 bg-white/60 p-1.5 shadow-xl backdrop-blur-xl;
+    @apply fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 gap-1 rounded-xl border-2 border-gray-200 bg-white/60 p-1.5 shadow-xl backdrop-blur-xl dark:shadow-black/40;
     @apply dark:border-gray-700 dark:bg-gray-800/60;
   }
 
@@ -36,6 +36,6 @@
   }
 
   .navbar-item.active {
-    @apply bg-primary-500/10 text-primary-500;
+    @apply bg-primary-500/10 text-primary-600 dark:text-primary-500;
   }
 </style>
