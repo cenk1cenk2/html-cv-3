@@ -1,10 +1,7 @@
 <script lang="ts">
-  import { faMouse } from '@fortawesome/free-solid-svg-icons'
   import { onMount } from 'svelte'
-  import Fa from 'svelte-fa'
 
   let visible = $state(false)
-  let scrollIndicator: HTMLElement = $state()!
 
   const scrollToNext = () => {
     const sections = document.querySelectorAll('section')
@@ -36,120 +33,32 @@
   })
 </script>
 
-{#if visible}
-  <button type="button" bind:this={scrollIndicator} class="scroll-indicator" onclick={scrollToNext} aria-label="Scroll down to see more content">
-    <span class="scroll-icon">
-      <Fa icon={faMouse} size="2x" />
-    </span>
-    <span class="scroll-arrow">
-      <span class="chevron"></span>
-      <span class="chevron"></span>
-      <span class="chevron"></span>
-    </span>
-  </button>
-{/if}
+<button type="button" class="scroll-hint" class:opacity-0={!visible} class:pointer-events-none={!visible} onclick={scrollToNext} aria-label="Scroll down to see more content">
+  <span class="scroll-hint-label">Scroll</span>
+  <span class="scroll-hint-track">
+    <span class="scroll-hint-thumb"></span>
+  </span>
+</button>
 
 <style lang="postcss">
   @reference "../../app.css";
 
-  .scroll-indicator {
-    @apply hidden sm:hidden md:block;
-    @apply absolute z-50 flex cursor-pointer flex-col items-center text-white transition-all duration-300 hover:scale-110;
-    @apply md:top-auto md:right-auto md:bottom-28 md:left-1/2 md:-translate-x-1/2 md:translate-y-0;
-    @apply lg:top-1/2 lg:right-14 lg:bottom-auto lg:left-auto lg:translate-x-0 lg:-translate-y-1/2;
-    animation: bounce 2s infinite;
+  .scroll-hint {
+    @apply fixed top-1/2 right-10 z-40 hidden -translate-y-1/2 cursor-pointer flex-col items-center gap-4 transition-opacity duration-500 lg:flex;
+    @apply hover:text-primary-500 text-gray-700 dark:text-white/80;
   }
 
-  .scroll-icon {
-    @apply mb-2 flex items-center justify-center opacity-75;
-    animation: pulse 2s infinite;
+  .scroll-hint-label {
+    @apply text-xs font-semibold tracking-[0.3em] uppercase;
+
+    writing-mode: vertical-lr;
   }
 
-  .scroll-arrow {
-    @apply flex flex-col items-center;
+  .scroll-hint-track {
+    @apply relative h-20 w-0.5 overflow-hidden rounded-full bg-gray-900/20 dark:bg-white/25;
   }
 
-  .chevron {
-    @apply mb-1 h-3 w-3 rotate-45 border-r-2 border-b-2 border-white opacity-75;
-    @apply lg:h-2 lg:w-2;
-    animation: fade 2s infinite;
-  }
-
-  .chevron:nth-child(1) {
-    animation-delay: 0s;
-  }
-
-  .chevron:nth-child(2) {
-    animation-delay: 0.15s;
-  }
-
-  .chevron:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-
-  @keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(-50%);
-    }
-    40% {
-      transform: translateY(-60px);
-    }
-    60% {
-      transform: translateY(-55px);
-    }
-  }
-
-  @media (max-width: 768px) {
-    @keyframes bounce {
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      40% {
-        transform: translateX(-50%) translateY(-10px);
-      }
-      60% {
-        transform: translateX(-50%) translateY(-5px);
-      }
-    }
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .scroll-indicator {
-      @apply text-gray-200;
-    }
-
-    .chevron {
-      @apply border-gray-200;
-    }
+  .scroll-hint-thumb {
+    @apply bg-primary-500 motion-safe:animate-scroll-line absolute inset-x-0 top-0 h-1/2;
   }
 </style>
