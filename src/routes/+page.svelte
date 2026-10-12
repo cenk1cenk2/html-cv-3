@@ -22,17 +22,17 @@
   <meta property="og:description" content={description} />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://cenk.kilic.dev" />
-  <meta property="og:image" content="https://cenk.kilic.dev/portrait.jpg" />
-  <meta property="og:image:width" content="800" />
-  <meta property="og:image:height" content="800" />
-  <meta property="og:image:alt" content="Portrait of Cenk Kılıç" />
+  <meta property="og:image" content="https://cenk.kilic.dev/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cenk Kılıç, Software Platform Engineer, Vienna, Austria" />
   <meta property="og:site_name" content="Cenk Kılıç" />
   <meta property="og:locale" content="en_US" />
 
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="https://cenk.kilic.dev/portrait.jpg" />
+  <meta name="twitter:image" content="https://cenk.kilic.dev/og-card.jpg" />
 
   <link rel="canonical" href="https://cenk.kilic.dev" />
   <meta name="robots" content="index, follow" />
@@ -58,20 +58,6 @@
   </script>
 </svelte:head>
 
-<UserCard />
-
-<Section title="work">
-  <Work />
-</Section>
-
-<Section title="teaching">
-  <Teaching />
-</Section>
-
-<Section title="education">
-  <Education />
-</Section>
-
 <Navbar
   items={[
     {
@@ -96,4 +82,19 @@
     }
   ]}
 />
+
+<UserCard />
+
+<Section title="work">
+  <Work />
+</Section>
+
+<Section title="teaching">
+  <Teaching />
+</Section>
+
+<Section title="education">
+  <Education />
+</Section>
+
 <ScrollIndicator />
