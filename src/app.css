@@ -17,8 +17,8 @@
   --color-primary-900: #342109;
   --color-primary-950: #231606;
 
-  --shadow-xl: 0 2px 8px var(--shadow-faint), 0 8px 28px -4px var(--shadow-soft), 0 20px 64px -8px var(--shadow-wide);
-  --shadow-2xl: 0 4px 12px var(--shadow-soft), 0 12px 40px -6px var(--shadow-wide), 0 28px 88px -10px var(--shadow-deep);
+  --shadow-xl: 0 1px 3px var(--shadow-faint), 0 8px 16px -6px var(--shadow-soft), 0 18px 28px -14px var(--shadow-wide);
+  --shadow-2xl: 0 2px 4px var(--shadow-soft), 0 12px 20px -8px var(--shadow-wide), 0 24px 36px -16px var(--shadow-deep);
 
   --color-gray-50: #f6f6f6;
   --color-gray-100: #ecedee;
@@ -62,10 +62,10 @@
 @layer base {
   :root {
     --shadow-tint: #000;
-    --shadow-faint: color-mix(in oklab, var(--shadow-tint) 5%, transparent);
-    --shadow-soft: color-mix(in oklab, var(--shadow-tint) 7%, transparent);
-    --shadow-wide: color-mix(in oklab, var(--shadow-tint) 11%, transparent);
-    --shadow-deep: color-mix(in oklab, var(--shadow-tint) 15%, transparent);
+    --shadow-faint: color-mix(in oklab, var(--shadow-tint) 6%, transparent);
+    --shadow-soft: color-mix(in oklab, var(--shadow-tint) 10%, transparent);
+    --shadow-wide: color-mix(in oklab, var(--shadow-tint) 16%, transparent);
+    --shadow-deep: color-mix(in oklab, var(--shadow-tint) 20%, transparent);
   }
 }
 
