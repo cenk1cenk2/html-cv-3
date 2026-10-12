@@ -5,17 +5,17 @@
   --font-sans: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono: DM Mono, ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
 
-  --color-primary-50: #fdf2f6;
-  --color-primary-100: #fae6ec;
-  --color-primary-200: #f3bfd0;
-  --color-primary-300: #eb99b4;
-  --color-primary-400: #dc4d7b;
-  --color-primary-500: #cd0043;
-  --color-primary-600: #b9003c;
-  --color-primary-700: #7b0028;
-  --color-primary-800: #5c001e;
-  --color-primary-900: #3e0014;
-  --color-primary-950: #29000d;
+  --color-primary-50: #fcf7ee;
+  --color-primary-100: #f8edd8;
+  --color-primary-200: #f0dcb2;
+  --color-primary-300: #e5c07b;
+  --color-primary-400: #d3b051;
+  --color-primary-500: #9c670d;
+  --color-primary-600: #84560b;
+  --color-primary-700: #6a440c;
+  --color-primary-800: #4c310b;
+  --color-primary-900: #342109;
+  --color-primary-950: #231606;
 
   --color-gray-50: #f6f6f6;
   --color-gray-100: #ecedee;
@@ -53,6 +53,12 @@
       opacity: 0;
       translate: 0 2rem;
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary-500: #d6af66;
   }
 }
 
