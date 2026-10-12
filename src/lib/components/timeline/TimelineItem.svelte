@@ -185,14 +185,14 @@
       }
 
       .timeline-logo-cell :global(.timeline-logo) {
-        animation: border-fill linear both;
+        animation: light-up linear both;
         animation-timeline: --row;
         animation-range: entry-crossing 200px entry-crossing calc(200px + 140px);
       }
 
       .timeline-date-cell :global(.timeline-date),
       .timeline-card {
-        animation: border-fill linear both;
+        animation: light-up linear both;
         animation-timeline: --row;
         animation-range: entry-crossing calc(200px + 140px) entry-crossing calc(200px + 360px);
       }
