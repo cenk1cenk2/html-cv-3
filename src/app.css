@@ -217,9 +217,9 @@ a {
 
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
-      animation: draw-x linear both;
+      animation: draw-x ease-out both;
       animation-timeline: view();
-      animation-range: cover 5% cover 65%;
+      animation-range: cover 0% cover 45%;
     }
   }
 }
