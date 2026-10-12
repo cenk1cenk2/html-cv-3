@@ -3,7 +3,9 @@ end: false
 start: August 2025
 logo: laravel.png
 name: Laravel
-website: https://laravel.com
+websites:
+  - https://laravel.com
+  - https://laravel.cloud
 location: New York, USA
 attendance: Remote
 role: Senior Infrastructure Software Engineer

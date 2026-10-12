@@ -3,6 +3,8 @@ end: false
 start: August 2021
 logo: sorwe.jpeg
 name: Sorwe
+websites:
+  - https://sorwe.com
 location: İstanbul, Turkey
 attendance: Remote
 role: DevOps Architect

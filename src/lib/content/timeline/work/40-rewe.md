@@ -3,6 +3,8 @@ end: September 2025
 start: March 2024
 logo: rewe-group.png
 name: Rewe International
+websites:
+  - https://rewe-group.at
 location: Vienna, Austria
 attendance: Remote
 role: Integration Platform Services Expert

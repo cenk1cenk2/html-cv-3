@@ -17,11 +17,9 @@
     {#if item.metadata.attendance}
       <span class="tag-pill"><Fa icon={item.metadata.attendance === 'Remote' ? faHouseLaptop : faBuilding} /> {item.metadata.attendance}</span>
     {/if}
-    {#if item.metadata.website}
+    {#each item.metadata.websites ?? [] as website (website)}
       <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-      <a href={item.metadata.website} target="_blank" rel="noopener" class="tag-pill hover:border-primary-500"
-        ><Fa icon={faGlobe} /> {item.metadata.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a
-      >
-    {/if}
+      <a href={website} target="_blank" rel="noopener" class="tag-pill hover:border-primary-500"><Fa icon={faGlobe} /> {website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a>
+    {/each}
   </div>
 </div>

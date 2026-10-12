@@ -3,6 +3,8 @@ end: September 2018
 start: May 2016
 logo: tekfen.png
 name: Tekfen Engineering
+websites:
+  - https://tekfenmuhendislik.com
 location: İstanbul, Turkey
 attendance: On-Site
 role: Instrumentation and Control Systems Engineer
