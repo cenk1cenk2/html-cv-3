@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+  import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+  import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
   import { spotlight } from '#lib/actions/spotlight.js'
-  import ContactLinks from '#lib/components/ContactLinks.svelte'
   import Bio from '#lib/content/bio.md'
 </script>
 
@@ -41,7 +41,9 @@
           Electrical & Electronics Engineer by trade, <span class="text-primary-500 font-semibold">developer by heart.</span>
         </p>
         <div class="motion-safe:animate-rise mt-10 flex flex-wrap justify-center gap-3 motion-safe:[animation-delay:300ms] lg:justify-start">
-          <ContactLinks />
+          <a href="mailto:cenk@kilic.dev" target="_blank" class="pill-link" aria-label="Link for mailing me."><Fa icon={faEnvelope} /> Email</a>
+          <a href="https://srcs.kilic.dev" target="_blank" class="pill-link" aria-label="Link for GitHub profile."><Fa icon={faGithub} /> GitHub</a>
+          <a href="https://linkedin.com/in/cenkkilic" target="_blank" class="pill-link" aria-label="Link for Linkedin profile."><Fa icon={faLinkedin} /> LinkedIn</a>
         </div>
       </div>
     </div>
