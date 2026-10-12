@@ -1,6 +1,3 @@
-import TypescriptParser from '@typescript-eslint/parser'
-import SvelteParser from 'svelte-eslint-parser'
-
 import { configs, utils } from '@cenk1cenk2/eslint-config'
 import configSvelteTypescript from '@cenk1cenk2/eslint-config/svelte-typescript'
 
@@ -61,18 +58,6 @@ export default dedupePlugins([
     },
     rules: {
       'import/no-extraneous-dependencies': 'off'
-    }
-  },
-  // TODO: @cenk1cenk2 drop once https://gitlab.kilic.dev/config/eslint-config/-/merge_requests/2517 is released
-  {
-    files: ['**/*.svelte.ts'],
-    languageOptions: {
-      parser: SvelteParser,
-      parserOptions: {
-        parser: TypescriptParser,
-        project: 'tsconfig.json',
-        extraFileExtensions: ['.svelte']
-      }
     }
   },
   {
