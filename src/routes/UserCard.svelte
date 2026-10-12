@@ -3,10 +3,11 @@
   import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
+  import { spotlight } from '#lib/actions/spotlight.js'
   import Bio from '#lib/content/bio.md'
 </script>
 
-<section id="profile" class="relative isolate overflow-hidden">
+<section id="profile" class="relative isolate overflow-hidden" use:spotlight>
   <div class="hero-background parallax">
     <picture>
       <source srcset="/hero-background.avif" type="image/avif" />

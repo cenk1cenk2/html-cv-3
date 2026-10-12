@@ -1,7 +1,4 @@
 <script lang="ts">
-  import BackToTopButton from '#lib/components/BackToTopButton.svelte'
-  import MenuButton from '#lib/components/MenuButton.svelte'
-  import SpeedDial from '#lib/components/SpeedDial.svelte'
   import Footer from './Footer.svelte'
   import '@fontsource-variable/dm-sans'
   import '../app.css'
@@ -17,9 +14,5 @@
   <main>
     <slot />
   </main>
-  <SpeedDial>
-    <BackToTopButton />
-    <MenuButton />
-  </SpeedDial>
   <Footer />
 </div>

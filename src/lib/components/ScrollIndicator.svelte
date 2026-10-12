@@ -55,7 +55,7 @@
   .scroll-indicator {
     @apply hidden sm:hidden md:block;
     @apply absolute z-50 flex cursor-pointer flex-col items-center text-white transition-all duration-300 hover:scale-110;
-    @apply md:top-auto md:right-auto md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:translate-y-0;
+    @apply md:top-auto md:right-auto md:bottom-28 md:left-1/2 md:-translate-x-1/2 md:translate-y-0;
     @apply lg:top-1/2 lg:right-14 lg:bottom-auto lg:left-auto lg:translate-x-0 lg:-translate-y-1/2;
     animation: bounce 2s infinite;
   }

@@ -4,7 +4,7 @@
   import ScrollIndicator from '#lib/components/ScrollIndicator.svelte'
   import Section from '#lib/components/Section.svelte'
   import Education from './Education.svelte'
-  import Menu from './Menu.svelte'
+  import Navbar from './Navbar.svelte'
   import Teaching from './Teaching.svelte'
   import UserCard from './UserCard.svelte'
   import Work from './Work.svelte'
@@ -59,7 +59,7 @@
   <Education />
 </Section>
 
-<Menu
+<Navbar
   items={[
     {
       text: 'Profile',
@@ -67,13 +67,13 @@
       icon: faUser
     },
     {
-      text: 'Work Experience',
-      href: '#work-experience',
+      text: 'Work',
+      href: '#work',
       icon: faUserTie
     },
     {
-      text: 'Teaching Experience',
-      href: '#teaching-experience',
+      text: 'Teaching',
+      href: '#teaching',
       icon: faChalkboardUser
     },
     {
