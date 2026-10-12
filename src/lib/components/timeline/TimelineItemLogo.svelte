@@ -4,7 +4,10 @@
   export let item: TimelineItemFile
 </script>
 
-<img src="/logo/{item.metadata.logo}" alt={item.metadata.name} class="timeline-logo" />
+<picture class="block">
+  <source srcset="/logo/{item.metadata.logo.replace(/\.[^.]+$/, '.avif')}" type="image/avif" />
+  <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} loading="lazy" decoding="async" class="timeline-logo" />
+</picture>
 
 <style lang="postcss">
   @reference "../../../app.css";
