@@ -13,7 +13,8 @@
 </script>
 
 <div class="w-full" id={slugify(name)}>
-  <h2 class="flex items-center justify-center gap-3 text-3xl font-bold">
+  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+  <h2 class="flex items-center justify-center gap-3 text-3xl font-bold" tabindex="0">
     <Fa {icon} />
     {name}
   </h2>

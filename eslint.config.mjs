@@ -51,6 +51,7 @@ export default dedupePlugins([
         HTMLElement: 'readonly',
         Element: 'readonly',
         MouseEvent: 'readonly',
+        KeyboardEvent: 'readonly',
         Event: 'readonly',
         setTimeout: 'readonly'
       }

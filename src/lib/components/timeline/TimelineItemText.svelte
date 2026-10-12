@@ -21,7 +21,7 @@
 </div>
 
 {#if collapsible}
-  <button type="button" class="timeline-toggle" aria-expanded={expanded} onclick={() => (expanded = !expanded)}>
+  <button type="button" class="timeline-toggle" tabindex="-1" aria-expanded={expanded} onclick={() => (expanded = !expanded)}>
     {expanded ? 'Show less' : 'Show more'}
     <Fa icon={faChevronDown} class="transition-transform duration-300 {expanded ? 'rotate-180' : ''}" />
   </button>
