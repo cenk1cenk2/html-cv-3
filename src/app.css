@@ -133,6 +133,10 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  :focus-visible {
+    @apply outline-primary-500 outline-2 outline-offset-2;
+  }
+
   *,
   ::after,
   ::before,
