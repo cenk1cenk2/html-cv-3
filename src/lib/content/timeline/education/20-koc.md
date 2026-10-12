@@ -10,3 +10,5 @@ websites:
 location: İstanbul, Turkey
 role: Electrical and Electronics Engineering (English)
 ---
+
+Studying electrical and electronics engineering while branching out into most of the computer science curriculum at Koç University, ranked the top university in Turkey by Times Higher Education.

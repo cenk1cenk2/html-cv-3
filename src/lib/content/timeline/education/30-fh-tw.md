@@ -10,3 +10,5 @@ websites:
 location: Vienna, Austria
 role: Telecommunication and Internet Technologies
 ---
+
+Earning a master's in telecommunication and internet technologies alongside work, with a practical focus on networks, communication and what makes the internet tick.
