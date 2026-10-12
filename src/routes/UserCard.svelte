@@ -18,7 +18,7 @@
   <div class="hero-fade"></div>
   <div class="hero-grid"></div>
 
-  <div class="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-16 px-6 py-24">
+  <div class="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-16 px-2 py-24 md:px-6">
     <div class="flex flex-col items-center gap-12 lg:flex-row lg:justify-between lg:gap-16">
       <div class="motion-safe:animate-rise relative shrink-0 motion-safe:[animation-delay:450ms] lg:order-last">
         <div class="bg-primary-500/30 absolute -inset-6 -z-10 rounded-xl blur-3xl"></div>
@@ -84,6 +84,6 @@
   }
 
   .hero-card {
-    @apply mx-auto max-w-4xl rounded-xl bg-white/60 p-8 backdrop-blur-xl lg:p-12 dark:bg-gray-800/50;
+    @apply mx-auto max-w-4xl rounded-xl bg-white/60 p-5 backdrop-blur-xl md:p-8 lg:p-12 dark:bg-gray-800/50;
   }
 </style>
