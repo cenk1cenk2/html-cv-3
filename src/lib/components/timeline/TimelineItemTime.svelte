@@ -8,7 +8,7 @@
 </script>
 
 <div class="timeline-time-column">
-  <div class="flex w-32 flex-col text-center text-xs md:text-base">
+  <div class="flex w-24 flex-col text-center text-xs md:w-32 md:text-base">
     {#if typeof item.metadata.end === 'boolean' && !item.metadata.end}
       <p class="font-semibold text-green-600">Present</p>
     {:else if typeof item.metadata.end === 'string'}
