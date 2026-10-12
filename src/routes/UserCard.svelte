@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-  import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+  import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
   import { spotlight } from '#lib/actions/spotlight.js'
+  import ContactLinks from '#lib/components/ContactLinks.svelte'
   import Bio from '#lib/content/bio.md'
 </script>
 
@@ -41,9 +41,7 @@
           Electrical & Electronics Engineer by trade, <span class="text-primary-500 font-semibold">developer by heart.</span>
         </p>
         <div class="motion-safe:animate-rise mt-10 flex flex-wrap justify-center gap-3 motion-safe:[animation-delay:300ms] lg:justify-start">
-          <a href="mailto:cenk@kilic.dev" target="_blank" class="hero-link" aria-label="Link for mailing me."><Fa icon={faEnvelope} /> Email</a>
-          <a href="https://srcs.kilic.dev" target="_blank" class="hero-link" aria-label="Link for GitHub profile."><Fa icon={faGithub} /> GitHub</a>
-          <a href="https://linkedin.com/in/cenkkilic" target="_blank" class="hero-link" aria-label="Link for Linkedin profile."><Fa icon={faLinkedin} /> LinkedIn</a>
+          <ContactLinks />
         </div>
       </div>
     </div>
@@ -69,9 +67,8 @@
   }
 
   .hero-grid {
-    @apply absolute inset-0 -z-10 bg-[size:4rem_4rem] opacity-60 [--grid-line:var(--color-gray-200)] dark:opacity-40 dark:[--grid-line:var(--color-gray-700)];
+    @apply grid-lines absolute inset-0 -z-10;
 
-    background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
     mask-image: linear-gradient(to bottom, black 15%, transparent 62%);
   }
 
@@ -82,11 +79,6 @@
   .hero-eyebrow {
     @apply inline-flex items-center gap-3 rounded-xl border-2 border-gray-200 bg-white/60 px-4 py-1.5 text-sm font-medium text-gray-500 backdrop-blur;
     @apply dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-300;
-  }
-
-  .hero-link {
-    @apply inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 bg-white/60 px-5 py-2.5 font-medium backdrop-blur;
-    @apply hover:border-primary-500 transition-colors dark:border-gray-700 dark:bg-gray-800/60;
   }
 
   .hero-card {
