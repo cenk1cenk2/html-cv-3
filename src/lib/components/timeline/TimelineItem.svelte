@@ -194,7 +194,29 @@
         animation-range: entry-crossing calc(200px + 60px) entry-crossing calc(200px + 90px);
       }
 
+      .timeline-logo-cell :global(.timeline-logo) {
+        animation: border-fill linear both;
+        animation-timeline: --row;
+        animation-range: entry-crossing calc(200px + 40px) entry-crossing calc(200px + 90px);
+      }
+
+      .timeline-date-cell :global(.timeline-date),
+      .timeline-card {
+        animation: border-fill linear both;
+        animation-timeline: --row;
+        animation-range: entry-crossing calc(200px + 110px) entry-crossing calc(200px + 160px);
+      }
+
       @media (width >= 48rem) {
+        .timeline-logo-cell :global(.timeline-logo) {
+          animation-range: entry-crossing calc(50% + 200px - 60px) entry-crossing calc(50% + 200px - 10px);
+        }
+
+        .timeline-date-cell :global(.timeline-date),
+        .timeline-card {
+          animation-range: entry-crossing calc(50% + 200px + 20px) entry-crossing calc(50% + 200px + 80px);
+        }
+
         .tether-stub {
           animation-range: entry-crossing calc(50% + 200px - 40px) entry-crossing calc(50% + 200px);
         }
