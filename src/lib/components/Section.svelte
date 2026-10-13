@@ -15,7 +15,7 @@
 
 <section
   id={slugify(title)}
-  class="group/section overflow-x-clip transition duration-500 data-[spotlight=off]:opacity-30 data-[spotlight=off]:grayscale contrast-more:opacity-100! contrast-more:grayscale-0!"
+  class="group/section overflow-x-clip transition duration-500 data-[spotlight=off]:[filter:grayscale(1)_opacity(0.3)] contrast-more:[filter:none]!"
   use:spotlight
 >
   <div class="reveal-fade grid grid-cols-12 px-2 pt-4" use:reveal>

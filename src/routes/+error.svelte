@@ -7,6 +7,7 @@
 
 <svelte:head>
   <title>kilic.dev: {page.status} - {page.error?.message}</title>
+  <meta name="robots" content="noindex" />
 </svelte:head>
 
 <section class="relative isolate flex min-h-screen flex-col items-center justify-center gap-8 overflow-hidden px-6 text-center">

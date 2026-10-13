@@ -9,9 +9,21 @@ const PLUG = 25
 
 interface Row {
   node: HTMLElement
+  chain: HTMLElement
+  section: HTMLElement | null
   logo: Element | null
   card: Element | null
   joint: Element[]
+  written: Map<string, string>
+}
+
+interface Measure {
+  row: Row
+  box: DOMRect
+  icon?: DOMRect
+  card?: DOMRect
+  ring: DOMRect[]
+  reached: boolean
 }
 
 const rows = new Set<Row>()
@@ -25,33 +37,47 @@ let held: { row: Row; offset: number } | undefined
 let target: unknown
 let previous: number | undefined
 let chase: number | undefined
+let query: MediaQueryList | undefined
+let navbar: Element | null | undefined
 
-const mobile = (): boolean => window.matchMedia('(width < 48rem)').matches
+const mobile = (): boolean => (query ??= window.matchMedia('(width < 48rem)')).matches
 
-const anchor = ({ node, logo, card }: Row): number => {
-  if (node === node.parentElement?.lastElementChild) {
-    return node.getBoundingClientRect().bottom
+const inspect = (row: Row): Measure => ({
+  row,
+  box: row.node.getBoundingClientRect(),
+  icon: row.logo?.getBoundingClientRect(),
+  card: row.card?.getBoundingClientRect(),
+  ring: row.joint.map((element) => element.getBoundingClientRect()).filter((rect) => rect.height > 0),
+  reached: !row.section || row.section.getBoundingClientRect().top <= window.innerHeight / 2
+})
+
+const measure = (): Measure[] => [...rows].map(inspect)
+
+const anchor = ({ row, box, icon, card }: Measure, small: boolean): number => {
+  if (row.node === row.node.parentElement?.lastElementChild) {
+    return box.bottom
   }
 
-  return ((mobile() ? card : logo) ?? node).getBoundingClientRect().bottom + GAP
+  return ((small ? card : icon) ?? box).bottom + GAP
 }
 
-const shown = ({ node }: Row): boolean => node.dataset.reveal !== 'below' || node.getBoundingClientRect().top < 0
+const shown = ({ row, box, reached }: Measure): boolean => (row.node.dataset.reveal !== 'below' && reached) || box.top < 0
 
-const aim = (): { y: number; key: unknown } => {
+const aim = (measured: Measure[]): { y: number; key: unknown } => {
   const small = mobile()
   const light = window.innerHeight - (small ? 100 : 60)
-  const floor = Math.min(window.innerHeight, document.querySelector('.navbar')?.getBoundingClientRect().top ?? Infinity) - EDGE - PLUG
+
+  navbar = navbar?.isConnected ? navbar : document.querySelector('.navbar')
+
+  const floor = Math.min(window.innerHeight, navbar?.getBoundingClientRect().top ?? Infinity) - EDGE - PLUG
   const anchors: { row: Row; y: number }[] = []
   let start = Infinity
 
-  for (const row of rows) {
-    const { node, logo, card } = row
+  for (const entry of measured) {
+    start = Math.min(start, entry.box.top)
 
-    start = Math.min(start, node.getBoundingClientRect().top)
-
-    if (shown(row) && ((small ? card : logo) ?? node).getBoundingClientRect().top < light) {
-      anchors.push({ row, y: anchor(row) })
+    if (shown(entry) && ((small ? entry.card : entry.icon) ?? entry.box).top < light) {
+      anchors.push({ row: entry.row, y: anchor(entry, small) })
     }
   }
 
@@ -81,25 +107,30 @@ const aim = (): { y: number; key: unknown } => {
   return { y: window.scrollY + pick.y, key: pick.row }
 }
 
-const paint = (): void => {
-  for (const { node, logo, joint } of rows) {
-    const { top, height } = node.getBoundingClientRect()
-    const draw = Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - top) / height))
-    const ring = joint.map((element) => element.getBoundingClientRect()).filter((rect) => rect.height > 0)
+const write = (row: Row, name: string, value: string): void => {
+  if (row.written.get(name) === value) {
+    return
+  }
 
-    node.style.setProperty('--draw', draw.toFixed(4))
+  row.written.set(name, value)
+  row.chain.style.setProperty(name, value)
+}
 
-    if (logo) {
-      const icon = logo.getBoundingClientRect()
+const paint = (measured: Measure[]): void => {
+  for (const { row, box, icon, ring } of measured) {
+    write(row, '--draw', Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / box.height)).toFixed(4))
 
-      node.style.setProperty('--hole-top', `${Math.round(icon.top - top)}px`)
-      node.style.setProperty('--hole-bottom', `${Math.round(icon.bottom - top)}px`)
+    if (icon) {
+      write(row, '--hole-top', `${Math.round(icon.top - box.top)}px`)
+      write(row, '--hole-bottom', `${Math.round(icon.bottom - box.top)}px`)
     }
 
-    node.style.setProperty('--joint-top', ring.length > 0 ? `${Math.round(Math.min(...ring.map((rect) => rect.top)) - top)}px` : '0px')
-    node.style.setProperty('--joint-bottom', ring.length > 0 ? `${Math.round(Math.max(...ring.map((rect) => rect.bottom)) - top)}px` : '0px')
+    write(row, '--joint-top', ring.length > 0 ? `${Math.round(Math.min(...ring.map((rect) => rect.top)) - box.top)}px` : '0px')
+    write(row, '--joint-bottom', ring.length > 0 ? `${Math.round(Math.max(...ring.map((rect) => rect.bottom)) - box.top)}px` : '0px')
   }
 }
+
+const drawn = (row: Row): number => parseFloat(row.written.get('--draw') ?? '0')
 
 const ride = (time: number): boolean => {
   if (time >= holding || !held || !rows.has(held.row)) {
@@ -108,16 +139,29 @@ const ride = (time: number): boolean => {
     return false
   }
 
-  position = window.scrollY + anchor(held.row) + held.offset
+  const measured = measure()
+  const entry = measured.find(({ row }) => row === held?.row)
+
+  if (!entry) {
+    return false
+  }
+
+  position = window.scrollY + anchor(entry, mobile()) + held.offset
   chase = position
   velocity = 0
   target = undefined
-  paint()
+  paint(measured)
 
   return true
 }
 
 const step = (time: number): void => {
+  if (rows.size === 0) {
+    frame = undefined
+
+    return
+  }
+
   if (ride(time)) {
     last = undefined
     frame = requestAnimationFrame(step)
@@ -125,7 +169,8 @@ const step = (time: number): void => {
     return
   }
 
-  const { y: goal, key } = aim()
+  const measured = measure()
+  const { y: goal, key } = aim(measured)
   const delta = Math.min(0.05, (time - (last ?? time)) / 1000)
 
   position ??= goal
@@ -153,7 +198,7 @@ const step = (time: number): void => {
     frame = requestAnimationFrame(step)
   }
 
-  paint()
+  paint(measured)
 }
 
 const wake = (): void => {
@@ -170,19 +215,32 @@ const follow = (event: TransitionEvent): void => {
   wake()
 }
 
+const reset = (): void => {
+  if (frame !== undefined) {
+    cancelAnimationFrame(frame)
+  }
+
+  frame = position = chase = last = previous = target = held = undefined
+  velocity = busy = holding = 0
+}
+
 export const hold = (duration: number): void => {
   if (position === undefined) {
     return
   }
 
-  const drawn = [...rows].filter((row) => (parseFloat(row.node.style.getPropertyValue('--draw')) || 0) > 0)
-  const tip = drawn.find((row) => parseFloat(row.node.style.getPropertyValue('--draw')) < 1) ?? drawn.at(-1)
+  if (performance.now() >= holding) {
+    held = undefined
+  }
+
+  const lit = [...rows].filter((row) => drawn(row) > 0)
+  const tip = lit.find((row) => drawn(row) < 1) ?? lit.at(-1)
 
   if (!tip) {
     return
   }
 
-  held ??= { row: tip, offset: position - window.scrollY - anchor(tip) }
+  held ??= { row: tip, offset: position - window.scrollY - anchor(inspect(tip), mobile()) }
   holding = performance.now() + duration
   wake()
 }
@@ -194,9 +252,12 @@ export const chain: Action<HTMLElement> = (node) => {
 
   const row: Row = {
     node,
+    chain: node.querySelector<HTMLElement>('.timeline-chain') ?? node,
+    section: node.closest('section'),
     logo: node.querySelector('.timeline-logo'),
     card: node.querySelector('.timeline-card'),
-    joint: [...node.querySelectorAll('.tether-down, .tether-up')]
+    joint: [...node.querySelectorAll('.tether-down, .tether-up')],
+    written: new Map()
   }
   const resize = new ResizeObserver(reflow)
 
@@ -225,6 +286,7 @@ export const chain: Action<HTMLElement> = (node) => {
       if (rows.size === 0) {
         window.removeEventListener('scroll', wake)
         window.removeEventListener('resize', wake)
+        reset()
       }
     }
   }

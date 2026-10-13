@@ -18,7 +18,13 @@
       <a href="https://kilic.dev" rel="noopener" class="flex flex-1 flex-col items-center justify-center gap-6 md:gap-8">
         <span class="footer-logo reveal-item relative">
           <span class="bg-primary-500/15 glow absolute -inset-8 -z-10 rounded-xl blur-3xl" aria-hidden="true"></span>
-          <img alt="" src="https://main.s3.kilic.dev/html/android-chrome-192x192.png" class="size-[min(20svh,calc(100vw-3rem))] rounded-xl md:size-[min(24svh,22.375rem)]" />
+          <img
+            alt=""
+            src="https://main.s3.kilic.dev/html/android-chrome-192x192.png"
+            loading="lazy"
+            decoding="async"
+            class="size-[min(20svh,calc(100vw-3rem))] rounded-xl md:size-[min(24svh,22.375rem)]"
+          />
         </span>
         <span class="footer-name reveal-item text-5xl leading-[0.9] font-bold tracking-tighter delay-150 sm:text-6xl lg:text-7xl">kilic.dev</span>
       </a>
