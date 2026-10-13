@@ -289,32 +289,23 @@ a {
     opacity: 0.1;
   }
 
-  5% {
-    opacity: 0.12;
+  2% {
+    opacity: 0.42;
   }
 
-  10% {
-    opacity: 0.2;
+  4% {
+    opacity: 0.68;
   }
 
-  15% {
-    opacity: 0.33;
+  6% {
+    opacity: 0.86;
   }
 
-  20% {
-    opacity: 0.5;
+  8% {
+    opacity: 0.96;
   }
 
-  25% {
-    opacity: 0.72;
-  }
-
-  30%,
-  35%,
-  40%,
-  45%,
-  50%,
-  55%,
+  10%,
   60% {
     opacity: 1;
   }
