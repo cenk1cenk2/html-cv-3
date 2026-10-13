@@ -367,7 +367,7 @@ a {
       &::after {
         animation-name: glow-in, glow-out;
         animation-duration: auto;
-        animation-timing-function: ease-out, ease-in-out;
+        animation-timing-function: ease-in, ease-in-out;
         animation-fill-mode: both;
         animation-timeline: view(block 0px);
         animation-range:
@@ -385,7 +385,7 @@ a {
     @supports (animation-timeline: view()) {
       animation-name: glow-in, glow-out;
       animation-duration: auto;
-      animation-timing-function: ease-out, ease-in-out;
+      animation-timing-function: ease-in, ease-in-out;
       animation-fill-mode: both;
       animation-timeline: view(block 0px);
       animation-range:

@@ -324,11 +324,11 @@
 
       @media (width >= 48rem) {
         .tether-stub {
-          animation-range: entry-crossing 162px entry-crossing 202px;
+          animation-range: entry-crossing 300px entry-crossing 380px;
         }
 
         .tether-half {
-          animation-range: entry-crossing 197px entry-crossing 227px;
+          animation-range: entry-crossing 360px entry-crossing 420px;
         }
       }
     }
