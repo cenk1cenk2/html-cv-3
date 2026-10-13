@@ -134,12 +134,12 @@
   }
 
   .timeline-date-cell {
-    @apply relative z-10 col-start-2 row-start-1 [--slide-x:-1.5rem] [--slide-y:0px] md:col-start-1 md:[--slide-x:-6%];
+    @apply relative z-10 col-start-2 row-start-1 [--slide-x:-4%] [--slide-y:0px] md:col-start-1;
   }
 
   .timeline-logo-cell {
     @apply relative col-start-4 row-start-1 flex items-center justify-center self-stretch md:col-start-2 md:self-center;
-    @apply [--slide-x:0px] [--slide-y:2rem];
+    @apply [--slide-x:0px] [--slide-y:4%];
   }
 
   .timeline-logo-cell {
@@ -386,7 +386,7 @@
 
   .timeline-card {
     @apply relative z-10 col-span-full row-start-2 md:col-span-1 md:col-start-3 md:row-start-1;
-    @apply [--slide-x:0px] [--slide-y:1.5rem] md:[--slide-x:6%] md:[--slide-y:0px];
+    @apply [--slide-x:0px] [--slide-y:4%] md:[--slide-x:4%] md:[--slide-y:0px];
     @apply shadow-glow rounded-xl border-2 border-gray-200 bg-white p-5 md:bg-white/60 md:p-6 md:backdrop-blur lg:border-4;
     @apply dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-800/50;
     @apply hover:border-primary-500/50 max-md:opacity-100;
