@@ -311,7 +311,8 @@
   .timeline-card {
     @apply relative z-10 col-span-full row-start-2 md:col-span-1 md:col-start-3 md:row-start-1;
     @apply [--slide-x:0px] [--slide-y:1.5rem] md:[--slide-x:3rem] md:[--slide-y:0px];
-    @apply rounded-xl border-2 border-gray-200 bg-white p-5 shadow-xl backdrop-blur md:bg-white/60 md:p-6 lg:border-4 dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-800/50;
+    @apply shadow-glow rounded-xl border-2 border-gray-200 bg-white p-5 backdrop-blur md:bg-white/60 md:p-6 lg:border-4;
+    @apply dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-800/50;
     @apply hover:border-primary-500/50 max-md:opacity-100;
   }
 
