@@ -379,7 +379,7 @@ a {
     @supports (animation-timeline: view()) {
       animation: light-up linear both;
       animation-timeline: view(block 0px);
-      animation-range: cover 0% cover 35%;
+      animation-range: cover 0% cover 50%;
     }
   }
 }
