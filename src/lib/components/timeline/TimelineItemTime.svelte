@@ -38,6 +38,6 @@
 
   .timeline-date {
     @apply flex w-full flex-col items-center px-2 py-3 text-center text-xs leading-snug md:text-sm;
-    @apply rounded-xl border-2 border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900;
+    @apply shadow-glow rounded-xl border-2 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900;
   }
 </style>
