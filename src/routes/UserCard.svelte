@@ -23,7 +23,7 @@
   <div class="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-16 px-2 pt-6 pb-24 md:px-6 md:pt-24">
     <div class="hero-top reveal-lift flex flex-col items-center gap-6 md:gap-12 lg:flex-row lg:justify-between lg:gap-16" use:reveal={{ above: true, threshold: 0.5 }}>
       <div class="hero-photo motion-safe:animate-rise relative motion-safe:[animation-delay:450ms] lg:order-last">
-        <div class="bg-primary-500/30 absolute -inset-6 -z-10 rounded-xl blur-3xl"></div>
+        <div class="bg-primary-500/30 glow absolute -inset-6 -z-10 rounded-xl blur-3xl"></div>
         <picture class="contents">
           <source srcset="/portrait.avif" type="image/avif" />
           <img
@@ -32,7 +32,7 @@
             width="800"
             height="800"
             fetchpriority="high"
-            class="container-border aspect-square rounded-xl object-cover max-lg:h-[min(100%,calc(100vw-1rem))] max-lg:w-auto lg:size-[22.375rem]"
+            class="container-border aspect-square rounded-xl object-cover shadow-xl max-lg:h-[min(100%,calc(100vw-1rem))] max-lg:w-auto lg:size-[22.375rem]"
           />
         </picture>
       </div>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="reveal-lift max-md:snap-start max-md:scroll-mt-12" use:reveal={{ above: true, threshold: 0.5 }}>
-      <div class="hero-card container-border motion-safe:animate-rise motion-safe:[animation-delay:600ms]">
+      <div class="hero-card container-border shadow-glow motion-safe:animate-rise motion-safe:[animation-delay:600ms]">
         <div class="prose prose-lg dark:prose-dark max-w-none">
           <Bio />
         </div>
@@ -110,5 +110,7 @@
 
   .hero-card {
     @apply mx-auto max-w-4xl rounded-xl bg-white/60 p-4 backdrop-blur-xl md:p-6 lg:p-8 dark:bg-gray-800/50;
+
+    will-change: opacity, translate;
   }
 </style>

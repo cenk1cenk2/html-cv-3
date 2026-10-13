@@ -21,7 +21,9 @@ export const reveal: Action<HTMLElement, RevealOptions | undefined> = (node, opt
     const threshold = Math.min(options?.threshold ?? 0, ((window.innerHeight - 48) / node.offsetHeight) * 0.95)
 
     observer = new IntersectionObserver(
-      ([entry]) => {
+      (entries) => {
+        const entry = entries[entries.length - 1]
+
         if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
           node.dataset.reveal = 'visible'
         } else if (entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0)) {

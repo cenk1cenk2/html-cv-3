@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { chain, hold } from '#lib/actions/chain.js'
   import { reveal } from '#lib/actions/reveal.js'
   import type { TimelineItemFile } from './timeline-item.interface'
   import TimelineItemInfo from './TimelineItemInfo.svelte'
@@ -14,6 +15,40 @@
   let { item }: Props = $props()
 
   let expanded = $state(false)
+  let row: HTMLElement
+  let wasExpanded = false
+
+  const holdInPlace = (element: Element | null, duration: number): void => {
+    if (!element) {
+      return
+    }
+
+    const top = element.getBoundingClientRect().top
+    const observer = new ResizeObserver(() => {
+      window.scrollBy({ top: element.getBoundingClientRect().top - top, behavior: 'instant' })
+    })
+
+    observer.observe(row)
+    setTimeout(() => observer.disconnect(), duration)
+  }
+
+  $effect(() => {
+    if (expanded === wasExpanded) {
+      return
+    }
+
+    hold(600)
+
+    if (!expanded && row.getBoundingClientRect().top < 0) {
+      if (window.matchMedia('(width < 48rem)').matches) {
+        row.scrollIntoView({ block: 'start', behavior: 'smooth' })
+      } else {
+        holdInPlace(row.querySelector('.timeline-toggle'), 600)
+      }
+    }
+
+    wasExpanded = expanded
+  })
 
   const toggle = (event: MouseEvent): void => {
     if (!item.metadata.more || (event.target as Element).closest('a, button') || window.getSelection()?.toString()) {
@@ -32,11 +67,13 @@
   <span class="tether tether-in {extra}"><span class="tether-half tether-half-right"></span><span class="tether-stub"></span></span>
 {/snippet}
 
-<li class="timeline-item group" class:expanded use:reveal={{ above: true, mobileMargin: '-30% 0px -35% 0px' }}>
+<li bind:this={row} class="timeline-item group" use:chain use:reveal={{ above: true, mobileMargin: '-30% 0px -35% 0px' }}>
   <div class="timeline-chain">
-    <span class="timeline-line"></span>
-    <span class="timeline-link timeline-link-top"></span>
-    <span class="timeline-link timeline-link-bottom"></span>
+    <span class="timeline-wire">
+      <span class="timeline-line"></span>
+      <span class="timeline-link timeline-link-top"></span>
+      <span class="timeline-link timeline-link-bottom"></span>
+    </span>
     <span class="timeline-tip-track"><Plug class="timeline-tip" /></span>
   </div>
   <div class="timeline-date-cell reveal-slide max-md:delay-150">
@@ -69,7 +106,7 @@
 
   .timeline-item {
     @apply [--chain:var(--color-gray-300)] [--tip-end:5px] [--tip-start:5px] dark:[--chain:var(--color-gray-600)];
-    @apply relative grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-6 [view-timeline-inset:0px] [view-timeline-name:--row];
+    @apply relative grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-6;
     @apply content-center max-md:min-h-[calc(100svh-8.5rem)] max-md:snap-start max-md:scroll-mb-12;
     @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
   }
@@ -84,7 +121,7 @@
 
   .timeline-logo-cell {
     @apply relative col-start-4 row-start-1 flex items-center justify-center self-stretch md:col-start-2 md:self-center;
-    @apply [--slide-x:0px] [--slide-y:2rem] md:[--slide-x:1.5rem] md:[--slide-y:0px];
+    @apply [--slide-x:0px] [--slide-y:2rem];
   }
 
   .timeline-chain {
@@ -115,6 +152,40 @@
     @apply absolute top-0 left-0 hidden w-5 text-(--chain);
 
     translate: -50% 100cqh;
+  }
+
+  .timeline-wire {
+    @apply absolute inset-0;
+  }
+
+  .timeline-item:global([data-chain]) .timeline-wire {
+    mask-image:
+      linear-gradient(to bottom, #000 var(--hole-top, 0px), transparent var(--hole-top, 0px), transparent var(--hole-bottom, 0px), #000 var(--hole-bottom, 0px)),
+      linear-gradient(to bottom, #000 var(--joint-top, 0px), transparent var(--joint-top, 0px), transparent var(--joint-bottom, 0px), #000 var(--joint-bottom, 0px));
+    mask-composite: intersect;
+  }
+
+  .timeline-item:global([data-chain]) .timeline-line {
+    scale: 1 var(--draw, 0);
+  }
+
+  .timeline-item:global([data-chain]) .timeline-link-top {
+    opacity: clamp(0, var(--draw, 0) * 40, 1);
+  }
+
+  .timeline-item:global([data-chain]) .timeline-link-bottom {
+    opacity: clamp(0, (var(--draw, 0) - 0.97) * 34, 1);
+  }
+
+  .timeline-item:global([data-chain]) .timeline-tip-track :global(.timeline-tip) {
+    @apply block;
+
+    translate: -50% calc(var(--draw, 0) * 100cqh);
+    opacity: calc(clamp(0, var(--draw, 0) * 200, 1) * clamp(0, (1 - var(--draw, 0)) * 200, 1));
+  }
+
+  li:last-child.timeline-item:global([data-chain]) .timeline-tip-track :global(.timeline-tip) {
+    opacity: clamp(0, var(--draw, 0) * 200, 1);
   }
 
   li:last-child .timeline-tip-track :global(.timeline-tip) {
@@ -175,35 +246,6 @@
 
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
-      .timeline-line {
-        animation: draw-y linear both;
-        animation-timeline: --row;
-        animation-range: entry-crossing 22svh entry-crossing calc(100% + 22svh);
-      }
-
-      .timeline-tip-track :global(.timeline-tip) {
-        display: block;
-        animation: tip-move linear both;
-        animation-timeline: --row;
-        animation-range: entry-crossing 22svh entry-crossing calc(100% + 22svh);
-      }
-
-      li:last-child .timeline-tip-track :global(.timeline-tip) {
-        animation-name: tip-move-last;
-      }
-
-      .timeline-link-top {
-        animation: fade-in linear both;
-        animation-timeline: --row;
-        animation-range: entry-crossing calc(22svh - 20px) entry-crossing 22svh;
-      }
-
-      .timeline-link-bottom {
-        animation: fade-in linear both;
-        animation-timeline: --row;
-        animation-range: entry-crossing calc(100% + 22svh - 20px) entry-crossing calc(100% + 22svh);
-      }
-
       .tether-stub {
         animation: draw-x ease-out both;
         animation-timeline: view(block 0px);
@@ -235,9 +277,9 @@
       }
 
       .timeline-logo-cell :global(.timeline-logo-halo) {
-        animation: fade-in linear both;
+        animation: glow linear both;
         animation-timeline: view(block 0px);
-        animation-range: entry-crossing 100px entry-crossing 400px;
+        animation-range: cover 0% cover 100%;
       }
 
       .timeline-date-cell :global(.timeline-date) {
@@ -252,24 +294,8 @@
         animation-range: entry-crossing 100px entry-crossing 420px;
       }
 
-      @media (width < 48rem) {
-        .timeline-line,
-        .timeline-tip-track :global(.timeline-tip) {
-          animation-range: entry-crossing 18svh entry-crossing calc(100% + 18svh);
-        }
-
-        .timeline-link-top {
-          animation-range: entry-crossing calc(18svh - 20px) entry-crossing 18svh;
-        }
-
-        .timeline-link-bottom {
-          animation-range: entry-crossing calc(100% + 18svh - 20px) entry-crossing calc(100% + 18svh);
-        }
-      }
-
       @media (width >= 48rem) {
-        .timeline-logo-cell :global(.timeline-logo),
-        .timeline-logo-cell :global(.timeline-logo-halo) {
+        .timeline-logo-cell :global(.timeline-logo) {
           animation-range: entry-crossing 60px entry-crossing 360px;
         }
 
