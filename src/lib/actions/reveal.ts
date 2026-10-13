@@ -3,6 +3,7 @@ import type { Action } from 'svelte/action'
 export interface RevealOptions {
   above?: boolean
   threshold?: number
+  mobileMargin?: string
 }
 
 export const reveal: Action<HTMLElement, RevealOptions | undefined> = (node, options) => {
@@ -11,26 +12,37 @@ export const reveal: Action<HTMLElement, RevealOptions | undefined> = (node, opt
   }
 
   const { above = false } = options ?? {}
-  const threshold = Math.min(options?.threshold ?? 0, window.innerHeight / node.offsetHeight)
+  const mobile = window.matchMedia('(width < 48rem)')
+  let observer: IntersectionObserver | undefined
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
-        node.dataset.reveal = 'visible'
-      } else if (entry.boundingClientRect.top < 0) {
-        node.dataset.reveal = above ? 'above' : 'visible'
-      } else {
-        node.dataset.reveal = 'below'
-      }
-    },
-    { threshold }
-  )
+  const observe = (): void => {
+    observer?.disconnect()
 
-  observer.observe(node)
+    const threshold = Math.min(options?.threshold ?? 0, ((window.innerHeight - 48) / node.offsetHeight) * 0.95)
+
+    observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+          node.dataset.reveal = 'visible'
+        } else if (entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0)) {
+          node.dataset.reveal = above ? 'above' : 'visible'
+        } else {
+          node.dataset.reveal = 'below'
+        }
+      },
+      { threshold: [0, threshold], rootMargin: mobile.matches ? options?.mobileMargin : undefined }
+    )
+
+    observer.observe(node)
+  }
+
+  observe()
+  mobile.addEventListener('change', observe)
 
   return {
     destroy(): void {
-      observer.disconnect()
+      observer?.disconnect()
+      mobile.removeEventListener('change', observe)
     }
   }
 }

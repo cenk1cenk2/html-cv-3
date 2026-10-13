@@ -13,7 +13,7 @@
   <div class="hero-background parallax">
     <picture>
       <source srcset="/hero-background.avif" type="image/avif" />
-      <img src="/hero-background.jpg" alt="" class="absolute inset-0 size-full scale-110 object-cover" />
+      <img src="/hero-background.jpg" alt="" class="absolute inset-0 size-full object-cover" />
     </picture>
     <div class="hero-scrim"></div>
   </div>
@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <div class="reveal-lift max-md:snap-center" use:reveal={{ above: true, threshold: 0.5 }}>
+    <div class="reveal-lift max-md:snap-start max-md:scroll-mt-12" use:reveal={{ above: true, threshold: 0.5 }}>
       <div class="hero-card container-border motion-safe:animate-rise motion-safe:[animation-delay:600ms]">
         <div class="prose prose-lg dark:prose-dark max-w-none">
           <Bio />
@@ -72,7 +72,8 @@
   @reference "../app.css";
 
   .hero-background {
-    @apply absolute inset-x-0 -top-1/4 -bottom-1/4 -z-20;
+    @apply absolute inset-x-0 -top-[15vh] bottom-0 -z-20;
+    @apply max-md:-top-[8svh] max-md:bottom-auto max-md:h-[85svh] max-md:[mask-image:linear-gradient(to_bottom,black_60%,transparent)];
   }
 
   .hero-top {
