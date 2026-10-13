@@ -1,4 +1,4 @@
-<footer class="relative isolate overflow-clip px-6 pt-24 pb-28">
+<footer class="relative isolate overflow-clip px-6 pt-24 pb-28 max-md:snap-end">
   <div class="grid-lines absolute inset-0 -z-10 [mask-image:linear-gradient(to_top,black_10%,transparent_80%)]"></div>
 
   <div class="light-up mx-auto flex max-w-6xl flex-col items-center gap-8 border-t-2 border-gray-200 pt-8 dark:border-gray-800">

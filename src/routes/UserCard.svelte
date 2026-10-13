@@ -20,7 +20,10 @@
   <div class="hero-grid"></div>
 
   <div class="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-16 px-2 pt-6 pb-24 md:px-6 md:pt-24">
-    <div class="hero-top reveal-lift flex flex-col items-center gap-6 md:gap-12 lg:flex-row lg:justify-between lg:gap-16" use:reveal={{ above: true, threshold: 0.5 }}>
+    <div
+      class="hero-top reveal-lift flex flex-col items-center gap-6 max-md:snap-start max-md:scroll-mt-6 md:gap-12 lg:flex-row lg:justify-between lg:gap-16"
+      use:reveal={{ above: true, threshold: 0.5 }}
+    >
       <div class="hero-photo motion-safe:animate-rise relative motion-safe:[animation-delay:450ms] lg:order-last">
         <div class="bg-primary-500/30 absolute -inset-6 -z-10 rounded-xl blur-3xl"></div>
         <picture class="contents">
@@ -57,7 +60,7 @@
       </div>
     </div>
 
-    <div class="reveal-lift" use:reveal={{ above: true, threshold: 0.5 }}>
+    <div class="reveal-lift max-md:snap-center" use:reveal={{ above: true, threshold: 0.5 }}>
       <div class="hero-card container-border motion-safe:animate-rise motion-safe:[animation-delay:600ms]">
         <div class="prose prose-lg dark:prose-dark max-w-none">
           <Bio />
