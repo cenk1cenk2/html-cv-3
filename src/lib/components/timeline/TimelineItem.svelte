@@ -231,25 +231,25 @@
       .timeline-logo-cell :global(.timeline-logo) {
         animation: light-up linear both;
         animation-timeline: view(block 0px);
-        animation-range: entry-crossing 150px entry-crossing 300px;
+        animation-range: entry-crossing 100px entry-crossing 400px;
       }
 
       .timeline-logo-cell :global(.timeline-logo-halo) {
         animation: fade-in linear both;
         animation-timeline: view(block 0px);
-        animation-range: entry-crossing 150px entry-crossing 300px;
+        animation-range: entry-crossing 100px entry-crossing 400px;
       }
 
       .timeline-date-cell :global(.timeline-date) {
         animation: light-up linear both;
         animation-timeline: view(block 0px);
-        animation-range: entry-crossing 250px entry-crossing 400px;
+        animation-range: entry-crossing 200px entry-crossing 500px;
       }
 
       .timeline-card {
         animation: light-up linear both;
         animation-timeline: view(block 0px);
-        animation-range: entry-crossing 150px entry-crossing 310px;
+        animation-range: entry-crossing 100px entry-crossing 420px;
       }
 
       @media (width < 48rem) {
@@ -270,15 +270,15 @@
       @media (width >= 48rem) {
         .timeline-logo-cell :global(.timeline-logo),
         .timeline-logo-cell :global(.timeline-logo-halo) {
-          animation-range: entry-crossing 128px entry-crossing 288px;
+          animation-range: entry-crossing 60px entry-crossing 360px;
         }
 
         .timeline-date-cell :global(.timeline-date) {
-          animation-range: entry-crossing 295px entry-crossing 515px;
+          animation-range: entry-crossing 220px entry-crossing 560px;
         }
 
         .timeline-card {
-          animation-range: entry-crossing 370px entry-crossing 590px;
+          animation-range: entry-crossing 280px entry-crossing 640px;
         }
 
         .tether-stub {
