@@ -15,7 +15,7 @@
 
 <section
   id={slugify(title)}
-  class="overflow-x-clip transition duration-500 data-[spotlight=off]:opacity-30 data-[spotlight=off]:grayscale contrast-more:opacity-100! contrast-more:grayscale-0!"
+  class="group/section overflow-x-clip transition duration-500 data-[spotlight=off]:opacity-30 data-[spotlight=off]:grayscale contrast-more:opacity-100! contrast-more:grayscale-0!"
   use:spotlight
 >
   <div class="reveal-fade grid grid-cols-12 px-2 pt-4" use:reveal>
@@ -32,7 +32,7 @@
   @reference "../../app.css";
 
   .side-text {
-    @apply p-4 text-gray-200 dark:text-gray-700;
+    @apply p-4 text-gray-200 opacity-0 transition-opacity duration-700 ease-out group-data-[spotlight=on]/section:opacity-100 dark:text-gray-700;
 
     writing-mode: vertical-lr;
     transform: rotate(180deg);
