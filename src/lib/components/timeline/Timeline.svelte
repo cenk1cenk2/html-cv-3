@@ -1,11 +1,13 @@
 <script lang="ts">
-  import { faPlug, type IconDefinition } from '@fortawesome/free-solid-svg-icons'
+  import type { IconDefinition } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
 
   import { slugify } from '#lib/utils/index.js'
   import type { TimelineItemFile } from './timeline-item.interface'
   import TimelineItem from './TimelineItem.svelte'
   import Divider from '../Divider.svelte'
+  import Plug from '../power/Plug.svelte'
+  import Socket from '../power/Socket.svelte'
 
   interface Props {
     name: string
@@ -31,7 +33,8 @@
       {/each}
     </ul>
     <div class="timeline-plug-track" aria-hidden="true">
-      <span class="timeline-plug"><Fa icon={faPlug} /></span>
+      <Plug class="timeline-plug" />
+      <Socket class="timeline-socket" />
     </div>
   </div>
 </div>
@@ -40,11 +43,15 @@
   @reference "../../../app.css";
 
   .timeline-plug-track {
-    @apply pointer-events-none absolute top-0 -bottom-[1.125rem] left-[calc(50%+6.25rem)] -z-10 flex -translate-x-1/2 flex-col justify-end md:left-[15.5rem];
+    @apply pointer-events-none absolute top-0 -bottom-10 left-[calc(50%+6.25rem)] -z-10 flex -translate-x-1/2 flex-col justify-end md:left-[15.5rem];
   }
 
-  .timeline-plug {
-    @apply flex rotate-180 text-lg text-gray-300 dark:text-gray-600;
+  .timeline-plug-track :global(.timeline-plug) {
+    @apply mb-[0.9375rem] w-5 shrink-0 text-gray-300 dark:text-gray-600;
+  }
+
+  .timeline-plug-track :global(.timeline-socket) {
+    @apply absolute bottom-0 left-1/2 z-10 size-7 -translate-x-1/2 [--socket-off:var(--color-gray-300)] dark:[--socket-off:var(--color-gray-600)];
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -53,8 +60,8 @@
         @apply justify-start;
       }
 
-      .timeline-plug {
-        @apply sticky top-[calc(100vh-200px)];
+      .timeline-plug-track :global(.timeline-plug) {
+        @apply sticky top-[calc(100vh-204px)];
       }
     }
   }
