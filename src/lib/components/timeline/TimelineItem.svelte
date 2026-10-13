@@ -34,8 +34,12 @@
 <li class="timeline-item group" class:expanded use:reveal>
   <div class="timeline-chain">
     <span class="timeline-line"></span>
-    <span class="timeline-link timeline-link-top"></span>
-    <span class="timeline-link timeline-link-bottom"></span>
+    <span class="timeline-cap"></span>
+    <span class="timeline-switch">
+      <span class="switch-contact top-0"></span>
+      <span class="switch-blade"></span>
+      <span class="switch-contact bottom-0"></span>
+    </span>
   </div>
   <div class="timeline-date-cell reveal-slide">
     <TimelineItemTime {item}></TimelineItemTime>
@@ -84,7 +88,7 @@
   }
 
   .timeline-line {
-    @apply absolute top-[5px] bottom-[5px] left-(--chain-x) w-1 origin-top -translate-x-1/2 bg-(--chain);
+    @apply absolute top-[9px] bottom-[9px] left-(--chain-x) w-1 origin-top -translate-x-1/2 bg-(--chain);
   }
 
   li:first-child .timeline-line {
@@ -95,24 +99,28 @@
     @apply bottom-0;
   }
 
-  .timeline-link {
-    @apply absolute left-(--chain-x) h-[5px] w-2.5 -translate-x-1/2 border-[3px] border-(--chain);
+  .timeline-cap {
+    @apply absolute top-0 left-(--chain-x) hidden h-1 w-4 -translate-x-1/2 rounded-full bg-(--chain);
   }
 
-  .timeline-link-top {
-    @apply top-0 rounded-b-full border-t-0;
+  li:first-child .timeline-cap {
+    @apply block;
   }
 
-  .timeline-link-bottom {
-    @apply bottom-0 rounded-t-full border-b-0;
+  .timeline-switch {
+    @apply absolute bottom-0 left-(--chain-x) h-6 w-4 -translate-x-1/2 translate-y-1/2;
   }
 
-  li:first-child .timeline-link-top {
-    @apply h-1 w-4 rounded-full border-0 bg-(--chain);
-  }
-
-  li:last-child .timeline-link-bottom {
+  li:last-child .timeline-switch {
     @apply hidden;
+  }
+
+  .switch-contact {
+    @apply absolute left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-(--chain);
+  }
+
+  .switch-blade {
+    @apply absolute bottom-[3px] left-1/2 h-[18px] w-1 origin-bottom -translate-x-1/2 rounded-full bg-(--chain);
   }
 
   .tether {
@@ -151,20 +159,27 @@
         animation-range: entry-crossing 200px entry-crossing calc(100% + 200px);
       }
 
-      .timeline-link-top {
+      .timeline-cap {
         animation: fade-in linear both;
         animation-timeline: --row;
         animation-range: entry-crossing calc(200px - 20px) entry-crossing 200px;
       }
 
-      .timeline-link-bottom {
+      .timeline-switch {
         animation: fade-in linear both;
         animation-timeline: --row;
-        animation-range: entry-crossing calc(100% + 200px - 20px) entry-crossing calc(100% + 200px);
+        animation-range: entry-crossing calc(100% + 200px - 120px) entry-crossing calc(100% + 200px - 90px);
+      }
+
+      .switch-blade {
+        animation: switch-close ease-in both;
+        animation-timeline: --row;
+        animation-range: entry-crossing calc(100% + 200px - 75px) entry-crossing calc(100% + 200px - 45px);
       }
 
       .expanded .timeline-line,
-      .expanded .timeline-link-bottom {
+      .expanded .timeline-switch,
+      .expanded .switch-blade {
         animation: none;
       }
 
