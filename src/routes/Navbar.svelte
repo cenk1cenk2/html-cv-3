@@ -27,8 +27,8 @@
   @reference "../app.css";
 
   .navbar {
-    @apply fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 gap-1 rounded-xl border-2 border-gray-200 bg-white/60 p-1.5 shadow-xl backdrop-blur-xl dark:shadow-black/40;
-    @apply dark:border-gray-700 dark:bg-gray-800/60;
+    @apply fixed bottom-2 left-1/2 z-50 flex -translate-x-1/2 gap-1 rounded-xl border-2 border-gray-200 bg-white/60 p-1.5 shadow-xl backdrop-blur-xl dark:shadow-black/40;
+    @apply md:bottom-4 dark:border-gray-700 dark:bg-gray-800/60;
   }
 
   .navbar-item {
