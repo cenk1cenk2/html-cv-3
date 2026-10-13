@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { faPlug } from '@fortawesome/free-solid-svg-icons'
   import { onMount } from 'svelte'
+  import Fa from 'svelte-fa'
 
   let visible = $state(false)
 
@@ -44,7 +46,16 @@
 >
   <span class="scroll-hint-label">Scroll</span>
   <span class="scroll-hint-track">
-    <span class="scroll-hint-thumb"></span>
+    <span class="scroll-hint-plug">
+      <span class="scroll-hint-cable"></span>
+      <Fa icon={faPlug} class="rotate-180" />
+    </span>
+    <svg class="scroll-hint-socket" viewBox="0 0 24 24">
+      <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+      <rect class="scroll-hint-hole" x="7" y="6" width="3" height="7" rx="1" />
+      <rect class="scroll-hint-hole" x="14" y="6" width="3" height="7" rx="1" />
+      <circle class="scroll-hint-hole" cx="12" cy="17" r="1.5" />
+    </svg>
   </span>
 </button>
 
@@ -63,10 +74,24 @@
   }
 
   .scroll-hint-track {
-    @apply relative h-20 w-0.5 overflow-hidden rounded-full bg-gray-900/20 dark:bg-white/25;
+    @apply relative flex h-24 w-5 flex-col items-center justify-end overflow-hidden;
   }
 
-  .scroll-hint-thumb {
-    @apply bg-primary-500 motion-safe:animate-scroll-line absolute inset-x-0 top-0 h-1/2;
+  .scroll-hint-plug {
+    @apply motion-safe:animate-plug-in absolute bottom-4 flex flex-col items-center text-sm;
+  }
+
+  .scroll-hint-cable {
+    @apply h-20 w-0.5 rounded-full bg-current;
+  }
+
+  .scroll-hint-socket {
+    --socket-off: color-mix(in oklab, var(--color-gray-900) 40%, transparent);
+
+    @apply motion-safe:animate-socket-glow relative size-5 text-(--socket-off) dark:[--socket-off:color-mix(in_oklab,white_40%,transparent)];
+  }
+
+  .scroll-hint-hole {
+    @apply fill-white dark:fill-gray-900;
   }
 </style>
