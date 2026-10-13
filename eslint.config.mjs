@@ -1,4 +1,4 @@
-import { configs, utils } from '@cenk1cenk2/eslint-config'
+import { configs, globals, utils } from '@cenk1cenk2/eslint-config'
 import configSvelteTypescript from '@cenk1cenk2/eslint-config/svelte-typescript'
 
 const dedupePlugins = (items) => {
@@ -44,16 +44,7 @@ export default dedupePlugins([
   }),
   {
     languageOptions: {
-      globals: {
-        // https://github.com/sindresorhus/globals/issues/305
-        document: 'readonly',
-        window: 'readonly',
-        HTMLElement: 'readonly',
-        Element: 'readonly',
-        MouseEvent: 'readonly',
-        Event: 'readonly',
-        setTimeout: 'readonly'
-      }
+      globals: globals.default.browser
     },
     rules: {
       'import/no-extraneous-dependencies': 'off'

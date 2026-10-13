@@ -225,7 +225,7 @@ a {
   @apply border-2;
   @apply lg:border-4;
   @apply border-gray-200;
-  @apply shadow-xl transition-colors duration-500 ease-in-out;
+  @apply transition-colors duration-500 ease-in-out;
   @apply dark:border-gray-700;
 }
 
@@ -290,12 +290,6 @@ a {
   }
 }
 
-@keyframes draw-y {
-  from {
-    scale: 1 0;
-  }
-}
-
 @keyframes light-up {
   from {
     border-color: transparent;
@@ -303,51 +297,67 @@ a {
   }
 }
 
-@keyframes tip-move {
-  0% {
-    translate: -50% 0;
-    opacity: 0;
-  }
-
-  0.5%,
-  99.5% {
-    opacity: 1;
-  }
-
-  100% {
-    translate: -50% 100cqh;
-    opacity: 0;
-  }
-}
-
-@keyframes tip-move-last {
-  0% {
-    translate: -50% 0;
-    opacity: 0;
-  }
-
-  0.5% {
-    opacity: 1;
-  }
-
-  100% {
-    translate: -50% 100cqh;
-    opacity: 1;
-  }
-}
-
 @keyframes glow {
   from {
-    opacity: 0;
+    opacity: 0.1;
   }
 
-  25%,
-  75% {
-    opacity: 0.7;
+  5% {
+    opacity: 0.12;
   }
 
-  50% {
+  10% {
+    opacity: 0.2;
+  }
+
+  15% {
+    opacity: 0.33;
+  }
+
+  20% {
+    opacity: 0.5;
+  }
+
+  25% {
+    opacity: 0.72;
+  }
+
+  30%,
+  35%,
+  40%,
+  45%,
+  50%,
+  55%,
+  60% {
     opacity: 1;
+  }
+
+  65% {
+    opacity: 0.98;
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+  75% {
+    opacity: 0.8;
+  }
+
+  80% {
+    opacity: 0.68;
+  }
+
+  85% {
+    opacity: 0.55;
+  }
+
+  90% {
+    opacity: 0.45;
+  }
+
+  95% {
+    opacity: 0.37;
   }
 
   to {
@@ -415,6 +425,16 @@ a {
         animation-timeline: view(block 0px);
         animation-range: cover 0% cover 100%;
       }
+    }
+  }
+}
+
+@utility glow {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: glow linear both;
+      animation-timeline: view(block 0px);
+      animation-range: cover 0% cover 100%;
     }
   }
 }
