@@ -130,7 +130,7 @@
   }
 
   li:first-child.timeline-item {
-    @apply max-md:scroll-mt-28;
+    @apply max-md:scroll-mt-17.5;
   }
 
   .timeline-date-cell {

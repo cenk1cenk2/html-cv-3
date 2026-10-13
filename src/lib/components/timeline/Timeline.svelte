@@ -25,7 +25,7 @@
   </h2>
   <Divider />
 
-  <div class="relative isolate mt-8">
+  <div class="relative isolate mt-4 md:mt-8">
     <ul>
       {#each items as item (JSON.stringify(item.metadata))}
         <TimelineItem {item} />
