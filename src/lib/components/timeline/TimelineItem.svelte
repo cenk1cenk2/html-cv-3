@@ -350,25 +350,29 @@
         }
 
         .timeline-item :is(.timeline-date-cell, .timeline-card, .reveal-item) {
-          --rise: var(--lit, 1);
+          --rise: var(--appear, 1);
 
           translate: calc((1 - var(--rise)) * var(--slide-x)) calc((1 - var(--rise)) * var(--slide-y));
           opacity: var(--rise);
           transition-property: border-color;
         }
 
+        .timeline-item :is(.timeline-date-cell, .timeline-card) {
+          opacity: calc(var(--rise) * (0.4 + 0.6 * var(--lit, 1)));
+        }
+
         .timeline-item .timeline-logo-cell {
           translate: none;
-          opacity: var(--lit, 1);
+          opacity: calc(var(--appear, 1) * (0.4 + 0.6 * var(--lit, 1)));
           transition-property: none;
         }
 
         .timeline-item .reveal-item {
-          --rise: clamp(0, (var(--lit, 1) - 0.2) / 0.8, 1);
+          --rise: clamp(0, (var(--appear, 1) - 0.2) / 0.8, 1);
         }
 
         .timeline-item .reveal-item + .reveal-item {
-          --rise: clamp(0, (var(--lit, 1) - 0.4) / 0.6, 1);
+          --rise: clamp(0, (var(--appear, 1) - 0.4) / 0.6, 1);
         }
       }
     }

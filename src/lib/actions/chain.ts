@@ -6,6 +6,7 @@ const EASE = 0.09
 const GAP = 12
 const EDGE = 16
 const PLUG = 25
+const APPEAR = 200
 
 interface Row {
   node: HTMLElement
@@ -122,12 +123,14 @@ const paint = (measured: Measure[]): void => {
     write(row, '--draw', Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / box.height)).toFixed(4))
 
     if (icon) {
-      const lit = Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / (icon.bottom + GAP - box.top))).toFixed(3)
+      const lit = Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / (icon.bottom + GAP - box.top)))
+      const appear = Math.min(1, Math.max(0, (window.innerHeight - box.top) / APPEAR))
 
-      write(row, '--lit', lit, row.node)
+      write(row, '--lit', lit.toFixed(3), row.node)
+      write(row, '--appear', appear.toFixed(3), row.node)
 
       if (row.socket) {
-        write(row, '--socket', lit, row.socket)
+        write(row, '--socket', (appear * (0.4 + 0.6 * lit)).toFixed(3), row.socket)
       }
 
       write(row, '--hole-top', `${Math.round(icon.top - box.top)}px`)
