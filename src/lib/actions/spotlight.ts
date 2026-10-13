@@ -22,7 +22,11 @@ const update = (): void => {
   }
 
   for (const node of nodes) {
-    node.dataset.spotlight = node === active ? 'on' : 'off'
+    const state = node === active ? 'on' : 'off'
+
+    if (node.dataset.spotlight !== state) {
+      node.dataset.spotlight = state
+    }
   }
 
   if (active) {

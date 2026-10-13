@@ -17,8 +17,13 @@
   let expanded = $state(false)
   let row: HTMLElement
   let wasExpanded = false
+  let release: (() => void) | undefined
+  let moving = $state(false)
+  let settle: ReturnType<typeof setTimeout> | undefined
 
   const holdInPlace = (element: Element | null, duration: number): void => {
+    release?.()
+
     if (!element) {
       return
     }
@@ -27,10 +32,20 @@
     const observer = new ResizeObserver(() => {
       window.scrollBy({ top: element.getBoundingClientRect().top - top, behavior: 'instant' })
     })
+    const timer = setTimeout(() => release?.(), duration)
 
     observer.observe(row)
-    setTimeout(() => observer.disconnect(), duration)
+    release = (): void => {
+      observer.disconnect()
+      clearTimeout(timer)
+      release = undefined
+    }
   }
+
+  $effect(() => () => {
+    release?.()
+    clearTimeout(settle)
+  })
 
   $effect(() => {
     if (expanded === wasExpanded) {
@@ -38,10 +53,13 @@
     }
 
     hold(600)
+    moving = true
+    clearTimeout(settle)
+    settle = setTimeout(() => (moving = false), 500)
 
     if (!expanded && row.getBoundingClientRect().top < 0) {
       if (window.matchMedia('(width < 48rem)').matches) {
-        row.scrollIntoView({ block: 'start', behavior: 'smooth' })
+        row.scrollIntoView({ block: 'start' })
       } else {
         holdInPlace(row.querySelector('.timeline-toggle'), 600)
       }
@@ -89,7 +107,7 @@
     <span class="tether-down"></span>
   </div>
   <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
-  <article class="timeline-card reveal-slide max-md:delay-100" class:cursor-pointer={item.metadata.more} onclick={toggle}>
+  <article class="timeline-card reveal-slide max-md:delay-100" class:cursor-pointer={item.metadata.more} class:lit={moving} onclick={toggle}>
     {@render tetherIn('hidden md:flex')}
     <span class="tether-up"></span>
     <div class="reveal-item delay-150">
@@ -337,9 +355,24 @@
   .timeline-card {
     @apply relative z-10 col-span-full row-start-2 md:col-span-1 md:col-start-3 md:row-start-1;
     @apply [--slide-x:0px] [--slide-y:1.5rem] md:[--slide-x:3rem] md:[--slide-y:0px];
-    @apply shadow-glow rounded-xl border-2 border-gray-200 bg-white p-5 backdrop-blur md:bg-white/60 md:p-6 lg:border-4;
+    @apply shadow-glow rounded-xl border-2 border-gray-200 bg-white p-5 md:bg-white/60 md:p-6 md:backdrop-blur lg:border-4;
     @apply dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-800/50;
     @apply hover:border-primary-500/50 max-md:opacity-100;
+  }
+
+  .timeline-card {
+    transition-property: translate, opacity, border-color;
+    transition-duration: 700ms, 700ms, 150ms;
+  }
+
+  .timeline-card.lit {
+    @apply border-primary-500/50;
+  }
+
+  @media (width < 48rem) {
+    .timeline-card {
+      transition-delay: 100ms, 100ms, 0s;
+    }
   }
 
   .timeline-card .tether-in {

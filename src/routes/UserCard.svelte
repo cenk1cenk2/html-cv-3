@@ -13,7 +13,7 @@
   <div class="hero-background parallax">
     <picture>
       <source srcset="/hero-background.avif" type="image/avif" />
-      <img src="/hero-background.jpg" alt="" class="absolute inset-0 size-full object-cover" />
+      <img src="/hero-background.jpg" alt="" fetchpriority="high" class="absolute inset-0 size-full object-cover" />
     </picture>
     <div class="hero-scrim"></div>
   </div>
@@ -42,9 +42,7 @@
           <span class="inline-flex items-center gap-1.5"><Fa icon={faLocationDot} /> Vienna, Austria</span>
         </p>
         <h1 class="hero-name motion-safe:animate-rise mt-4 text-6xl leading-[0.9] font-bold tracking-tighter motion-safe:[animation-delay:100ms] sm:text-7xl lg:text-8xl">
-          Cenk <span class="whitespace-nowrap"
-            >Kılıç<span class="text-3xl font-medium tracking-normal text-gray-500 sm:text-4xl lg:text-5xl dark:text-gray-400">,&nbsp;MSc.</span></span
-          >
+          Cenk <span class="whitespace-nowrap">Kılıç<span class="hero-degree"><span class="max-md:hidden">,&nbsp;</span>MSc.</span></span>
         </h1>
         <p class="motion-safe:animate-rise mt-5 text-xl font-semibold motion-safe:[animation-delay:150ms] sm:text-2xl lg:text-3xl">Software Platform Engineer</p>
         <p class="motion-safe:animate-rise mt-3 max-w-xl text-xl text-gray-500 motion-safe:[animation-delay:200ms] lg:text-2xl dark:text-gray-300">
@@ -52,8 +50,8 @@
         </p>
         <div class="motion-safe:animate-rise mt-10 flex flex-wrap justify-center gap-3 motion-safe:[animation-delay:300ms] lg:justify-start">
           <a href="mailto:cenk@kilic.dev" class="pill-link"><Fa icon={faEnvelope} /> Email</a>
-          <a href="https://srcs.kilic.dev" target="_blank" class="pill-link"><Fa icon={faGithub} /> GitHub</a>
-          <a href="https://www.linkedin.com/in/cenkkilic/" target="_blank" class="pill-link"><Fa icon={faLinkedin} /> LinkedIn</a>
+          <a href="https://srcs.kilic.dev" target="_blank" rel="me noopener" class="pill-link"><Fa icon={faGithub} /> GitHub</a>
+          <a href="https://www.linkedin.com/in/cenkkilic/" target="_blank" rel="me noopener" class="pill-link"><Fa icon={faLinkedin} /> LinkedIn</a>
         </div>
       </div>
     </div>
@@ -86,6 +84,10 @@
 
   .hero-name {
     @apply [@media(max-height:700px)]:text-5xl;
+  }
+
+  .hero-degree {
+    @apply mt-3 block text-2xl font-medium tracking-normal text-gray-500 md:mt-0 md:inline md:text-4xl lg:text-5xl dark:text-gray-400;
   }
 
   .hero-scrim {

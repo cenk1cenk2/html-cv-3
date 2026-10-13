@@ -21,7 +21,7 @@
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://cenk.kilic.dev" />
+  <meta property="og:url" content="https://cenk.kilic.dev/" />
   <meta property="og:image" content="https://cenk.kilic.dev/og-card.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -34,7 +34,7 @@
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://cenk.kilic.dev/og-card.jpg" />
 
-  <link rel="canonical" href="https://cenk.kilic.dev" />
+  <link rel="canonical" href="https://cenk.kilic.dev/" />
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">
@@ -42,18 +42,20 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Cenk Kılıç",
-      "url": "https://cenk.kilic.dev",
+      "url": "https://cenk.kilic.dev/",
       "image": "https://cenk.kilic.dev/portrait.jpg",
       "jobTitle": "Software Platform Engineer",
       "honorificSuffix": "MSc.",
+      "email": "mailto:cenk@kilic.dev",
       "worksFor": { "@type": "Organization", "name": "Laravel", "url": "https://laravel.com" },
-      "address": { "@type": "PostalAddress", "addressLocality": "Vienna", "addressCountry": "AT" },
+      "address": { "@type": "PostalAddress", "postalCode": "1100", "addressLocality": "Vienna", "addressCountry": "AT" },
       "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "FH Technikum Wien" },
-        { "@type": "CollegeOrUniversity", "name": "Koç University" }
+        { "@type": "CollegeOrUniversity", "name": "FH Technikum Wien", "url": "https://technikum-wien.at" },
+        { "@type": "CollegeOrUniversity", "name": "Koç University", "url": "https://ku.edu.tr" },
+        { "@type": "HighSchool", "name": "Kadıköy Anadolu Lisesi", "url": "https://kadikoyanadolulisesi.meb.k12.tr" }
       ],
       "knowsAbout": ["Kubernetes", "Platform Engineering", "CI/CD", "Go", "Ansible", "Terraform", "Infrastructure Automation"],
-      "sameAs": ["https://github.com/cenk1cenk2", "https://www.linkedin.com/in/cenkkilic/"]
+      "sameAs": ["https://srcs.kilic.dev", "https://github.com/cenk1cenk2", "https://www.linkedin.com/in/cenkkilic/"]
     }
   </script>
 </svelte:head>

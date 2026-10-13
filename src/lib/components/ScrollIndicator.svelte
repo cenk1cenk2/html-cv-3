@@ -11,7 +11,7 @@
     const section = sections.item(1)
 
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      section.scrollIntoView({ block: 'start' })
     }
   }
 
@@ -83,5 +83,10 @@
 
   .scroll-hint :global(.scroll-hint-socket) {
     @apply motion-safe:animate-socket-glow relative z-10 size-7;
+  }
+
+  .scroll-hint.opacity-0 .scroll-hint-plug,
+  .scroll-hint.opacity-0 :global(.scroll-hint-socket) {
+    animation-play-state: paused;
   }
 </style>

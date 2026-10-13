@@ -26,6 +26,7 @@ export default defineConfig({
     tailwindcss(),
     sveltekit({
       extensions: ['.svelte', '.md', '.svx'],
+      inlineStyleThreshold: 100000,
 
       // Consult https://kit.svelte.dev/docs/integrations#preprocessors
       // for more information about preprocessors
