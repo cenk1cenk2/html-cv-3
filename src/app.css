@@ -276,12 +276,6 @@ a {
   }
 }
 
-@keyframes switch-close {
-  from {
-    rotate: -35deg;
-  }
-}
-
 @keyframes fade-in {
   from {
     opacity: 0;
