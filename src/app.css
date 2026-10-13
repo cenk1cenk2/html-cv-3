@@ -366,8 +366,10 @@ a {
     @supports (animation-timeline: view()) {
       &::after {
         animation-name: glow-in, glow-out;
-        animation-duration: auto;
+        animation-duration: var(--light-duration, auto), auto;
         animation-timing-function: ease-in, ease-in-out;
+        animation-delay: var(--light-delay, 0s), 0s;
+        animation-play-state: var(--light-state, running), running;
         animation-fill-mode: both;
         animation-timeline: var(--light-timeline, view(block 0px)), view(block 0px);
         animation-range:
@@ -384,8 +386,10 @@ a {
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       animation-name: glow-in, glow-out;
-      animation-duration: auto;
+      animation-duration: var(--light-duration, auto), auto;
       animation-timing-function: ease-in, ease-in-out;
+      animation-delay: var(--light-delay, 0s), 0s;
+      animation-play-state: var(--light-state, running), running;
       animation-fill-mode: both;
       animation-timeline: var(--light-timeline, view(block 0px)), view(block 0px);
       animation-range:

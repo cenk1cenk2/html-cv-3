@@ -107,13 +107,13 @@ const aim = (measured: Measure[]): { y: number; key: unknown } => {
   return { y: window.scrollY + pick.y, key: pick.row }
 }
 
-const write = (row: Row, name: string, value: string): void => {
+const write = (row: Row, name: string, value: string, target: HTMLElement = row.chain): void => {
   if (row.written.get(name) === value) {
     return
   }
 
   row.written.set(name, value)
-  row.chain.style.setProperty(name, value)
+  target.style.setProperty(name, value)
 }
 
 const paint = (measured: Measure[]): void => {
@@ -121,6 +121,7 @@ const paint = (measured: Measure[]): void => {
     write(row, '--draw', Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / box.height)).toFixed(4))
 
     if (icon) {
+      write(row, '--lit', Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / (icon.bottom + GAP - box.top))).toFixed(3), row.node)
       write(row, '--hole-top', `${Math.round(icon.top - box.top)}px`)
       write(row, '--hole-bottom', `${Math.round(icon.bottom - box.top)}px`)
     }

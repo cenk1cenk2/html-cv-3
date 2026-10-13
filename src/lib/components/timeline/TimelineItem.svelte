@@ -127,8 +127,6 @@
     @apply relative grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-6;
     @apply content-center max-md:min-h-[calc(100svh-8.5rem)] max-md:snap-start max-md:scroll-mb-12;
     @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
-
-    timeline-scope: --lit;
   }
 
   li:first-child.timeline-item {
@@ -158,15 +156,15 @@
 
   @media (width >= 48rem) {
     .timeline-logo-cell {
-      --light: entry-crossing 40px entry-crossing 240px;
+      --light: entry-crossing 60px entry-crossing 360px;
     }
 
     .timeline-date-cell {
-      --light: entry-crossing 40px entry-crossing 240px;
+      --light: entry-crossing 220px entry-crossing 560px;
     }
 
     .timeline-card {
-      --light: entry-crossing 40px entry-crossing 240px;
+      --light: entry-crossing 280px entry-crossing 640px;
     }
   }
 
@@ -326,28 +324,29 @@
 
       @media (width >= 48rem) {
         .timeline-item {
-          --light-timeline: --lit;
+          --light-timeline: auto;
+          --light-duration: 1s;
+          --light-state: paused;
+          --light-delay: calc(var(--lit, 1) * -1s);
         }
 
-        .timeline-logo-cell :global(.timeline-logo) {
-          view-timeline-name: --lit;
-          view-timeline-inset: 0px;
-        }
-
+        .timeline-card,
+        .tether-stub,
+        .tether-half,
         .timeline-logo-cell :global(.timeline-logo),
-        .timeline-date-cell :global(.timeline-date),
-        .timeline-card {
-          animation-timeline: --lit;
+        .timeline-date-cell :global(.timeline-date) {
+          animation-timeline: auto;
+          animation-duration: 1s;
+          animation-play-state: paused;
+          animation-delay: var(--light-delay);
         }
 
         .tether-stub {
-          animation-timeline: --lit;
-          animation-range: entry-crossing 140px entry-crossing 220px;
+          animation-delay: calc(clamp(0, (var(--lit, 1) - 0.5) / 0.4, 1) * -1s);
         }
 
         .tether-half {
-          animation-timeline: --lit;
-          animation-range: entry-crossing 200px entry-crossing 240px;
+          animation-delay: calc(clamp(0, (var(--lit, 1) - 0.8) / 0.2, 1) * -1s);
         }
       }
     }
