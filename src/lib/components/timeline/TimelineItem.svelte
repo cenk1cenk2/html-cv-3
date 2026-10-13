@@ -348,6 +348,28 @@
         .tether-half {
           animation-delay: calc(clamp(0, (var(--lit, 1) - 0.8) / 0.2, 1) * -1s);
         }
+
+        .timeline-item :is(.timeline-date-cell, .timeline-card, .reveal-item) {
+          --rise: var(--lit, 1);
+
+          translate: calc((1 - var(--rise)) * var(--slide-x)) calc((1 - var(--rise)) * var(--slide-y));
+          opacity: var(--rise);
+          transition-property: border-color;
+        }
+
+        .timeline-item .timeline-logo-cell {
+          translate: none;
+          opacity: var(--lit, 1);
+          transition-property: none;
+        }
+
+        .timeline-item .reveal-item {
+          --rise: clamp(0, (var(--lit, 1) - 0.2) / 0.8, 1);
+        }
+
+        .timeline-item .reveal-item + .reveal-item {
+          --rise: clamp(0, (var(--lit, 1) - 0.4) / 0.6, 1);
+        }
       }
     }
   }
