@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { faPlug } from '@fortawesome/free-solid-svg-icons'
   import { onMount } from 'svelte'
-  import Fa from 'svelte-fa'
 
   let visible = $state(false)
 
@@ -48,13 +46,17 @@
   <span class="scroll-hint-track">
     <span class="scroll-hint-plug">
       <span class="scroll-hint-cable"></span>
-      <Fa icon={faPlug} class="rotate-180" />
+      <svg class="scroll-hint-plug-head" viewBox="0 0 16 20" fill="currentColor">
+        <path d="M5 0h6v3h2a2 2 0 0 1 2 2v5a5 5 0 0 1-5 5H6a5 5 0 0 1-5-5V5a2 2 0 0 1 2-2h2z" />
+        <rect x="4" y="14" width="2" height="6" rx="1" />
+        <rect x="10" y="14" width="2" height="6" rx="1" />
+      </svg>
     </span>
     <svg class="scroll-hint-socket" viewBox="0 0 24 24">
-      <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
-      <rect class="scroll-hint-hole" x="7" y="6" width="3" height="7" rx="1" />
-      <rect class="scroll-hint-hole" x="14" y="6" width="3" height="7" rx="1" />
-      <circle class="scroll-hint-hole" cx="12" cy="17" r="1.5" />
+      <circle cx="12" cy="12" r="11" fill="currentColor" />
+      <circle class="scroll-hint-recess" cx="12" cy="12" r="7.5" />
+      <circle class="scroll-hint-hole" cx="8.5" cy="12" r="1.6" />
+      <circle class="scroll-hint-hole" cx="15.5" cy="12" r="1.6" />
     </svg>
   </span>
 </button>
@@ -78,7 +80,7 @@
   }
 
   .scroll-hint-plug {
-    @apply motion-safe:animate-plug-in absolute bottom-4 flex flex-col items-center text-sm;
+    @apply motion-safe:animate-plug-in absolute bottom-3 z-0 flex flex-col items-center;
   }
 
   .scroll-hint-cable {
@@ -86,9 +88,17 @@
   }
 
   .scroll-hint-socket {
-    --socket-off: color-mix(in oklab, var(--color-gray-900) 40%, transparent);
+    --socket-off: var(--color-gray-400);
 
-    @apply motion-safe:animate-socket-glow relative size-5 text-(--socket-off) dark:[--socket-off:color-mix(in_oklab,white_40%,transparent)];
+    @apply motion-safe:animate-socket-glow relative z-10 size-5 text-(--socket-off) dark:[--socket-off:var(--color-gray-500)];
+  }
+
+  .scroll-hint-plug-head {
+    @apply w-3;
+  }
+
+  .scroll-hint-recess {
+    @apply fill-black/15 dark:fill-black/30;
   }
 
   .scroll-hint-hole {
