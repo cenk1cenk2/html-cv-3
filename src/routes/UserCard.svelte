@@ -8,7 +8,7 @@
   import Bio from '#lib/content/bio.md'
 </script>
 
-<section id="profile" class="relative isolate overflow-hidden" use:spotlight>
+<section id="profile" class="relative isolate overflow-clip" use:spotlight>
   <div class="hero-background parallax">
     <picture>
       <source srcset="/hero-background.avif" type="image/avif" />
