@@ -67,7 +67,7 @@
 
   .timeline-item {
     @apply [--chain:var(--color-gray-300)] dark:[--chain:var(--color-gray-600)];
-    @apply relative grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-4 [view-timeline-inset:0px] [view-timeline-name:--row];
+    @apply relative grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-6 [view-timeline-inset:0px] [view-timeline-name:--row];
     @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
   }
 
