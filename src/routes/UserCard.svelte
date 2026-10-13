@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <div class="reveal-lift max-md:snap-start max-md:scroll-mt-12" use:reveal={{ above: true, threshold: 0.5 }}>
+    <div class="reveal-lift max-md:snap-start" use:reveal={{ above: true, threshold: 0.5 }}>
       <div class="hero-card container-border shadow-glow motion-safe:animate-rise motion-safe:[animation-delay:600ms]">
         <div class="prose prose-lg dark:prose-dark max-w-none">
           <Bio />
