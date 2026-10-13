@@ -2,20 +2,22 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --font-family-sans: DM Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-family-mono: DM Mono, ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  --font-sans: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: DM Mono, ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
 
-  --color-primary-50: #fdf2f6;
-  --color-primary-100: #fae6ec;
-  --color-primary-200: #f3bfd0;
-  --color-primary-300: #eb99b4;
-  --color-primary-400: #dc4d7b;
-  --color-primary-500: #cd0043;
-  --color-primary-600: #b9003c;
-  --color-primary-700: #7b0028;
-  --color-primary-800: #5c001e;
-  --color-primary-900: #3e0014;
-  --color-primary-950: #29000d;
+  --color-primary-50: #fcf7ee;
+  --color-primary-100: #f8edd8;
+  --color-primary-200: #f0dcb2;
+  --color-primary-300: #e5c07b;
+  --color-primary-400: #d3b051;
+  --color-primary-500: #9c670d;
+  --color-primary-600: #84560b;
+  --color-primary-700: #6a440c;
+  --color-primary-800: #4c310b;
+  --color-primary-900: #342109;
+  --color-primary-950: #231606;
+
+  --shadow-xl: 0 20px 25px -5px var(--shadow-soft), 0 8px 10px -6px var(--shadow-soft);
 
   --color-gray-50: #f6f6f6;
   --color-gray-100: #ecedee;
@@ -29,11 +31,64 @@
   --color-gray-900: #141618;
   --color-gray-950: #0d0f10;
 
-  --max-height-\(screen-16\): calc(100vh - 4rem);
+  --animate-rise: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-plug-in: plug-in 2.4s ease-in-out infinite;
+  --animate-socket-glow: socket-glow 2.4s ease-in-out infinite;
 
-  --inset-16: 4rem;
+  @keyframes plug-in {
+    0% {
+      opacity: 0;
+      translate: 0 -1.5rem;
+    }
 
-  --transition-property-padding: padding;
+    15% {
+      opacity: 1;
+    }
+
+    55%,
+    85% {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    100% {
+      opacity: 0;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes socket-glow {
+    0%,
+    50%,
+    100% {
+      color: var(--socket-off);
+    }
+
+    60%,
+    85% {
+      color: var(--color-primary-500);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 2rem;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --shadow-soft: rgb(0 0 0 / 0.07);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary-500: #d6af66;
+    --shadow-soft: color-mix(in oklab, var(--color-primary-500) 5%, transparent);
+  }
 }
 
 @utility prose {
@@ -113,6 +168,10 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  :focus-visible {
+    @apply outline-primary-500 outline-2 outline-offset-2;
+  }
+
   *,
   ::after,
   ::before,
@@ -168,4 +227,123 @@ a {
   @apply border-gray-200;
   @apply shadow-xl transition-colors duration-500 ease-in-out;
   @apply dark:border-gray-700;
+}
+
+@keyframes parallax {
+  to {
+    translate: 0 15vh;
+  }
+}
+
+@utility parallax {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      animation: parallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+
+@keyframes draw-x {
+  from {
+    scale: 0 1;
+  }
+}
+
+@utility draw-x {
+  @apply origin-left;
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: draw-x ease-out both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 45%;
+    }
+  }
+}
+
+@keyframes draw-y {
+  from {
+    scale: 1 0;
+  }
+}
+
+@keyframes light-up {
+  from {
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes scroll-progress {
+  from {
+    clip-path: inset(0 100% calc(100% - var(--radius-xl)) 0);
+  }
+
+  to {
+    clip-path: inset(0 0 calc(100% - var(--radius-xl)) 0);
+  }
+}
+
+@utility scroll-progress {
+  @apply hidden;
+
+  @supports (animation-timeline: scroll()) {
+    @apply block;
+
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@utility grid-lines {
+  @apply bg-[size:4rem_4rem] opacity-60 [--grid-line:var(--color-gray-200)] dark:opacity-40 dark:[--grid-line:var(--color-gray-700)];
+
+  background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+}
+
+@utility pill-link {
+  @apply inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 bg-white/60 px-5 py-2.5 font-medium backdrop-blur;
+  @apply hover:border-primary-500 transition-colors dark:border-gray-700 dark:bg-gray-800/60;
+}
+
+@utility light-up {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: light-up linear both;
+      animation-timeline: view(block 0px);
+      animation-range: cover 0% cover 35%;
+    }
+  }
+}
+
+@utility tag-pill {
+  @apply light-up;
+  @apply inline-flex items-center gap-1.5 rounded-lg border-2 border-gray-200 px-2.5 py-0.5 text-xs font-medium whitespace-nowrap text-gray-600 dark:border-gray-700 dark:text-gray-300;
+}
+
+@utility reveal-fade {
+  @apply *:transition-opacity *:duration-700 *:ease-out;
+  @apply data-[reveal=below]:*:opacity-0;
+}
+
+@utility reveal-slide {
+  @apply transition duration-700 ease-out;
+  @apply group-data-[reveal=below]:translate-x-(--slide-x) group-data-[reveal=below]:translate-y-(--slide-y) group-data-[reveal=below]:opacity-0;
+}
+
+@utility reveal-lift {
+  @apply transition duration-700 ease-out data-[reveal=above]:-translate-y-8 data-[reveal=above]:opacity-0;
+}
+
+@utility reveal-item {
+  @apply transition duration-700 ease-out [--slide-x:0px] [--slide-y:0.75rem] md:[--slide-x:0.75rem] md:[--slide-y:0px];
+  @apply group-data-[reveal=below]:translate-x-(--slide-x) group-data-[reveal=below]:translate-y-(--slide-y) group-data-[reveal=below]:opacity-0;
 }

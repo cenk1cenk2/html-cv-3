@@ -1,4 +1,4 @@
-import type { SvelteComponent } from 'svelte'
+import type { Component } from 'svelte'
 
 export interface TimelineItemEntry {
   name: string
@@ -10,9 +10,11 @@ export interface TimelineItemEntry {
   type?: string
   role?: string
   duration?: boolean
+  websites?: string[]
+  more?: boolean
 }
 
 export interface TimelineItemFile {
-  default: typeof SvelteComponent
+  default: Component
   metadata: TimelineItemEntry
 }

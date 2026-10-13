@@ -3,18 +3,22 @@ end: false
 start: August 2021
 logo: sorwe.jpeg
 name: Sorwe
+websites:
+  - https://sorwe.com
 location: İstanbul, Turkey
 attendance: Remote
 role: DevOps Architect
 type: Freelance
 ---
 
-**Role:** Evolving the customer’s non-automated, local build-based deployment workflow to CI/CD-based deployed to initially highly available on-premises servers and after that to the cloud providers.
+**Role:** Turning a product that was deployed by hand from local builds into repeatable deployments on highly available on-premises infrastructure, and evolving it as the product grows.
 
-- Architectural design for highly available servers.
-- CI configurations for Bitbucket Pipelines with custom Golang CLIs to automate the flow for similar applications.
-- Ansible deployments for provisioning on-premises servers and deploying microservice-based services.
-- Custom Ansible roles and collections for automated Docker Compose and Nginx-based deployments.
-- Monitoring deployments and infrastructure through Prometheus, Grafana, Grafana Mimir and Loki.
-- Planned Terraform-based deployments to a TBD cloud provider.
-- Support for Node.JS-based frontend applications and libraries.
+<!-- more -->
+
+- Designing and running the highly available on-premises infrastructure, provisioned and deployed entirely through Ansible with custom roles and collections.
+- Working full time on site reliability engineering, keeping the platform available, observable and performant.
+- Building a shared library of Bitbucket Pipes in Go, so every service, in whatever language, builds, versions and ships through the same flow.
+- Rolling out the microservice estate as containers behind reverse proxies and load balancing, from the API gateway and background jobs to the language processing and artificial intelligence services.
+- Running self-hosted language models on dedicated GPU servers for the product's AI features.
+- Building the observability stack with Prometheus, Grafana, Mimir and Loki, together with alerting and automated backups.
+- Supporting the frontend applications and shared libraries.

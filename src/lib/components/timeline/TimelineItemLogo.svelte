@@ -1,25 +1,28 @@
 <script lang="ts">
   import type { TimelineItemFile } from './timeline-item.interface'
 
-  export let item: TimelineItemFile
+  interface Props {
+    item: TimelineItemFile
+  }
+
+  let { item }: Props = $props()
 </script>
 
-<div class="timeline-logo-column">
-  <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} class="timeline-logo" />
-</div>
+<picture class="relative block">
+  <span class="timeline-logo-halo" aria-hidden="true"></span>
+  <source srcset="/logo/{item.metadata.logo.replace(/\.[^.]+$/, '.avif')}" type="image/avif" />
+  <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} loading="lazy" decoding="async" class="timeline-logo" />
+</picture>
 
 <style lang="postcss">
   @reference "../../../app.css";
 
-  .timeline-logo-column {
-    @apply place-self-center;
+  .timeline-logo {
+    @apply size-20 overflow-hidden rounded-xl border-2 border-gray-300 bg-white object-contain p-1 md:size-24 md:border-4 dark:border-gray-600;
+    @apply shadow-xl;
   }
 
-  .timeline-logo {
-    @apply object-contain;
-    @apply flex h-16 w-16 min-w-16 overflow-hidden;
-    @apply rounded-xl border-2 border-gray-300 bg-white p-1 shadow-xl md:h-24 md:w-24 md:min-w-24 md:border-4 dark:border-gray-600;
-    @apply shadow-2xl;
-    @apply place-self-center;
+  .timeline-logo-halo {
+    @apply bg-primary-500/30 absolute -inset-3 -z-10 rounded-xl blur-2xl;
   }
 </style>
