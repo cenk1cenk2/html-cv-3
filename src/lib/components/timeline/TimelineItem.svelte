@@ -349,30 +349,20 @@
           animation-delay: calc(clamp(0, (var(--lit, 1) - 0.8) / 0.2, 1) * -1s);
         }
 
-        .timeline-item :is(.timeline-date-cell, .timeline-card, .reveal-item) {
-          --rise: var(--appear, 1);
-
-          translate: calc((1 - var(--rise)) * var(--slide-x)) calc((1 - var(--rise)) * var(--slide-y));
-          opacity: var(--rise);
+        .timeline-item :is(.timeline-date-cell, .timeline-logo-cell, .timeline-card) {
+          translate: calc((1 - var(--lit, 1)) * var(--slide-x)) calc((1 - var(--lit, 1)) * var(--slide-y));
+          opacity: calc(var(--appear, 1) * (0.4 + 0.6 * var(--lit, 1)));
           transition-property: border-color;
-        }
-
-        .timeline-item :is(.timeline-date-cell, .timeline-card) {
-          opacity: calc(var(--rise) * (0.4 + 0.6 * var(--lit, 1)));
         }
 
         .timeline-item .timeline-logo-cell {
           translate: none;
-          opacity: calc(var(--appear, 1) * (0.4 + 0.6 * var(--lit, 1)));
-          transition-property: none;
         }
 
         .timeline-item .reveal-item {
-          --rise: clamp(0, (var(--appear, 1) - 0.2) / 0.8, 1);
-        }
-
-        .timeline-item .reveal-item + .reveal-item {
-          --rise: clamp(0, (var(--appear, 1) - 0.4) / 0.6, 1);
+          translate: none;
+          opacity: 1;
+          transition-property: none;
         }
       }
     }
