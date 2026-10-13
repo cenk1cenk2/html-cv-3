@@ -68,12 +68,12 @@
   .timeline-item {
     @apply [--chain:var(--color-gray-300)] dark:[--chain:var(--color-gray-600)];
     @apply relative grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-6 [view-timeline-inset:0px] [view-timeline-name:--row];
-    @apply content-center max-md:min-h-svh max-md:snap-start;
+    @apply content-center max-md:min-h-[calc(100svh-8.5rem)] max-md:snap-start;
+    @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
   }
 
   li:first-child.timeline-item {
     @apply max-md:scroll-mt-28;
-    @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
   }
 
   .timeline-date-cell {
