@@ -20,7 +20,7 @@
 <div class="timeline w-full" id={slugify(name)}>
   <div class="timeline-header">
     <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-    <h2 class="flex items-center justify-center gap-3 text-3xl font-bold" tabindex="0">
+    <h2 class="flex items-center justify-center gap-3 text-2xl font-bold md:text-3xl" tabindex="0">
       <Fa {icon} />
       {name}
     </h2>
@@ -43,7 +43,7 @@
   @reference "../../../app.css";
 
   .timeline-header {
-    @apply max-md:sticky max-md:top-0 max-md:z-20 max-md:-mx-2 max-md:bg-white/85 max-md:px-2 max-md:pt-6 max-md:pb-1 max-md:backdrop-blur dark:max-md:bg-gray-900/85;
+    @apply max-md:sticky max-md:top-0 max-md:z-20 max-md:-mx-2 max-md:bg-white max-md:px-4 max-md:pt-6 max-md:pb-1 dark:max-md:bg-gray-900;
   }
 
   @media (prefers-reduced-motion: no-preference) and (width < 48rem) {

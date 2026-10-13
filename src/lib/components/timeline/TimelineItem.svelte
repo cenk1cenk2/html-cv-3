@@ -125,7 +125,7 @@
   .timeline-item {
     @apply [--chain:var(--color-gray-300)] [--tip-end:5px] [--tip-start:5px] dark:[--chain:var(--color-gray-600)];
     @apply relative grid grid-cols-[minmax(0,1fr)_11rem_1.5rem_5rem_minmax(0,1fr)] items-center gap-y-4 py-6;
-    @apply content-center max-md:min-h-[calc(100svh-8.5rem)] max-md:snap-start max-md:scroll-mt-14.5 max-md:scroll-mb-12;
+    @apply content-center max-md:min-h-[calc(100svh-10rem)] max-md:snap-start max-md:scroll-mt-13.5 max-md:scroll-mb-12;
     @apply md:grid-cols-[11rem_6rem_minmax(0,1fr)] md:gap-x-6 md:gap-y-3 md:py-3;
   }
 
