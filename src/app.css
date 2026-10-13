@@ -369,7 +369,7 @@ a {
         animation-duration: auto;
         animation-timing-function: ease-in, ease-in-out;
         animation-fill-mode: both;
-        animation-timeline: view(block 0px);
+        animation-timeline: var(--light-timeline, view(block 0px)), view(block 0px);
         animation-range:
           var(--light, entry-crossing 100px entry-crossing 420px),
           cover 60% cover 100%;
@@ -387,7 +387,7 @@ a {
       animation-duration: auto;
       animation-timing-function: ease-in, ease-in-out;
       animation-fill-mode: both;
-      animation-timeline: view(block 0px);
+      animation-timeline: var(--light-timeline, view(block 0px)), view(block 0px);
       animation-range:
         var(--light, entry-crossing 100px entry-crossing 420px),
         cover 60% cover 100%;
