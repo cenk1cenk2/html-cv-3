@@ -47,4 +47,10 @@
   .timeline-plug-track :global(.timeline-socket) {
     @apply absolute bottom-0 left-1/2 z-10 size-7 -translate-x-1/2 [--socket-off:var(--color-gray-300)] dark:[--socket-off:var(--color-gray-600)];
   }
+
+  @media (prefers-reduced-motion: no-preference) and (width >= 48rem) {
+    .timeline-plug-track :global(.timeline-socket) {
+      opacity: var(--socket, 1);
+    }
+  }
 </style>

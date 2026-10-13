@@ -13,6 +13,7 @@ interface Row {
   section: HTMLElement | null
   logo: Element | null
   card: Element | null
+  socket: HTMLElement | null
   joint: Element[]
   written: Map<string, string>
 }
@@ -121,7 +122,14 @@ const paint = (measured: Measure[]): void => {
     write(row, '--draw', Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / box.height)).toFixed(4))
 
     if (icon) {
-      write(row, '--lit', Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / (icon.bottom + GAP - box.top))).toFixed(3), row.node)
+      const lit = Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / (icon.bottom + GAP - box.top))).toFixed(3)
+
+      write(row, '--lit', lit, row.node)
+
+      if (row.socket) {
+        write(row, '--socket', lit, row.socket)
+      }
+
       write(row, '--hole-top', `${Math.round(icon.top - box.top)}px`)
       write(row, '--hole-bottom', `${Math.round(icon.bottom - box.top)}px`)
     }
@@ -257,6 +265,7 @@ export const chain: Action<HTMLElement> = (node) => {
     section: node.closest('section'),
     logo: node.querySelector('.timeline-logo'),
     card: node.querySelector('.timeline-card'),
+    socket: node === node.parentElement?.lastElementChild ? (node.parentElement.nextElementSibling as HTMLElement | null) : null,
     joint: [...node.querySelectorAll('.tether-down, .tether-up')],
     written: new Map()
   }
