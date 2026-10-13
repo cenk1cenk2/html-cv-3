@@ -6,6 +6,7 @@ const EASE = 0.09
 const GAP = 12
 const EDGE = 16
 const PLUG = 25
+const APPEAR = 200
 
 interface Row {
   node: HTMLElement
@@ -13,6 +14,7 @@ interface Row {
   section: HTMLElement | null
   logo: Element | null
   card: Element | null
+  socket: HTMLElement | null
   joint: Element[]
   written: Map<string, string>
 }
@@ -107,13 +109,13 @@ const aim = (measured: Measure[]): { y: number; key: unknown } => {
   return { y: window.scrollY + pick.y, key: pick.row }
 }
 
-const write = (row: Row, name: string, value: string): void => {
+const write = (row: Row, name: string, value: string, target: HTMLElement = row.chain): void => {
   if (row.written.get(name) === value) {
     return
   }
 
   row.written.set(name, value)
-  row.chain.style.setProperty(name, value)
+  target.style.setProperty(name, value)
 }
 
 const paint = (measured: Measure[]): void => {
@@ -121,6 +123,16 @@ const paint = (measured: Measure[]): void => {
     write(row, '--draw', Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / box.height)).toFixed(4))
 
     if (icon) {
+      const lit = Math.min(1, Math.max(0, ((position ?? 0) - window.scrollY - box.top) / (icon.bottom + GAP - box.top)))
+      const appear = Math.min(1, Math.max(0, (window.innerHeight - box.top) / APPEAR))
+
+      write(row, '--lit', lit.toFixed(3), row.node)
+      write(row, '--appear', appear.toFixed(3), row.node)
+
+      if (row.socket) {
+        write(row, '--socket', (appear * (0.4 + 0.6 * lit)).toFixed(3), row.socket)
+      }
+
       write(row, '--hole-top', `${Math.round(icon.top - box.top)}px`)
       write(row, '--hole-bottom', `${Math.round(icon.bottom - box.top)}px`)
     }
@@ -256,6 +268,7 @@ export const chain: Action<HTMLElement> = (node) => {
     section: node.closest('section'),
     logo: node.querySelector('.timeline-logo'),
     card: node.querySelector('.timeline-card'),
+    socket: node === node.parentElement?.lastElementChild ? (node.parentElement.nextElementSibling as HTMLElement | null) : null,
     joint: [...node.querySelectorAll('.tether-down, .tether-up')],
     written: new Map()
   }

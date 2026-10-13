@@ -130,16 +130,42 @@
   }
 
   li:first-child.timeline-item {
-    @apply max-md:scroll-mt-28;
+    @apply max-md:scroll-mt-17.5;
   }
 
   .timeline-date-cell {
-    @apply relative z-10 col-start-2 row-start-1 [--slide-x:-1.5rem] [--slide-y:0px] md:col-start-1 md:[--slide-x:0.75rem];
+    @apply relative z-10 col-start-2 row-start-1 [--slide-x:-5%] [--slide-y:0px] md:col-start-1 md:[--slide-x:-3%];
   }
 
   .timeline-logo-cell {
     @apply relative col-start-4 row-start-1 flex items-center justify-center self-stretch md:col-start-2 md:self-center;
-    @apply [--slide-x:0px] [--slide-y:2rem];
+    @apply [--slide-x:0px] [--slide-y:5%];
+  }
+
+  .timeline-logo-cell {
+    --light: entry-crossing 100px entry-crossing 400px;
+  }
+
+  .timeline-date-cell {
+    --light: entry-crossing 200px entry-crossing 500px;
+  }
+
+  .timeline-card {
+    --light: entry-crossing 100px entry-crossing 420px;
+  }
+
+  @media (width >= 48rem) {
+    .timeline-logo-cell {
+      --light: entry-crossing 60px entry-crossing 360px;
+    }
+
+    .timeline-date-cell {
+      --light: entry-crossing 220px entry-crossing 560px;
+    }
+
+    .timeline-card {
+      --light: entry-crossing 280px entry-crossing 640px;
+    }
   }
 
   .timeline-chain {
@@ -288,49 +314,55 @@
         animation-range: entry-crossing 250px entry-crossing 300px;
       }
 
-      .timeline-logo-cell :global(.timeline-logo) {
-        animation: light-up linear both;
-        animation-timeline: view(block 0px);
-        animation-range: entry-crossing 100px entry-crossing 400px;
-      }
-
-      .timeline-logo-cell :global(.timeline-logo-halo) {
-        animation: glow linear both;
-        animation-timeline: view(block 0px);
-        animation-range: cover 0% cover 100%;
-      }
-
-      .timeline-date-cell :global(.timeline-date) {
-        animation: light-up linear both;
-        animation-timeline: view(block 0px);
-        animation-range: entry-crossing 200px entry-crossing 500px;
-      }
-
+      .timeline-logo-cell :global(.timeline-logo),
+      .timeline-date-cell :global(.timeline-date),
       .timeline-card {
         animation: light-up linear both;
         animation-timeline: view(block 0px);
-        animation-range: entry-crossing 100px entry-crossing 420px;
+        animation-range: var(--light);
       }
 
       @media (width >= 48rem) {
-        .timeline-logo-cell :global(.timeline-logo) {
-          animation-range: entry-crossing 60px entry-crossing 360px;
+        .timeline-item {
+          --light-timeline: auto;
+          --light-duration: 1s;
+          --light-state: paused;
+          --light-delay: calc(var(--lit, 1) * -1s);
         }
 
+        .timeline-card,
+        .tether-stub,
+        .tether-half,
+        .timeline-logo-cell :global(.timeline-logo),
         .timeline-date-cell :global(.timeline-date) {
-          animation-range: entry-crossing 220px entry-crossing 560px;
-        }
-
-        .timeline-card {
-          animation-range: entry-crossing 280px entry-crossing 640px;
+          animation-timeline: auto;
+          animation-duration: 1s;
+          animation-play-state: paused;
+          animation-delay: var(--light-delay);
         }
 
         .tether-stub {
-          animation-range: entry-crossing 162px entry-crossing 202px;
+          animation-delay: calc(clamp(0, (var(--lit, 1) - 0.5) / 0.4, 1) * -1s);
         }
 
         .tether-half {
-          animation-range: entry-crossing 197px entry-crossing 227px;
+          animation-delay: calc(clamp(0, (var(--lit, 1) - 0.8) / 0.2, 1) * -1s);
+        }
+
+        .timeline-item :is(.timeline-date-cell, .timeline-logo-cell, .timeline-card) {
+          translate: calc((1 - var(--lit, 1)) * var(--slide-x)) calc((1 - var(--lit, 1)) * var(--slide-y));
+          opacity: calc(var(--appear, 1) * (0.4 + 0.6 * var(--lit, 1)));
+          transition-property: border-color;
+        }
+
+        .timeline-item .timeline-logo-cell {
+          translate: none;
+        }
+
+        .timeline-item .reveal-item {
+          translate: none;
+          opacity: 1;
+          transition-property: none;
         }
       }
     }
@@ -354,7 +386,7 @@
 
   .timeline-card {
     @apply relative z-10 col-span-full row-start-2 md:col-span-1 md:col-start-3 md:row-start-1;
-    @apply [--slide-x:0px] [--slide-y:1.5rem] md:[--slide-x:3rem] md:[--slide-y:0px];
+    @apply [--slide-x:0px] [--slide-y:5%] md:[--slide-x:3%] md:[--slide-y:0px];
     @apply shadow-glow rounded-xl border-2 border-gray-200 bg-white p-5 md:bg-white/60 md:p-6 md:backdrop-blur lg:border-4;
     @apply dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-800/50;
     @apply hover:border-primary-500/50 max-md:opacity-100;

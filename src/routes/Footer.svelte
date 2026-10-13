@@ -5,7 +5,7 @@
 
 <footer
   id="company"
-  class="group relative isolate flex min-h-[calc(100svh-7rem)] flex-col overflow-clip px-6 pt-12 pb-28 max-md:snap-start"
+  class="group relative isolate flex min-h-[calc(100svh-7rem)] flex-col overflow-clip px-6 pt-12 pb-36 max-md:snap-start"
   use:spotlight
   use:reveal={{ above: true }}
 >

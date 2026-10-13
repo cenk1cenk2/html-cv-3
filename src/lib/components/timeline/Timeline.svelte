@@ -25,7 +25,7 @@
   </h2>
   <Divider />
 
-  <div class="relative isolate mt-8">
+  <div class="relative isolate mt-4 md:mt-8">
     <ul>
       {#each items as item (JSON.stringify(item.metadata))}
         <TimelineItem {item} />
@@ -46,5 +46,11 @@
 
   .timeline-plug-track :global(.timeline-socket) {
     @apply absolute bottom-0 left-1/2 z-10 size-7 -translate-x-1/2 [--socket-off:var(--color-gray-300)] dark:[--socket-off:var(--color-gray-600)];
+  }
+
+  @media (prefers-reduced-motion: no-preference) and (width >= 48rem) {
+    .timeline-plug-track :global(.timeline-socket) {
+      opacity: var(--socket, 1);
+    }
   }
 </style>
