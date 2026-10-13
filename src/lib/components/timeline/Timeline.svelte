@@ -17,13 +17,15 @@
   let { name, icon, items }: Props = $props()
 </script>
 
-<div class="w-full" id={slugify(name)}>
-  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-  <h2 class="flex items-center justify-center gap-3 text-3xl font-bold" tabindex="0">
-    <Fa {icon} />
-    {name}
-  </h2>
-  <Divider />
+<div class="timeline w-full" id={slugify(name)}>
+  <div class="timeline-header">
+    <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+    <h2 class="flex items-center justify-center gap-3 text-3xl font-bold" tabindex="0">
+      <Fa {icon} />
+      {name}
+    </h2>
+    <Divider />
+  </div>
 
   <div class="relative isolate mt-4 md:mt-8">
     <ul>
@@ -39,6 +41,26 @@
 
 <style lang="postcss">
   @reference "../../../app.css";
+
+  .timeline-header {
+    @apply max-md:sticky max-md:top-0 max-md:z-20 max-md:-mx-2 max-md:bg-white/85 max-md:px-2 max-md:pt-6 max-md:pb-1 max-md:backdrop-blur dark:max-md:bg-gray-900/85;
+  }
+
+  @media (prefers-reduced-motion: no-preference) and (width < 48rem) {
+    @supports (animation-timeline: view()) {
+      .timeline {
+        view-timeline: --section block;
+      }
+
+      .timeline-header :global(.divider-line) {
+        @apply opacity-100;
+
+        animation-timing-function: linear;
+        animation-timeline: --section;
+        animation-range: contain 0% contain 100%;
+      }
+    }
+  }
 
   .timeline-plug-track {
     @apply pointer-events-none absolute top-0 -bottom-10 left-[calc(50%+6.25rem)] -z-10 -translate-x-1/2 md:left-[15.5rem];
