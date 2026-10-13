@@ -32,7 +32,7 @@
   }
 
   .navbar-item {
-    @apply flex min-w-16 flex-col items-center gap-1 rounded-lg px-3 py-1.5 text-[11px] font-medium text-gray-500 transition-colors dark:text-gray-300;
+    @apply flex min-w-14 flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-[11px] font-medium text-gray-500 transition-colors md:min-w-16 md:px-3 dark:text-gray-300;
   }
 
   .navbar-item.active {
