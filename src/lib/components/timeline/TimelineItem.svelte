@@ -134,7 +134,7 @@
   }
 
   .timeline-date-cell {
-    @apply relative z-10 col-start-2 row-start-1 [--slide-x:-1.5rem] [--slide-y:0px] md:col-start-1 md:[--slide-x:0.75rem];
+    @apply relative z-10 col-start-2 row-start-1 [--slide-x:-1.5rem] [--slide-y:0px] md:col-start-1 md:[--slide-x:-0.75rem];
   }
 
   .timeline-logo-cell {
