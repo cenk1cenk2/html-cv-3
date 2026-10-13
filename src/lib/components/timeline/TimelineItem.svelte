@@ -107,9 +107,12 @@
     @apply bottom-0 rounded-t-full border-b-0;
   }
 
-  li:first-child .timeline-link-top,
-  li:last-child .timeline-link-bottom {
+  li:first-child .timeline-link-top {
     @apply h-1 w-4 rounded-full border-0 bg-(--chain);
+  }
+
+  li:last-child .timeline-link-bottom {
+    @apply hidden;
   }
 
   .tether {
@@ -190,6 +193,12 @@
         animation-range: entry-crossing 200px entry-crossing calc(200px + 140px);
       }
 
+      .timeline-logo-cell :global(.timeline-logo-halo) {
+        animation: fade-in linear both;
+        animation-timeline: --row;
+        animation-range: entry-crossing 200px entry-crossing calc(200px + 140px);
+      }
+
       .timeline-date-cell :global(.timeline-date),
       .timeline-card {
         animation: light-up linear both;
@@ -198,7 +207,8 @@
       }
 
       @media (width >= 48rem) {
-        .timeline-logo-cell :global(.timeline-logo) {
+        .timeline-logo-cell :global(.timeline-logo),
+        .timeline-logo-cell :global(.timeline-logo-halo) {
           animation-range: entry-crossing calc(50% + 200px - 120px) entry-crossing calc(50% + 200px + 40px);
         }
 
