@@ -142,6 +142,32 @@
     @apply [--slide-x:0px] [--slide-y:2rem];
   }
 
+  .timeline-logo-cell {
+    --light: entry-crossing 100px entry-crossing 400px;
+  }
+
+  .timeline-date-cell {
+    --light: entry-crossing 200px entry-crossing 500px;
+  }
+
+  .timeline-card {
+    --light: entry-crossing 100px entry-crossing 420px;
+  }
+
+  @media (width >= 48rem) {
+    .timeline-logo-cell {
+      --light: entry-crossing 60px entry-crossing 360px;
+    }
+
+    .timeline-date-cell {
+      --light: entry-crossing 220px entry-crossing 560px;
+    }
+
+    .timeline-card {
+      --light: entry-crossing 280px entry-crossing 640px;
+    }
+  }
+
   .timeline-chain {
     @apply pointer-events-none absolute inset-0 -z-10 [--chain-x:calc(50%+6.25rem)] md:[--chain-x:15.5rem];
   }
@@ -288,43 +314,15 @@
         animation-range: entry-crossing 250px entry-crossing 300px;
       }
 
-      .timeline-logo-cell :global(.timeline-logo) {
-        animation: light-up linear both;
-        animation-timeline: view(block 0px);
-        animation-range: entry-crossing 100px entry-crossing 400px;
-      }
-
-      .timeline-logo-cell :global(.timeline-logo-halo) {
-        animation: glow linear both;
-        animation-timeline: view(block 0px);
-        animation-range: cover 0% cover 100%;
-      }
-
-      .timeline-date-cell :global(.timeline-date) {
-        animation: light-up linear both;
-        animation-timeline: view(block 0px);
-        animation-range: entry-crossing 200px entry-crossing 500px;
-      }
-
+      .timeline-logo-cell :global(.timeline-logo),
+      .timeline-date-cell :global(.timeline-date),
       .timeline-card {
         animation: light-up linear both;
         animation-timeline: view(block 0px);
-        animation-range: entry-crossing 100px entry-crossing 420px;
+        animation-range: var(--light);
       }
 
       @media (width >= 48rem) {
-        .timeline-logo-cell :global(.timeline-logo) {
-          animation-range: entry-crossing 60px entry-crossing 360px;
-        }
-
-        .timeline-date-cell :global(.timeline-date) {
-          animation-range: entry-crossing 220px entry-crossing 560px;
-        }
-
-        .timeline-card {
-          animation-range: entry-crossing 280px entry-crossing 640px;
-        }
-
         .tether-stub {
           animation-range: entry-crossing 162px entry-crossing 202px;
         }

@@ -284,62 +284,27 @@ a {
   }
 }
 
-@keyframes glow {
+@property --glow-in {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --glow-out {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+@keyframes glow-in {
   from {
-    opacity: 0.1;
+    --glow-in: 0.1;
   }
+}
 
-  2% {
-    opacity: 0.42;
-  }
-
-  4% {
-    opacity: 0.68;
-  }
-
-  6% {
-    opacity: 0.86;
-  }
-
-  8% {
-    opacity: 0.96;
-  }
-
-  10%,
-  60% {
-    opacity: 1;
-  }
-
-  65% {
-    opacity: 0.98;
-  }
-
-  70% {
-    opacity: 0.9;
-  }
-
-  75% {
-    opacity: 0.8;
-  }
-
-  80% {
-    opacity: 0.68;
-  }
-
-  85% {
-    opacity: 0.55;
-  }
-
-  90% {
-    opacity: 0.45;
-  }
-
-  95% {
-    opacity: 0.37;
-  }
-
+@keyframes glow-out {
   to {
-    opacity: 0.35;
+    --glow-out: 0.35;
   }
 }
 
@@ -389,6 +354,7 @@ a {
     inset: 0;
     z-index: -1;
     border-radius: inherit;
+    opacity: calc(var(--glow-in) * var(--glow-out));
     box-shadow:
       0 20px 25px -5px var(--shadow-soft),
       0 8px 10px -6px var(--shadow-soft);
@@ -399,20 +365,32 @@ a {
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       &::after {
-        animation: glow linear both;
+        animation-name: glow-in, glow-out;
+        animation-duration: auto;
+        animation-timing-function: ease-out, ease-in-out;
+        animation-fill-mode: both;
         animation-timeline: view(block 0px);
-        animation-range: cover 0% cover 100%;
+        animation-range:
+          var(--light, entry-crossing 100px entry-crossing 420px),
+          cover 60% cover 100%;
       }
     }
   }
 }
 
 @utility glow {
+  opacity: calc(var(--glow-in) * var(--glow-out));
+
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
-      animation: glow linear both;
+      animation-name: glow-in, glow-out;
+      animation-duration: auto;
+      animation-timing-function: ease-out, ease-in-out;
+      animation-fill-mode: both;
       animation-timeline: view(block 0px);
-      animation-range: cover 0% cover 100%;
+      animation-range:
+        var(--light, entry-crossing 100px entry-crossing 420px),
+        cover 60% cover 100%;
     }
   }
 }

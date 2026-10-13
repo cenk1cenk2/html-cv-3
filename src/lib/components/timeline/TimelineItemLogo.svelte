@@ -9,7 +9,7 @@
 </script>
 
 <picture class="shadow-glow block rounded-xl">
-  <span class="timeline-logo-glow" aria-hidden="true"><span class="timeline-logo-halo"></span></span>
+  <span class="timeline-logo-glow" aria-hidden="true"><span class="timeline-logo-halo glow"></span></span>
   <source srcset="/logo/{item.metadata.logo.replace(/\.[^.]+$/, '.avif')}" type="image/avif" />
   <img src="/logo/{item.metadata.logo}" alt={item.metadata.name} loading="lazy" decoding="async" class="timeline-logo" />
 </picture>
