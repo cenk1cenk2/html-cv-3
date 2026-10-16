@@ -71,7 +71,7 @@ container:
     - lint
   variables:
     CONTAINER_FILE_NAME: Dockerfile
-    CONTAINER_IMAGE_NAME: html
+    CONTAINER_IMAGE_NAME: $CI_REGISTRY_IMAGE/html
     CONTAINER_IMAGE_TAGS: latest
   dependencies:
     - build
