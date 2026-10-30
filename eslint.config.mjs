@@ -51,6 +51,6 @@ export default dedupePlugins([
     }
   },
   {
-    ignores: ['.svelte-kit/', 'dist/']
+    ignores: ['.corepack/', '.svelte-kit/', 'dist/']
   }
 ])
