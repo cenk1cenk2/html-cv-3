@@ -1,6 +1,7 @@
 FROM nginx:alpine
 
 COPY ./dist/ /usr/share/nginx/html
+COPY ./.container/rootfs/ /
 
 # Install Tini
 RUN apk --no-cache --no-progress add tini
