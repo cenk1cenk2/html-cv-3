@@ -3,10 +3,10 @@
   import Fa from 'svelte-fa'
 
   import { slugify } from '#lib/utils/index.js'
-  import type { TimelineItemFile } from './timeline-item.interface'
-  import TimelineItem from './TimelineItem.svelte'
   import Divider from '../Divider.svelte'
   import Socket from '../power/Socket.svelte'
+  import type { TimelineItemFile } from './timeline-item.interface'
+  import TimelineItem from './TimelineItem.svelte'
 
   interface Props {
     name: string

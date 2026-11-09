@@ -3,14 +3,15 @@
 
   import ScrollIndicator from '#lib/components/ScrollIndicator.svelte'
   import Section from '#lib/components/Section.svelte'
+  import { metadata as profile } from '#lib/content/bio.md'
   import Education from './Education.svelte'
   import Navbar from './Navbar.svelte'
   import Teaching from './Teaching.svelte'
   import UserCard from './UserCard.svelte'
   import Work from './Work.svelte'
 
-  const title = 'Cenk Kılıç, MSc. – Software Platform Engineer'
-  const description = 'Software Platform Engineer at Laravel, based in Vienna, Austria. Kubernetes operators, CI/CD and infrastructure automation with Go, Ansible and Terraform.'
+  const title = `${profile.name}, ${profile.suffix} – ${profile.title}`
+  const description = profile.description
 </script>
 
 <svelte:head>
@@ -21,7 +22,7 @@
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://cenk.kilic.dev/" />
+  <meta property="og:url" content="{profile.url}/" />
   <meta property="og:image" content="https://cenk.kilic.dev/og-card.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -34,7 +35,7 @@
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://cenk.kilic.dev/og-card.jpg" />
 
-  <link rel="canonical" href="https://cenk.kilic.dev/" />
+  <link rel="canonical" href="{profile.url}/" />
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">
