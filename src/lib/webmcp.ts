@@ -1,5 +1,4 @@
-import type { TimelineItemEntry } from '#lib/components/timeline/timeline-item.interface.js'
-import bio from './content/bio.md?raw'
+import { bio, experience, SECTIONS } from './cv.js'
 
 interface ModelContextTool {
   name: string
@@ -17,45 +16,9 @@ declare global {
   }
 }
 
-const SECTIONS = ['work', 'teaching', 'education'] as const
 const ANCHORS = ['profile', ...SECTIONS, 'company'] as const
 
-const metadata = import.meta.glob<TimelineItemEntry>('./content/timeline/*/*.md', { import: 'metadata', eager: true })
-const bodies = import.meta.glob<string>('./content/timeline/*/*.md', {
-  query: '?raw',
-  import: 'default',
-  eager: true
-})
-
-const text = (markdown: string): string =>
-  markdown
-    .replace(/^---[\s\S]*?---/, '')
-    .replace(/<!--\s*more\s*-->/, '')
-    .trim()
-
 const reply = (data: unknown): { content: { type: 'text'; text: string }[] } => ({ content: [{ type: 'text', text: JSON.stringify(data) }] })
-
-const experience = (section?: string): Record<string, unknown>[] =>
-  Object.keys(metadata)
-    .filter((path) => !section || path.includes(`/${section}/`))
-    .sort()
-    .reverse()
-    .map((path) => {
-      const { name, role, type, location, attendance, start, end, websites } = metadata[path]
-
-      return {
-        section: SECTIONS.find((candidate) => path.includes(`/${candidate}/`)),
-        name,
-        role,
-        type,
-        location,
-        attendance,
-        start,
-        end: end === false ? 'present' : end,
-        websites,
-        description: text(bodies[path])
-      }
-    })
 
 const tools: ModelContextTool[] = [
   {
@@ -66,7 +29,7 @@ const tools: ModelContextTool[] = [
     execute: () =>
       reply({
         ...JSON.parse(document.querySelector('script[type="application/ld+json"]')?.textContent ?? '{}'),
-        bio: text(bio)
+        bio
       })
   },
   {

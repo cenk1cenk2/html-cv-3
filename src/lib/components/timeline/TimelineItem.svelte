@@ -1,12 +1,12 @@
 <script lang="ts">
   import { chain, hold } from '#lib/actions/chain.js'
   import { reveal } from '#lib/actions/reveal.js'
+  import Plug from '../power/Plug.svelte'
   import type { TimelineItemFile } from './timeline-item.interface'
   import TimelineItemInfo from './TimelineItemInfo.svelte'
   import TimelineItemLogo from './TimelineItemLogo.svelte'
   import TimelineItemText from './TimelineItemText.svelte'
   import TimelineItemTime from './TimelineItemTime.svelte'
-  import Plug from '../power/Plug.svelte'
 
   interface Props {
     item: TimelineItemFile

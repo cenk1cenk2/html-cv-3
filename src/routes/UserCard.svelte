@@ -5,7 +5,9 @@
 
   import { reveal } from '#lib/actions/reveal.js'
   import { spotlight } from '#lib/actions/spotlight.js'
-  import Bio from '#lib/content/bio.md'
+  import Bio, { metadata as profile } from '#lib/content/bio.md'
+
+  const [given, family] = profile.name.split(' ')
 </script>
 
 <section id="profile" class="relative isolate overflow-clip" use:spotlight>
@@ -28,7 +30,7 @@
           <source srcset="/portrait.avif" type="image/avif" />
           <img
             src="/portrait.jpg"
-            alt="Cenk Kılıç"
+            alt={profile.name}
             width="800"
             height="800"
             fetchpriority="high"
@@ -39,19 +41,21 @@
 
       <div class="text-center lg:text-left">
         <p class="hero-eyebrow motion-safe:animate-rise">
-          <span class="inline-flex items-center gap-1.5"><Fa icon={faLocationDot} /> Vienna, Austria</span>
+          <span class="inline-flex items-center gap-1.5"><Fa icon={faLocationDot} /> {profile.location}</span>
         </p>
         <h1 class="hero-name motion-safe:animate-rise mt-4 text-6xl leading-[0.9] font-bold tracking-tighter motion-safe:[animation-delay:100ms] sm:text-7xl lg:text-8xl">
-          Cenk <span class="whitespace-nowrap">Kılıç<span class="hero-degree"><span class="max-md:hidden">,&nbsp;</span>MSc.</span></span>
+          {given} <span class="whitespace-nowrap">{family}<span class="hero-degree"><span class="max-md:hidden">,&nbsp;</span>{profile.suffix}</span></span>
         </h1>
-        <p class="motion-safe:animate-rise mt-5 text-xl font-semibold motion-safe:[animation-delay:150ms] sm:text-2xl lg:text-3xl">Software Platform Engineer</p>
+        <p class="motion-safe:animate-rise mt-5 text-xl font-semibold motion-safe:[animation-delay:150ms] sm:text-2xl lg:text-3xl">{profile.title}</p>
         <p class="motion-safe:animate-rise mt-3 max-w-xl text-xl text-gray-500 motion-safe:[animation-delay:200ms] lg:text-2xl dark:text-gray-300">
-          Electrical & Electronics Engineer by trade, <span class="text-primary-500 font-semibold">developer by heart.</span>
+          {profile.tagline[0]}, <span class="text-primary-500 font-semibold">{profile.tagline[1]}</span>
         </p>
         <div class="motion-safe:animate-rise mt-10 flex flex-wrap justify-center gap-3 motion-safe:[animation-delay:300ms] lg:justify-start">
-          <a href="mailto:cenk@kilic.dev" class="pill-link"><Fa icon={faEnvelope} /> Email</a>
-          <a href="https://srcs.kilic.dev" target="_blank" rel="me noopener" class="pill-link"><Fa icon={faGithub} /> GitHub</a>
-          <a href="https://www.linkedin.com/in/cenkkilic/" target="_blank" rel="me noopener" class="pill-link"><Fa icon={faLinkedin} /> LinkedIn</a>
+          <a href="mailto:{profile.email}" class="pill-link"><Fa icon={faEnvelope} /> Email</a>
+          <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+          <a href={profile.links.GitHub} target="_blank" rel="me noopener" class="pill-link"><Fa icon={faGithub} /> GitHub</a>
+          <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+          <a href={profile.links.LinkedIn} target="_blank" rel="me noopener" class="pill-link"><Fa icon={faLinkedin} /> LinkedIn</a>
         </div>
       </div>
     </div>
