@@ -12,7 +12,7 @@ role: Senior Infrastructure Software Engineer
 type: Full-Time
 ---
 
-**Role:** Building and running the platform behind [Laravel Cloud](https://laravel.cloud), where applications get deployed, scaled and kept healthy without their developers having to think about the infrastructure underneath.
+*Role:* Building and running the platform behind [Laravel Cloud](https://laravel.cloud), where applications get deployed, scaled and kept healthy without their developers having to think about the infrastructure underneath.
 
 <!-- more -->
 

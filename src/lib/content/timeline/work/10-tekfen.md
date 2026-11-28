@@ -11,7 +11,7 @@ role: Instrumentation and Control Systems Engineer
 type: Full-Time
 ---
 
-**Role:** Where it all started: instrumentation and control systems for oil and gas plants, back when my pipelines still carried actual oil.
+*Role:* Where it all started: instrumentation and control systems for oil and gas plants, back when my pipelines still carried actual oil.
 
 <!-- more -->
 

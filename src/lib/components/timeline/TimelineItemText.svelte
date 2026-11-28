@@ -14,11 +14,11 @@
   const id = $props.id()
 </script>
 
-<div id="{id}-text" class="timeline-text" class:collapsed={item.metadata.more && !expanded}>
+<div id="{id}-text" class="timeline-text" class:collapsed={item.plugin_data?.more?.folded && !expanded}>
   <item.default />
 </div>
 
-{#if item.metadata.more}
+{#if item.plugin_data?.more?.folded}
   <button type="button" class="timeline-toggle" aria-expanded={expanded} aria-controls="{id}-text" onclick={() => (expanded = !expanded)}>
     {expanded ? 'Show less' : 'Show more'}
     <Fa icon={faChevronDown} class="transition-transform duration-300 {expanded ? 'rotate-180' : ''}" />

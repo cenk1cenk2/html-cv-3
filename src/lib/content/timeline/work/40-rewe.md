@@ -11,7 +11,7 @@ role: Integration Platform Services Expert
 type: Full-Time
 ---
 
-**Role:** Building a self-service integration platform on Kubernetes, so development teams get what they need without tickets or waiting on anyone, as part of the company's digitalization and its merger with its international counterparts. Today it is the shared foundation for REWE, used by development teams across multiple European countries.
+*Role:* Building a self-service integration platform on Kubernetes, so development teams get what they need without tickets or waiting on anyone, as part of the company's digitalization and its merger with its international counterparts. Today it is the shared foundation for REWE, used by development teams across multiple European countries.
 
 <!-- more -->
 

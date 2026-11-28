@@ -1,37 +1,45 @@
+import { external_links } from '@mdsvex/plugin-external-links'
 import adapter from '@sveltejs/adapter-static'
 import { sveltekit } from '@sveltejs/kit/vite'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import tailwindcss from '@tailwindcss/vite'
-import { mdsvex } from 'mdsvex'
+import { type Bundle, mdsvex } from 'mdsvex'
 import { defineConfig } from 'vite'
 
-const more = /^<!--\s*more\s*-->$/
+const more: Bundle = {
+  name: 'more',
+  parse: {
+    html_comment: {
+      parse(node, ctx) {
+        return () => {
+          if (node.parent?.type !== 'root' || node.text_content.trim() !== 'more') {
+            return
+          }
 
-function remarkMore() {
-  return (tree: { children: { type: string; value?: string }[] }, file: { data: { fm?: Record<string, unknown> } }): void => {
-    const index = tree.children.findIndex((node) => node.type === 'html' && more.test(node.value?.trim() ?? ''))
-
-    if (index === -1) {
-      return
+          ctx.set('folded', true)
+          node.wrap_from('html', { tag: 'div', attributes: { class: 'more' } })
+          node.remove()
+        }
+      }
     }
-
-    file.data.fm = { ...file.data.fm, more: true }
-    tree.children.splice(index, 1, { type: 'html', value: '<div class="more">' })
-    tree.children.push({ type: 'html', value: '</div>' })
   }
 }
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
+    mdsvex({
+      extensions: ['.md', '.svx'],
+      smart_punctuation: true,
+      plugins: [external_links({ rel: ['nofollow'] }), more]
+    }),
     sveltekit({
-      extensions: ['.svelte', '.md', '.svx'],
       inlineStyleThreshold: 100000,
 
       // Consult https://kit.svelte.dev/docs/integrations#preprocessors
       // for more information about preprocessors
 
-      preprocess: [mdsvex({ extensions: ['md', '.svx'], remarkPlugins: [remarkMore] }), vitePreprocess()],
+      preprocess: [vitePreprocess()],
 
       adapter: adapter({ pages: 'dist', assets: 'dist' })
     })

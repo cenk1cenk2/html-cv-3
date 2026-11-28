@@ -3,19 +3,13 @@
 
   import type { TimelineItemFile } from '#lib/components/timeline/timeline-item.interface.js'
   import Timeline from '#lib/components/timeline/Timeline.svelte'
-  import TEKFEN, { metadata as TEKFEN_METADATA } from '#lib/content/timeline/work/10-tekfen.md'
-  import WS, { metadata as WS_METADATA } from '#lib/content/timeline/work/20-ws.md'
-  import SORWE, { metadata as SORWE_METADATA } from '#lib/content/timeline/work/30-sorwe.md'
-  import REWE, { metadata as REWE_METADATA } from '#lib/content/timeline/work/40-rewe.md'
-  import LARAVEL, { metadata as LARAVEL_METADATA } from '#lib/content/timeline/work/50-laravel.md'
+  import * as TEKFEN from '#lib/content/timeline/work/10-tekfen.md'
+  import * as WS from '#lib/content/timeline/work/20-ws.md'
+  import * as SORWE from '#lib/content/timeline/work/30-sorwe.md'
+  import * as REWE from '#lib/content/timeline/work/40-rewe.md'
+  import * as LARAVEL from '#lib/content/timeline/work/50-laravel.md'
 
-  const TIMELINE: TimelineItemFile[] = [
-    { default: LARAVEL, metadata: LARAVEL_METADATA },
-    { default: SORWE, metadata: SORWE_METADATA },
-    { default: REWE, metadata: REWE_METADATA },
-    { default: WS, metadata: WS_METADATA },
-    { default: TEKFEN, metadata: TEKFEN_METADATA }
-  ]
+  const TIMELINE: TimelineItemFile[] = [LARAVEL, SORWE, REWE, WS, TEKFEN]
 </script>
 
 <Timeline name="Work Experience" items={TIMELINE} icon={faUserTie} />
