@@ -1,6 +1,8 @@
+import type { DocumentText } from 'mdsvex'
+
 import type { TimelineItemEntry } from '#lib/components/timeline/timeline-item.interface.js'
 import { metadata as about } from './content/bio.md'
-import raw from './content/bio.md?raw'
+import biography from './content/bio.md?text'
 
 export const SECTIONS = ['work', 'teaching', 'education'] as const
 
@@ -23,24 +25,17 @@ export interface Experience extends Omit<TimelineItemEntry, 'logo' | 'end' | 'du
 }
 
 const metadata = import.meta.glob<TimelineItemEntry>('./content/timeline/*/*.md', { import: 'metadata', eager: true })
-const bodies = import.meta.glob<string>('./content/timeline/*/*.md', {
-  query: '?raw',
+const bodies = import.meta.glob<DocumentText>('./content/timeline/*/*.md', {
+  query: '?text',
   import: 'default',
   eager: true
 })
 
 export const capitalize = (value: string): string => value.charAt(0).toUpperCase() + value.slice(1)
 
-const text = (markdown: string): string =>
-  markdown
-    .replace(/^---[\s\S]*?---/, '')
-    .replace(/\n*<!--\s*more\s*-->\n*/, '\n\n')
-    .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '**$1**')
-    .trim()
-
 export const profile: Profile = about
 
-export const bio = text(raw)
+export const bio = biography.text
 
 export const experience = (section?: string): Experience[] =>
   Object.keys(metadata)
@@ -60,6 +55,6 @@ export const experience = (section?: string): Experience[] =>
         start,
         end: end === false ? 'present' : end,
         websites,
-        description: text(bodies[path])
+        description: bodies[path].text
       }
     })

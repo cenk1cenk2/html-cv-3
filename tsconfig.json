@@ -1,7 +1,7 @@
 {
   "extends": "$app/tsconfig",
   "compilerOptions": {
-    "types": ["$app/types"],
+    "types": ["$app/types", "mdsvex/globals"],
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
