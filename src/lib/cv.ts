@@ -16,7 +16,7 @@ export interface Profile {
   links: Record<string, string>
 }
 
-export interface Experience extends Omit<TimelineItemEntry, 'logo' | 'end' | 'duration' | 'more'> {
+export interface Experience extends Omit<TimelineItemEntry, 'logo' | 'end' | 'duration'> {
   section: (typeof SECTIONS)[number]
   end?: string
   description: string
@@ -35,6 +35,7 @@ const text = (markdown: string): string =>
   markdown
     .replace(/^---[\s\S]*?---/, '')
     .replace(/\n*<!--\s*more\s*-->\n*/, '\n\n')
+    .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '**$1**')
     .trim()
 
 export const profile: Profile = about

@@ -69,7 +69,7 @@
   })
 
   const toggle = (event: MouseEvent): void => {
-    if (!item.metadata.more || (event.target as Element).closest('a, button') || window.getSelection()?.toString()) {
+    if (!item.plugin_data?.more?.folded || (event.target as Element).closest('a, button') || window.getSelection()?.toString()) {
       return
     }
 
@@ -107,7 +107,7 @@
     <span class="tether-down"></span>
   </div>
   <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
-  <article class="timeline-card reveal-slide max-md:delay-100" class:cursor-pointer={item.metadata.more} class:lit={moving} onclick={toggle}>
+  <article class="timeline-card reveal-slide max-md:delay-100" class:cursor-pointer={item.plugin_data?.more?.folded} class:lit={moving} onclick={toggle}>
     {@render tetherIn('hidden md:flex')}
     <span class="tether-up"></span>
     <div class="reveal-item delay-150">

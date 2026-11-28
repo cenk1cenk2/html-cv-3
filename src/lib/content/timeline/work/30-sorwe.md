@@ -11,7 +11,7 @@ role: DevOps Architect
 type: Freelance
 ---
 
-**Role:** Turning a product that was deployed by hand from local builds into repeatable deployments on highly available on-premises infrastructure, and evolving it as the product grows.
+*Role:* Turning a product that was deployed by hand from local builds into repeatable deployments on highly available on-premises infrastructure, and evolving it as the product grows.
 
 <!-- more -->
 

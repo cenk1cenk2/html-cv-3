@@ -11,10 +11,10 @@ export interface TimelineItemEntry {
   role?: string
   duration?: boolean
   websites?: string[]
-  more?: boolean
 }
 
 export interface TimelineItemFile {
   default: Component
   metadata: TimelineItemEntry
+  plugin_data?: { more?: { folded: boolean } }
 }
